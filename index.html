@@ -8,16 +8,16 @@
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
 
     :root {
-      --bg: #050c18;
-      --bg2: #0a1628;
-      --card: rgba(255,255,255,0.04);
-      --border: rgba(0, 200, 255, 0.15);
-      --cyan: #00c8ff;
-      --purple: #a855f7;
-      --green: #10f5a8;
-      --text: #e2eaf4;
-      --muted: #6b8097;
-      --glow: 0 0 20px rgba(0,200,255,0.25);
+      --bg: #faf8f4;
+      --bg2: #f3efe8;
+      --card: #ffffff;
+      --border: #e5dfd5;
+      --cyan: #0284c7;
+      --purple: #7c3aed;
+      --green: #059669;
+      --text: #1a2332;
+      --muted: #7a8694;
+      --glow: 0 4px 24px rgba(2,132,199,0.12);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
@@ -32,7 +32,7 @@
 
     /* ── SCROLLBAR ── */
     ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-track { background: var(--bg2); }
     ::-webkit-scrollbar-thumb { background: var(--cyan); border-radius: 3px; }
 
     /* ── NAV ── */
@@ -40,9 +40,10 @@
       position: fixed; top: 0; left: 0; right: 0; z-index: 200;
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 2.5rem; height: 60px;
-      background: rgba(5, 12, 24, 0.85);
+      background: rgba(250, 248, 244, 0.92);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 12px rgba(0,0,0,0.06);
     }
     .nav-logo {
       font-family: 'JetBrains Mono', monospace;
@@ -63,7 +64,7 @@
       transition: all 0.2s; font-family: inherit;
     }
     .lang-btn:hover {
-      background: var(--cyan); color: var(--bg);
+      background: var(--cyan); color: #fff;
     }
 
     /* ── HERO ── */
@@ -71,24 +72,31 @@
       min-height: 100vh;
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
-      text-align: center; padding: 6rem 2rem 4rem;
+      padding: 6rem 2rem 4rem;
       position: relative; overflow: hidden;
+      background: var(--bg);
     }
     .hero-bg {
       position: absolute; inset: 0; z-index: 0;
       background:
-        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0,200,255,0.12) 0%, transparent 70%),
-        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(168,85,247,0.08) 0%, transparent 60%);
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(2,132,199,0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(124,58,237,0.05) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 10% 60%, rgba(251,191,36,0.07) 0%, transparent 60%);
     }
     .grid-lines {
       position: absolute; inset: 0; z-index: 0;
       background-image:
-        linear-gradient(rgba(0,200,255,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,200,255,0.04) 1px, transparent 1px);
+        linear-gradient(rgba(2,132,199,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(2,132,199,0.06) 1px, transparent 1px);
       background-size: 60px 60px;
       mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%);
     }
-    .hero-content { position: relative; z-index: 1; }
+    .hero-content {
+      position: relative; z-index: 1;
+      width: 100%; max-width: 760px;
+      text-align: center;
+      padding: 0 2rem;
+    }
     .hero-badge {
       display: inline-block;
       font-family: 'JetBrains Mono', monospace;
@@ -138,7 +146,7 @@
     /* scroll hint */
     /* ── PHOTO ── */
     .hero-photo {
-      width: 130px; height: 130px; border-radius: 50%;
+      width: 180px; height: 180px; border-radius: 50%;
       object-fit: cover; object-position: center top;
       border: 2px solid var(--cyan);
       box-shadow: 0 0 0 4px rgba(0,200,255,0.12), 0 0 32px rgba(0,200,255,0.2);
