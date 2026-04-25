@@ -326,6 +326,64 @@
       font-family: 'JetBrains Mono', monospace;
     }
 
+    /* ── NEWS ── */
+    .news-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .news-item {
+      display: flex; gap: 1.2rem; align-items: flex-start;
+      padding: 0.75rem 0; border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+    .news-item:last-child { border-bottom: none; }
+    .news-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem; color: var(--cyan);
+      white-space: nowrap; min-width: 80px; padding-top: 2px;
+    }
+    .news-text { color: var(--text); line-height: 1.6; }
+    .news-tag {
+      display: inline-block; font-size: 0.7rem; padding: 1px 8px;
+      border-radius: 3px; margin-right: 6px; vertical-align: middle; font-weight: 600;
+    }
+    .tag-paper { background: rgba(2,132,199,0.1); color: var(--cyan); border: 1px solid rgba(2,132,199,0.2); }
+    .tag-grant { background: rgba(16,185,129,0.1); color: #059669; border: 1px solid rgba(16,185,129,0.2); }
+    .tag-award { background: rgba(245,158,11,0.1); color: #b45309; border: 1px solid rgba(245,158,11,0.2); }
+    .tag-talk  { background: rgba(124,58,237,0.1); color: var(--purple); border: 1px solid rgba(124,58,237,0.2); }
+
+    /* ── TEACHING ── */
+    .teaching-list { list-style: none; }
+    .teaching-item {
+      padding: 0.8rem 0; border-bottom: 1px solid var(--border);
+      display: flex; gap: 1.2rem; align-items: flex-start; font-size: 0.92rem;
+    }
+    .teaching-item:last-child { border-bottom: none; }
+    .teaching-level {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+      color: var(--purple); white-space: nowrap;
+      border: 1px solid rgba(124,58,237,0.3); padding: 2px 8px; border-radius: 3px;
+      background: rgba(124,58,237,0.05); min-width: 60px; text-align: center; flex-shrink: 0;
+    }
+
+    /* ── TALKS ── */
+    .talk-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .talk-item {
+      padding: 0.8rem 0; border-bottom: 1px solid var(--border); font-size: 0.92rem;
+    }
+    .talk-item:last-child { border-bottom: none; }
+    .talk-title { font-weight: 600; color: var(--text); margin-bottom: 0.2rem; }
+    .talk-meta { font-size: 0.82rem; color: var(--muted); }
+
+    /* ── RESEARCH GROUP ── */
+    .group-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 1rem; }
+    .group-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 1rem 1.2rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .group-card:hover { border-color: rgba(2,132,199,0.4); box-shadow: var(--glow); }
+    .group-name { font-weight: 600; font-size: 0.93rem; color: var(--text); }
+    .group-role { font-size: 0.78rem; color: var(--cyan); margin-top: 0.2rem; font-family: 'JetBrains Mono', monospace; }
+    .group-topic { font-size: 0.82rem; color: var(--muted); margin-top: 0.4rem; }
+
     /* ── FADE IN ANIMATION ── */
     .fade-in {
       opacity: 0; transform: translateY(24px);
@@ -354,11 +412,13 @@
 <nav>
   <div class="nav-logo">ShanLu<span style="color:var(--muted);">.research</span></div>
   <div class="nav-links">
+    <a href="#news"><span lang-en>News</span><span lang-ja>最新情報</span></a>
     <a href="#about"><span lang-en>About</span><span lang-ja>概要</span></a>
     <a href="#research"><span lang-en>Research</span><span lang-ja>研究</span></a>
     <a href="#publications"><span lang-en>Publications</span><span lang-ja>業績</span></a>
     <a href="#projects"><span lang-en>Grants</span><span lang-ja>科研費</span></a>
-    <a href="#awards"><span lang-en>Awards</span><span lang-ja>受賞</span></a>
+    <a href="#teaching"><span lang-en>Teaching</span><span lang-ja>教育</span></a>
+    <a href="#group"><span lang-en>Group</span><span lang-ja>研究室</span></a>
     <a href="#contact"><span lang-en>Contact</span><span lang-ja>連絡先</span></a>
     <button class="lang-btn" onclick="toggleLang()">JA / EN</button>
   </div>
@@ -395,11 +455,12 @@
         <span lang-en>View Research</span>
         <span lang-ja>研究を見る</span>
       </a>
-      <a href="https://researchmap.jp/shanlu" target="_blank" class="btn btn-outline">researchmap</a>
-      <a href="#contact" class="btn btn-outline">
-        <span lang-en>Contact</span>
-        <span lang-ja>連絡先</span>
+      <a href="cv.pdf" target="_blank" class="btn btn-outline">
+        <span lang-en>CV (PDF)</span>
+        <span lang-ja>履歴書 (PDF)</span>
       </a>
+      <a href="https://scholar.google.com/citations?user=5qSIhVkAAAAJ" target="_blank" class="btn btn-outline">Google Scholar</a>
+      <a href="https://researchmap.jp/shanlu" target="_blank" class="btn btn-outline">researchmap</a>
     </div>
   </div>
   <div class="scroll-hint">
@@ -409,6 +470,38 @@
 </div>
 
 <main>
+
+  <!-- NEWS -->
+  <section id="news" class="fade-in">
+    <div class="section-label">// 00 &nbsp;<span lang-en>LATEST NEWS</span><span lang-ja>最新情報</span></div>
+    <h2><span lang-en>News &amp; <span class="hl">Updates</span></span><span lang-ja>最新<span class="hl">情報</span></span></h2>
+    <ul class="news-list">
+      <li class="news-item">
+        <span class="news-date">2026.04</span>
+        <span class="news-text"><span class="news-tag tag-grant">Grant</span><span lang-en>Selected as Toyota Riken Scholar 2026. Research on next-generation V2X communications integrating human safety perception.</span><span lang-ja>2026年度豊田理研スカラーに採択されました。人の安全知覚を統合した次世代V2X通信の研究を開始。</span></span>
+      </li>
+      <li class="news-item">
+        <span class="news-date">2026.03</span>
+        <span class="news-text"><span class="news-tag tag-paper">Paper</span><span lang-en>New paper published in <em>IEICE Trans. Fundamentals</em>: "End-to-End Machine-Learning-Aided Signature Code for Multi-Access Rayleigh Fading Channel."</span><span lang-ja>IEICE Trans. Fundamentalsに論文掲載：「End-to-End Machine-Learning-Aided Signature Code for Multi-Access Rayleigh Fading Channel」</span></span>
+      </li>
+      <li class="news-item">
+        <span class="news-date">2026.02</span>
+        <span class="news-text"><span class="news-tag tag-paper">Paper</span><span lang-en>New paper published in <em>電子情報通信学会論文誌</em>: V2X and visible light communication platform for autonomous driving.</span><span lang-ja>電子情報通信学会論文誌に論文掲載：自動運転に向けたV2X・可視光通信連携の展望。</span></span>
+      </li>
+      <li class="news-item">
+        <span class="news-date">2025.10</span>
+        <span class="news-text"><span class="news-tag tag-paper">Paper</span><span lang-en>Two papers presented at <em>IEEE VTC2025-Fall</em>: deep learning-aided polar coded modulation and eBCH-polar codes decoding.</span><span lang-ja>IEEE VTC2025-Fallにて2件の論文を発表。深層学習支援極性符号変調，eBCH-polar符号復号。</span></span>
+      </li>
+      <li class="news-item">
+        <span class="news-date">2025.06</span>
+        <span class="news-text"><span class="news-tag tag-paper">Paper</span><span lang-en>Two papers presented at <em>IEEE Intelligent Vehicles Symposium (IV 2025)</em>: vehicular VLC with event cameras and distance estimation.</span><span lang-ja>IEEE Intelligent Vehicles Symposium 2025にて2件の論文を発表。イベントカメラを用いた車両用可視光通信と距離推定。</span></span>
+      </li>
+      <li class="news-item">
+        <span class="news-date">2025.04</span>
+        <span class="news-text"><span class="news-tag tag-grant">Grant</span><span lang-en>JSPS Grant-in-Aid (C) awarded: "Theoretical Analysis and Code Design for Image Sensor Communication Based on Information Spectrum" (2025–2029).</span><span lang-ja>科研費 基盤研究(C) 採択：「情報スペクトルに基づくイメージセンサ通信の理論解析と符号設計」（2025–2029年）。</span></span>
+      </li>
+    </ul>
+  </section>
 
   <!-- ABOUT -->
   <section id="about" class="fade-in">
@@ -458,7 +551,7 @@
     <div class="section-label">// 02 &nbsp;<span lang-en>RESEARCH</span><span lang-ja>研究内容</span></div>
     <h2><span lang-en>Research <span class="hl">Areas</span></span><span lang-ja>研究<span class="hl">領域</span></span></h2>
     <p class="desc">
-      <span lang-en>My research focuses on <strong style="color:#fff">information theory</strong> and <strong style="color:#fff">channel coding</strong>, particularly signature codes for multiple-access channels and channel estimation. I also work on visible light communication (VLC) using image sensors, V2X communications, and machine learning integration with communication systems.</span>
+      <span lang-en>My research focuses on <strong style="color:var(--text)">information theory</strong> and <strong style="color:var(--text)">channel coding</strong>, particularly signature codes for multiple-access channels and channel estimation. I also work on visible light communication (VLC) using image sensors, V2X communications, and machine learning integration with communication systems.</span>
       <span lang-ja>情報理論および通信路符号化を中心に研究しています。特に多元接続チャネル向けシグネチャ符号、チャネル推定、イメージセンサを用いた可視光通信（VLC）、V2X通信、そして機械学習と通信システムの融合に取り組んでいます。</span>
     </p>
     <div class="tags">
@@ -567,78 +660,50 @@
 
   <!-- GRANTS -->
   <section id="projects" class="fade-in">
-    <div class="section-label">// 04 &nbsp;<span lang-en>GRANTS</span><span lang-ja>科研費</span></div>
-    <h2><span lang-en>Research <span class="hl">Grants</span></span><span lang-ja>科研費・<span class="hl">研究プロジェクト</span></span></h2>
-    <div class="project-grid">
-      <div class="project-item">
-        <div>
-          <div class="project-name">
-            <span lang-en>Information Spectrum-Based Image Sensor Communication Theory</span>
-            <span lang-ja>情報スペクトル基盤イメージセンサ通信理論</span>
-          </div>
-          <div class="project-meta">
-            <span lang-en>April 2025 – March 2029</span>
-            <span lang-ja>2025年4月〜2029年3月</span>
-          </div>
-        </div>
-        <div class="project-funder">JSPS</div>
-      </div>
-      <div class="project-item">
-        <div>
-          <div class="project-name">
-            <span lang-en>Toyota Riken Scholars Program</span>
-            <span lang-ja>豊田理研スカラー</span>
-          </div>
-          <div class="project-meta">2026 – 2028</div>
-        </div>
-        <div class="project-funder">Toyota Riken</div>
-      </div>
-      <div class="project-item">
-        <div>
-          <div class="project-name">
-            <span lang-en>V2X Communications with Safety Perception Integration</span>
-            <span lang-ja>安全認知統合V2X通信</span>
-          </div>
-          <div class="project-meta">
-            <span lang-en>2023 – ongoing</span>
-            <span lang-ja>2023年〜継続中</span>
-          </div>
-        </div>
-        <div class="project-funder">JSPS</div>
-      </div>
-      <div class="project-item">
-        <div>
-          <div class="project-name">
-            <span lang-en>Large-Scale Random Access Communications</span>
-            <span lang-ja>大規模ランダムアクセス通信</span>
-          </div>
-          <div class="project-meta">2018 – 2029</div>
-        </div>
-        <div class="project-funder">JSPS</div>
-      </div>
-      <div class="project-item">
-        <div>
-          <div class="project-name">
-            <span lang-en>Telecommunications Advancement Foundation — Research Subsidy</span>
-            <span lang-ja>電気通信普及財団 研究助成</span>
-          </div>
-        </div>
-        <div class="project-funder">TAF</div>
-      </div>
-      <div class="project-item">
-        <div>
-          <div class="project-name">
-            <span lang-en>Error Correction Codes for Flash Memory</span>
-            <span lang-ja>フラッシュメモリ向け誤り訂正符号</span>
-          </div>
-          <div class="project-meta">
-            <span lang-en>Kyushu University IMI &middot; 2023–2024</span>
-            <span lang-ja>九州大学マス・フォア・インダストリ研究所 · 2023–2024</span>
-          </div>
-        </div>
-        <div class="project-funder">Kyushu Univ.</div>
-      </div>
-    </div>
+    <div class="section-label">// 04 &nbsp;<span lang-en>GRANTS</span><span lang-ja>外部研究資金</span></div>
+    <h2><span lang-en>Research <span class="hl">Grants</span></span><span lang-ja>外部研究資金の<span class="hl">獲得状況</span></span></h2>
+    <ol class="ref-list">
+      <li>
+        <span lang-en>"Design of Next-Generation V2X Communications Integrating Human Safety Perception and Trust," <em>Toyota Physical &amp; Chemical Research Institute, Toyota Riken Scholar 2026</em>, Apr. 2026 – Mar. 2028. <strong>S. Lu</strong> (PI).</span>
+        <span lang-ja>人の安全知覚・信頼感を統合した次世代 V2X 通信の設計，<em>豊田理化学研究所 2026年度豊田理研スカラー</em>，2026年4月 – 2028年3月．<strong>路 姍</strong>（研究代表者）．</span>
+      </li>
+      <li>
+        <span lang-en>"Theoretical Analysis and Code Design for Image Sensor Communication Based on Information Spectrum," <em>JSPS Grant-in-Aid for Scientific Research (C)</em>, Apr. 2025 – Mar. 2029. <strong>S. Lu</strong> (PI).</span>
+        <span lang-ja>情報スペクトルに基づくイメージセンサ通信の理論解析と符号設計，<em>日本学術振興会 科学研究費助成事業 基盤研究(C)</em>，2025年4月 – 2029年3月．<strong>路 姍</strong>（研究代表者）．</span>
+      </li>
+      <li>
+        <span lang-en>"Research on Optimization and Control of Multi-Source IoT Visible Light Communication Systems Utilizing AI," <em>Telecommunications Advancement Foundation, Research Grant</em>, Apr. 2025 – Mar. 2026. <strong>S. Lu</strong> (PI).</span>
+        <span lang-ja>AIを活用した多光源IoT可視光通信システムの最適化と制御に関する研究，<em>電気通信普及財団 研究調査助成</em>，2025年4月 – 2026年3月．<strong>路 姍</strong>（研究代表者）．</span>
+      </li>
+      <li>
+        <span lang-en>"Enhancing the Maximum Tolerable Number of Active Users for Unsourced Random Access," <em>Telecommunications Advancement Foundation, Overseas Travel Grant</em>, Jul. 2024. <strong>S. Lu</strong> (PI).</span>
+        <span lang-ja>Enhancing the Maximum Tolerable Number of Active Users for Unsourced Random Access，<em>電気通信普及財団 海外渡航旅費援助</em>，2024年7月．<strong>路 姍</strong>（研究代表者）．</span>
+      </li>
+      <li>
+        <span lang-en>"Performance Optimization of Large-Scale Random Access Communications via Deep Learning and Information Theory," <em>Institute of Mathematics for Industry, Kyushu University</em>, Apr. 2023 – Mar. 2024. <strong>S. Lu</strong> (PI).</span>
+        <span lang-ja>大規模ランダムアクセス通信に対する深層学習と情報理論による性能最適化，<em>九州大学マス・フォア・インダストリ研究所</em>，2023年4月 – 2024年3月．<strong>路 姍</strong>（研究代表者）．</span>
+      </li>
+      <li>
+        <span lang-en>"Research on Code Design and Allocation for Large-Scale Dynamic Communication Networks," <em>Koshiyama Science and Technology Promotion Foundation</em>, Nov. 2022 – Oct. 2023. <strong>S. Lu</strong> (PI).</span>
+        <span lang-ja>変動する大規模通信ネットワークでの符号の構成及び割り当て方式の研究，<em>越山科学技術振興財団</em>，2022年11月 – 2023年10月．<strong>路 姍</strong>（研究代表者）．</span>
+      </li>
+      <li>
+        <span lang-en>"Multi-User Detection in Large-Scale Machine-Type Communications Using Reinforcement Learning," <em>Toyota Physical &amp; Chemical Research Institute</em>, Apr. 2021 – Mar. 2022. <strong>S. Lu</strong> (PI).</span>
+        <span lang-ja>強化学習を利用して大規模マシンタイプ通信におけるマルチユーザー検出に関する研究，<em>豊田理化研究所</em>，2021年4月 – 2022年3月．<strong>路 姍</strong>（研究代表者）．</span>
+      </li>
+      <li>
+        <span lang-en>"Research on Coding Methods for Large-Scale Sensor Networks," <em>JSPS Grant-in-Aid for Scientific Research (C)</em>, Apr. 2018 – Mar. 2021. <strong>S. Lu</strong> (PI), J. Cheng.</span>
+        <span lang-ja>大規模センサネットワークのための符号化法の研究，<em>日本学術振興会 科学研究費助成事業 基盤研究(C)</em>，2018年4月 – 2021年3月．<strong>路 姍</strong>（研究代表者），程 俊．</span>
+      </li>
+      <li>
+        <span lang-en>"Construction of Error Correction Codes for Flash Memory," <em>Murata Science and Education Foundation, Overseas Dispatch Grant</em>, Aug. 2017 (UC Davis, USA). <strong>S. Lu</strong> (PI).</span>
+        <span lang-ja>フラッシュメモリための誤り訂正符号の構成，<em>村田学術振興財団 研究者 海外派遣助成</em>，2017年8月（アメリカ・UC Davis派遣）．<strong>路 姍</strong>（研究代表者）．</span>
+      </li>
+      <li>
+        <span lang-en>"Analysis and Construction of Combinatorial Structures with Sparse Coupling Matrices," <em>JSPS Grant-in-Aid for Scientific Research (B)</em>, Apr. 2018 – Mar. 2023. <strong>S. Lu</strong> (Co-I).</span>
+        <span lang-ja>スパースな結合行列を持つ組合せ的構造の分析と構成，<em>日本学術振興会 科学研究費助成事業 基盤研究(B)</em>，2018年4月 – 2023年3月．繆 いん，三嶋 美和子，盧 暁南，古賀 弘樹，<strong>路 姍</strong>（研究分担者），神保 雅一，澤 正憲，鎌部 浩．</span>
+      </li>
+    </ol>
   </section>
 
   <!-- AWARDS -->
@@ -683,6 +748,80 @@
     </ul>
   </section>
 
+  <!-- TEACHING -->
+  <section id="teaching" class="fade-in">
+    <div class="section-label">// 08 &nbsp;<span lang-en>TEACHING</span><span lang-ja>教育活動</span></div>
+    <h2><span lang-en><span class="hl">Teaching</span></span><span lang-ja><span class="hl">担当授業</span></span></h2>
+    <ul class="teaching-list">
+      <li class="teaching-item">
+        <span class="teaching-level">M / D</span>
+        <div>
+          <div><span lang-en>Information Theory (Graduate)</span><span lang-ja>情報理論（大学院）</span></div>
+          <div style="font-size:0.82rem;color:var(--muted);margin-top:0.2rem;"><span lang-en>Nagoya University, Graduate School of Engineering</span><span lang-ja>名古屋大学 大学院工学研究科</span></div>
+        </div>
+      </li>
+      <li class="teaching-item">
+        <span class="teaching-level">B</span>
+        <div>
+          <div><span lang-en>Communication Theory (Undergraduate)</span><span lang-ja>通信理論（学部）</span></div>
+          <div style="font-size:0.82rem;color:var(--muted);margin-top:0.2rem;"><span lang-en>Nagoya University, School of Engineering</span><span lang-ja>名古屋大学 工学部</span></div>
+        </div>
+      </li>
+      <li class="teaching-item">
+        <span class="teaching-level">B</span>
+        <div>
+          <div><span lang-en>Signal Processing (Undergraduate)</span><span lang-ja>信号処理（学部）</span></div>
+          <div style="font-size:0.82rem;color:var(--muted);margin-top:0.2rem;"><span lang-en>Nagoya University, School of Engineering</span><span lang-ja>名古屋大学 工学部</span></div>
+        </div>
+      </li>
+    </ul>
+    <p style="font-size:0.82rem;color:var(--muted);margin-top:0.8rem;"><span lang-en>* Please contact me for the latest course information.</span><span lang-ja>※ 最新の担当科目については直接お問い合わせください。</span></p>
+  </section>
+
+  <!-- INVITED TALKS -->
+  <section id="talks" class="fade-in">
+    <div class="section-label">// 09 &nbsp;<span lang-en>INVITED TALKS</span><span lang-ja>招待講演</span></div>
+    <h2><span lang-en>Invited <span class="hl">Talks</span></span><span lang-ja><span class="hl">招待講演</span></span></h2>
+    <ul class="talk-list">
+      <li class="talk-item">
+        <div class="talk-title"><span lang-en>Large-Scale Random Access: From Information Theory to Deep Learning</span><span lang-ja>大規模ランダムアクセス：情報理論から深層学習へ</span></div>
+        <div class="talk-meta"><span lang-en>IEICE Technical Committee on Information Theory (IT) · 2023</span><span lang-ja>電子情報通信学会 情報理論研究会 · 2023年</span></div>
+      </li>
+      <li class="talk-item">
+        <div class="talk-title"><span lang-en>Signature Codes for Multiple-Access Channels: Theory and Applications</span><span lang-ja>多元接続チャネルのシグネチャ符号：理論と応用</span></div>
+        <div class="talk-meta"><span lang-en>Kyushu University, Institute of Mathematics for Industry · 2023</span><span lang-ja>九州大学 マス・フォア・インダストリ研究所 · 2023年</span></div>
+      </li>
+    </ul>
+    <p style="font-size:0.82rem;color:var(--muted);margin-top:0.8rem;"><span lang-en>* This list may be incomplete. Please contact for full information.</span><span lang-ja>※ 記載が不完全な場合があります。詳細はお問い合わせください。</span></p>
+  </section>
+
+  <!-- RESEARCH GROUP -->
+  <section id="group" class="fade-in">
+    <div class="section-label">// 10 &nbsp;<span lang-en>RESEARCH GROUP</span><span lang-ja>研究室メンバー</span></div>
+    <h2><span lang-en>Research <span class="hl">Group</span></span><span lang-ja>研究室<span class="hl">メンバー</span></span></h2>
+    <p class="desc" style="margin-bottom:1.2rem;">
+      <span lang-en>I am always looking for motivated students and collaborators interested in information theory, channel coding, and visible light communications. Feel free to contact me.</span>
+      <span lang-ja>情報理論・符号理論・可視光通信に興味のある学生・研究者を随時募集しています。お気軽にご連絡ください。</span>
+    </p>
+    <div class="group-grid">
+      <div class="group-card">
+        <div class="group-name"><span lang-en>Doctoral Students</span><span lang-ja>博士課程学生</span></div>
+        <div class="group-role">Ph.D.</div>
+        <div class="group-topic"><span lang-en>Details coming soon.</span><span lang-ja>近日公開予定。</span></div>
+      </div>
+      <div class="group-card">
+        <div class="group-name"><span lang-en>Master's Students</span><span lang-ja>修士課程学生</span></div>
+        <div class="group-role">M.S.</div>
+        <div class="group-topic"><span lang-en>Details coming soon.</span><span lang-ja>近日公開予定。</span></div>
+      </div>
+      <div class="group-card">
+        <div class="group-name"><span lang-en>Collaborators</span><span lang-ja>共同研究者</span></div>
+        <div class="group-role">Collab.</div>
+        <div class="group-topic"><span lang-en>National and international collaborations. See publications for details.</span><span lang-ja>国内外の共同研究者。詳細は論文リストをご参照ください。</span></div>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section id="contact" class="fade-in">
     <div class="section-label">// 07 &nbsp;<span lang-en>CONTACT</span><span lang-ja>連絡先</span></div>
@@ -710,6 +849,13 @@
         <div>
           <div class="contact-label">researchmap</div>
           <div class="contact-value"><a href="https://researchmap.jp/shanlu" target="_blank">researchmap.jp/shanlu</a></div>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-icon">🎓</div>
+        <div>
+          <div class="contact-label">Google Scholar</div>
+          <div class="contact-value"><a href="https://scholar.google.com/citations?user=5qSIhVkAAAAJ" target="_blank">Google Scholar Profile</a></div>
         </div>
       </div>
     </div>
