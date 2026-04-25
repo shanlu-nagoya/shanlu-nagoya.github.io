@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shan Lu | 路 姍</title>
+  <style>
+    :root {
+      --primary: #1a3a5c;
+      --accent: #2e7bcf;
+      --light: #f5f8fc;
+      --border: #d0dce8;
+      --text: #2c2c2c;
+      --muted: #6b7a8d;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      color: var(--text);
+      background: #fff;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--primary);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem;
+      height: 56px;
+    }
+    nav .nav-links { display: flex; gap: 1.8rem; }
+    nav a {
+      color: #c8d8ea; text-decoration: none;
+      font-size: 0.9rem; letter-spacing: 0.03em;
+    }
+    nav a:hover { color: #fff; }
+    .lang-btn {
+      background: transparent; border: 1px solid #c8d8ea;
+      color: #c8d8ea; padding: 4px 14px; border-radius: 4px;
+      cursor: pointer; font-size: 0.85rem; letter-spacing: 0.05em;
+    }
+    .lang-btn:hover { background: rgba(255,255,255,0.12); color: #fff; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, #26547a 100%);
+      color: #fff; padding: 4rem 2rem 3.5rem;
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+    }
+    .hero h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .hero .sub-name { font-size: 1.1rem; opacity: 0.75; margin-bottom: 1.2rem; }
+    .hero .position {
+      font-size: 1rem; background: rgba(255,255,255,0.12);
+      padding: 0.5rem 1.4rem; border-radius: 20px; display: inline-block;
+      margin-bottom: 0.6rem;
+    }
+    .hero .dept { font-size: 0.92rem; opacity: 0.8; }
+    .hero-links { margin-top: 1.4rem; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    .hero-links a {
+      color: #fff; text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.5);
+      padding: 6px 18px; border-radius: 4px; font-size: 0.88rem;
+    }
+    .hero-links a:hover { background: rgba(255,255,255,0.18); }
+
+    /* ── MAIN ── */
+    main { max-width: 900px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+    section { margin-bottom: 3rem; }
+    h2 {
+      font-size: 1.25rem; color: var(--primary);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 0.4rem; margin-bottom: 1.2rem;
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    }
+    .about-item { background: var(--light); border-radius: 6px; padding: 0.9rem 1.1rem; }
+    .about-item .label { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; }
+    .about-item .value { font-size: 0.95rem; margin-top: 0.2rem; }
+
+    /* ── RESEARCH ── */
+    .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.6rem; }
+    .tag {
+      background: var(--light); border: 1px solid var(--border);
+      border-radius: 20px; padding: 4px 14px; font-size: 0.85rem; color: var(--primary);
+    }
+
+    /* ── PUBLICATIONS ── */
+    .pub-list { list-style: none; }
+    .pub-list li {
+      padding: 0.85rem 0; border-bottom: 1px solid var(--border);
+      font-size: 0.93rem;
+    }
+    .pub-list li:last-child { border-bottom: none; }
+    .pub-title { font-weight: 600; color: var(--primary); }
+    .pub-meta { color: var(--muted); font-size: 0.85rem; margin-top: 0.15rem; }
+    .pub-award {
+      display: inline-block; background: #fff3cd; color: #856404;
+      border: 1px solid #ffc107; border-radius: 4px;
+      font-size: 0.75rem; padding: 1px 8px; margin-left: 6px; vertical-align: middle;
+    }
+    .pub-note { font-size: 0.82rem; color: var(--muted); font-style: italic; margin-top: 0.3rem; }
+
+    /* ── PROJECTS ── */
+    .project-list { list-style: none; }
+    .project-list li {
+      padding: 0.85rem 0; border-bottom: 1px solid var(--border);
+    }
+    .project-list li:last-child { border-bottom: none; }
+    .project-name { font-weight: 600; font-size: 0.93rem; color: var(--primary); }
+    .project-meta { color: var(--muted); font-size: 0.85rem; margin-top: 0.15rem; }
+
+    /* ── AWARDS ── */
+    .award-list { list-style: none; }
+    .award-list li {
+      padding: 0.6rem 0; border-bottom: 1px solid var(--border);
+      font-size: 0.93rem;
+    }
+    .award-list li:last-child { border-bottom: none; }
+    .award-year { display: inline-block; width: 50px; color: var(--muted); font-size: 0.85rem; }
+
+    /* ── SERVICE ── */
+    .service-list { list-style: disc; padding-left: 1.4rem; font-size: 0.93rem; }
+    .service-list li { padding: 0.3rem 0; }
+
+    /* ── CONTACT ── */
+    .contact-box {
+      background: var(--light); border-radius: 8px; padding: 1.4rem 1.6rem;
+    }
+    .contact-box p { margin-bottom: 0.5rem; font-size: 0.93rem; }
+    .contact-box a { color: var(--accent); text-decoration: none; }
+    .contact-box a:hover { text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center; padding: 1.5rem;
+      font-size: 0.8rem; color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.8rem; }
+      .about-grid { grid-template-columns: 1fr; }
+      nav .nav-links { gap: 1rem; }
+    }
+
+    /* ── LANG TOGGLE ── */
+    [lang-en], [lang-ja] { display: none; }
+    body.lang-en [lang-en] { display: revert; }
+    body.lang-ja [lang-ja] { display: revert; }
+  </style>
+</head>
+<body class="lang-en">
+
+<!-- NAV -->
+<nav>
+  <div class="nav-links">
+    <a href="#about"><span lang-en>About</span><span lang-ja>プロフィール</span></a>
+    <a href="#research"><span lang-en>Research</span><span lang-ja>研究</span></a>
+    <a href="#publications"><span lang-en>Publications</span><span lang-ja>業績</span></a>
+    <a href="#projects"><span lang-en>Grants</span><span lang-ja>科研費</span></a>
+    <a href="#awards"><span lang-en>Awards</span><span lang-ja>受賞</span></a>
+    <a href="#contact"><span lang-en>Contact</span><span lang-ja>連絡先</span></a>
+  </div>
+  <button class="lang-btn" onclick="toggleLang()">日本語 / English</button>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>
+    <span lang-en>Shan Lu</span>
+    <span lang-ja>路 姍</span>
+  </h1>
+  <div class="sub-name">
+    <span lang-en>路 姍 &nbsp;|&nbsp; Shan Lu</span>
+    <span lang-ja>Shan Lu &nbsp;|&nbsp; ロ・サン</span>
+  </div>
+  <div class="position">
+    <span lang-en>Lecturer</span>
+    <span lang-ja>講師</span>
+  </div>
+  <div class="dept">
+    <span lang-en>Graduate School of Engineering, Nagoya University</span>
+    <span lang-ja>名古屋大学 大学院工学研究科</span>
+  </div>
+  <div class="hero-links">
+    <a href="https://researchmap.jp/shanlu" target="_blank">researchmap</a>
+    <a href="mailto:lu.shan.f7@f.mail.nagoya-u.ac.jp">Email</a>
+  </div>
+</div>
+
+<main>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2><span lang-en>About</span><span lang-ja>プロフィール</span></h2>
+    <div class="about-grid">
+      <div class="about-item">
+        <div class="label"><span lang-en>Position</span><span lang-ja>職位</span></div>
+        <div class="value">
+          <span lang-en>Lecturer (since Oct. 2023)</span>
+          <span lang-ja>講師（2023年10月〜）</span>
+        </div>
+      </div>
+      <div class="about-item">
+        <div class="label"><span lang-en>Affiliation</span><span lang-ja>所属</span></div>
+        <div class="value">
+          <span lang-en>Dept. of Information and Communication Engineering,<br>Graduate School of Engineering, Nagoya University</span>
+          <span lang-ja>名古屋大学 大学院工学研究科<br>情報・通信工学専攻</span>
+        </div>
+      </div>
+      <div class="about-item">
+        <div class="label"><span lang-en>Ph.D.</span><span lang-ja>博士号</span></div>
+        <div class="value">
+          <span lang-en>Ph.D. in Engineering — Doshisha University (2014)</span>
+          <span lang-ja>博士（工学）— 同志社大学（2014年）</span>
+        </div>
+      </div>
+      <div class="about-item">
+        <div class="label"><span lang-en>M.S.</span><span lang-ja>修士号</span></div>
+        <div class="value">
+          <span lang-en>M.S. in Engineering — Xi'an University of Electronic Science and Technology (2010)</span>
+          <span lang-ja>修士（工学）— 西安電子科技大学（2010年）</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section id="research">
+    <h2><span lang-en>Research</span><span lang-ja>研究内容</span></h2>
+    <p>
+      <span lang-en>
+        My research focuses on <strong>information theory</strong> and <strong>channel coding</strong>, particularly signature codes for multiple-access channels and channel estimation techniques. I also work on visible light communication (VLC) using image sensors, vehicle-to-everything (V2X) communications, and the integration of machine learning into communication systems.
+      </span>
+      <span lang-ja>
+        情報理論および通信路符号化を中心に研究しています。特に多元接続チャネル向けシグネチャ符号、チャネル推定、イメージセンサを用いた可視光通信（VLC）、車車間・路車間通信（V2X）、そして機械学習と通信システムの融合に取り組んでいます。
+      </span>
+    </p>
+    <div class="tags">
+      <span class="tag"><span lang-en>Information Theory</span><span lang-ja>情報理論</span></span>
+      <span class="tag"><span lang-en>Channel Coding</span><span lang-ja>通信路符号化</span></span>
+      <span class="tag"><span lang-en>Visible Light Communication</span><span lang-ja>可視光通信</span></span>
+      <span class="tag"><span lang-en>V2X Communication</span><span lang-ja>V2X通信</span></span>
+      <span class="tag"><span lang-en>Machine Learning for Communications</span><span lang-ja>通信×機械学習</span></span>
+      <span class="tag"><span lang-en>Polar Codes / LDPC Codes</span><span lang-ja>極性符号・LDPC符号</span></span>
+      <span class="tag"><span lang-en>IoT Wireless Systems</span><span lang-ja>IoT無線システム</span></span>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <h2>
+      <span lang-en>Selected Publications</span>
+      <span lang-ja>主要研究業績</span>
+    </h2>
+    <p style="font-size:0.85rem; color:var(--muted); margin-bottom:0.8rem;">
+      <span lang-en>60+ peer-reviewed papers in IEEE and IEICE venues. Selected recent works:</span>
+      <span lang-ja>IEEE・IEICE 等に査読論文60件以上。主要な最近の研究業績：</span>
+    </p>
+    <ul class="pub-list">
+      <li>
+        <div class="pub-title">
+          <span lang-en>End-to-End Machine-Learning-Aided Signature Code for Multi-Access Rayleigh Fading Channel</span>
+          <span lang-ja>多元接続レイリーフェージングチャネル向けエンドツーエンド機械学習シグネチャ符号</span>
+        </div>
+        <div class="pub-meta">IEEE / IEICE Transactions &middot; 2024</div>
+      </li>
+      <li>
+        <div class="pub-title">
+          <span lang-en>Visible Light Communication Using Rolling Shutter Image Sensors</span>
+          <span lang-ja>ローリングシャッターイメージセンサを用いた可視光通信</span>
+        </div>
+        <div class="pub-meta">IEEE Conference &middot; 2023–2024</div>
+      </li>
+      <li>
+        <div class="pub-title">
+          <span lang-en>Polar Codes and Successive Cancellation Decoding for Multiple-Access Channels</span>
+          <span lang-ja>多元接続チャネルにおける極性符号と逐次消去復号</span>
+          <span class="pub-award"><span lang-en>Best Paper</span><span lang-ja>最優秀論文</span></span>
+        </div>
+        <div class="pub-meta">ISITA 2022</div>
+      </li>
+      <li>
+        <div class="pub-title">
+          <span lang-en>Vehicle-Mounted Visible Light Communication for Autonomous Driving Infrastructure</span>
+          <span lang-ja>自動運転インフラ向け車載可視光通信</span>
+        </div>
+        <div class="pub-meta">IEEE VTC / Intelligent Vehicles Symposium &middot; 2022–2024</div>
+      </li>
+      <li>
+        <div class="pub-title">
+          <span lang-en>Multi-Source IoT Visible Light Communication Systems</span>
+          <span lang-ja>マルチソースIoT可視光通信システム</span>
+        </div>
+        <div class="pub-meta">IEICE Transactions &middot; 2023</div>
+      </li>
+    </ul>
+    <p style="margin-top:0.8rem; font-size:0.85rem;">
+      <a href="https://researchmap.jp/shanlu/published_papers" target="_blank" style="color:var(--accent);">
+        <span lang-en>→ Full publication list on researchmap</span>
+        <span lang-ja>→ researchmap で全業績を見る</span>
+      </a>
+    </p>
+  </section>
+
+  <!-- GRANTS / PROJECTS -->
+  <section id="projects">
+    <h2>
+      <span lang-en>Research Grants</span>
+      <span lang-ja>科研費・研究プロジェクト</span>
+    </h2>
+    <ul class="project-list">
+      <li>
+        <div class="project-name">
+          <span lang-en>Information Spectrum-Based Image Sensor Communication Theory</span>
+          <span lang-ja>情報スペクトル基盤イメージセンサ通信理論</span>
+        </div>
+        <div class="project-meta">
+          <span lang-en>JSPS Grant-in-Aid &middot; April 2025 – March 2029</span>
+          <span lang-ja>日本学術振興会 科学研究費 &middot; 2025年4月〜2029年3月</span>
+        </div>
+      </li>
+      <li>
+        <div class="project-name">
+          <span lang-en>Toyota Riken Scholars Program</span>
+          <span lang-ja>豊田理研スカラー</span>
+        </div>
+        <div class="project-meta">
+          <span lang-en>Toyota Physical & Chemical Research Institute &middot; 2026 – 2028</span>
+          <span lang-ja>公益財団法人豊田理化学研究所 &middot; 2026年〜2028年</span>
+        </div>
+      </li>
+      <li>
+        <div class="project-name">
+          <span lang-en>V2X Communications with Safety Perception Integration</span>
+          <span lang-ja>安全認知統合V2X通信</span>
+        </div>
+        <div class="project-meta">
+          <span lang-en>JSPS Grant-in-Aid &middot; 2023 – ongoing</span>
+          <span lang-ja>日本学術振興会 科学研究費 &middot; 2023年〜継続中</span>
+        </div>
+      </li>
+      <li>
+        <div class="project-name">
+          <span lang-en>Large-Scale Random Access Communications</span>
+          <span lang-ja>大規模ランダムアクセス通信</span>
+        </div>
+        <div class="project-meta">
+          <span lang-en>JSPS Grant-in-Aid &middot; 2018 – 2029</span>
+          <span lang-ja>日本学術振興会 科学研究費 &middot; 2018年〜2029年</span>
+        </div>
+      </li>
+      <li>
+        <div class="project-name">
+          <span lang-en>Telecommunications Advancement Foundation — Research Subsidy</span>
+          <span lang-ja>電気通信普及財団 研究助成</span>
+        </div>
+        <div class="project-meta">
+          <span lang-en>Telecommunications Advancement Foundation</span>
+          <span lang-ja>電気通信普及財団</span>
+        </div>
+      </li>
+      <li>
+        <div class="project-name">
+          <span lang-en>Error Correction Codes for Flash Memory</span>
+          <span lang-ja>フラッシュメモリ向け誤り訂正符号</span>
+        </div>
+        <div class="project-meta">
+          <span lang-en>Kyushu University Institute of Mathematics for Industry &middot; 2023–2024</span>
+          <span lang-ja>九州大学マス・フォア・インダストリ研究所 &middot; 2023–2024年</span>
+        </div>
+      </li>
+    </ul>
+    <p style="margin-top:0.8rem; font-size:0.85rem;">
+      <a href="https://researchmap.jp/shanlu/research_projects" target="_blank" style="color:var(--accent);">
+        <span lang-en>→ Full list on researchmap (11 projects)</span>
+        <span lang-ja>→ researchmap で全プロジェクトを見る（11件）</span>
+      </a>
+    </p>
+  </section>
+
+  <!-- AWARDS -->
+  <section id="awards">
+    <h2><span lang-en>Awards</span><span lang-ja>受賞歴</span></h2>
+    <ul class="award-list">
+      <li>
+        <span class="award-year">2022</span>
+        <span lang-en>Young Researcher Best Paper Award — ISITA 2022</span>
+        <span lang-ja>若手研究者最優秀論文賞 — ISITA 2022</span>
+      </li>
+      <li>
+        <span class="award-year">2022</span>
+        <span lang-en>Best Oral Presentation — 5th World Symposium on Communication Engineering</span>
+        <span lang-ja>最優秀口頭発表賞 — 第5回世界通信工学シンポジウム</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- SERVICE -->
+  <section id="service">
+    <h2><span lang-en>Professional Service</span><span lang-ja>学会活動</span></h2>
+    <ul class="service-list">
+      <li>
+        <span lang-en>Vice Chair, IEEE ComSoc Tokyo Joint Chapter</span>
+        <span lang-ja>IEEE 通信ソサイエティ東京支部 副委員長</span>
+      </li>
+      <li>
+        <span lang-en>Committee member, IEICE Information Theory Symposium (IT Research Group)</span>
+        <span lang-ja>電子情報通信学会 情報理論研究会 委員</span>
+      </li>
+      <li>
+        <span lang-en>Reviewer for IEEE Transactions on Communications, IEICE Transactions, and major IEEE conferences</span>
+        <span lang-ja>IEEE Transactions on Communications・IEICE Transactions・主要IEEE国際会議 査読委員</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2><span lang-en>Contact</span><span lang-ja>連絡先</span></h2>
+    <div class="contact-box">
+      <p>
+        <strong><span lang-en>Email:</span><span lang-ja>メール：</span></strong>
+        <a href="mailto:lu.shan.f7@f.mail.nagoya-u.ac.jp">lu.shan.f7[at]f.mail.nagoya-u.ac.jp</a>
+      </p>
+      <p>
+        <strong><span lang-en>Affiliation:</span><span lang-ja>所属：</span></strong>
+        <span lang-en>Graduate School of Engineering, Nagoya University, Nagoya, Japan</span>
+        <span lang-ja>名古屋大学 大学院工学研究科，名古屋市，日本</span>
+      </p>
+      <p>
+        <strong>researchmap:</strong>
+        <a href="https://researchmap.jp/shanlu" target="_blank">researchmap.jp/shanlu</a>
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span lang-en>&copy; 2026 Shan Lu. Last updated April 2026.</span>
+  <span lang-ja>&copy; 2026 路 姍. 最終更新：2026年4月</span>
+</footer>
+
+<script>
+  function toggleLang() {
+    const body = document.body;
+    if (body.classList.contains('lang-en')) {
+      body.classList.replace('lang-en', 'lang-ja');
+      document.documentElement.lang = 'ja';
+    } else {
+      body.classList.replace('lang-ja', 'lang-en');
+      document.documentElement.lang = 'en';
+    }
+  }
+</script>
+
+</body>
+</html>
