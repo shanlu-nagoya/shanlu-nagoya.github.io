@@ -136,6 +136,19 @@
     .btn-outline:hover { border-color: var(--cyan); color: var(--cyan); transform: translateY(-2px); }
 
     /* scroll hint */
+    /* ── PHOTO ── */
+    .hero-photo {
+      width: 130px; height: 130px; border-radius: 50%;
+      object-fit: cover; object-position: center top;
+      border: 2px solid var(--cyan);
+      box-shadow: 0 0 0 4px rgba(0,200,255,0.12), 0 0 32px rgba(0,200,255,0.2);
+      margin-bottom: 1.5rem;
+      transition: box-shadow 0.3s;
+    }
+    .hero-photo:hover {
+      box-shadow: 0 0 0 4px rgba(0,200,255,0.25), 0 0 48px rgba(0,200,255,0.35);
+    }
+
     .scroll-hint {
       position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
       z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 6px;
@@ -348,6 +361,7 @@
   <div class="hero-bg"></div>
   <div class="grid-lines"></div>
   <div class="hero-content">
+    <img src="photo.jpg" alt="Shan Lu" class="hero-photo" />
     <div class="hero-badge">
       <span lang-en>Researcher · Nagoya University</span>
       <span lang-ja>研究者 · 名古屋大学</span>
