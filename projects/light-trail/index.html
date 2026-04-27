@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Light Trail Project | Shan Lu</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+    :root {
+      --bg: #faf8f4;
+      --bg2: #f3efe8;
+      --card: #ffffff;
+      --border: #e5dfd5;
+      --cyan: #0284c7;
+      --purple: #7c3aed;
+      --green: #059669;
+      --text: #1a2332;
+      --muted: #7a8694;
+      --glow: 0 4px 24px rgba(2,132,199,0.12);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg2); }
+    ::-webkit-scrollbar-thumb { background: var(--cyan); border-radius: 3px; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem; height: 60px;
+      background: rgba(250, 248, 244, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 12px rgba(0,0,0,0.06);
+    }
+    .nav-logo {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1rem; color: var(--cyan); letter-spacing: 0.1em;
+      text-decoration: none;
+    }
+    .nav-right { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-right a {
+      color: var(--muted); text-decoration: none;
+      font-size: 0.85rem; letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    .nav-right a:hover { color: var(--cyan); }
+    .lang-btn {
+      background: transparent;
+      border: 1px solid var(--cyan);
+      color: var(--cyan); padding: 5px 14px; border-radius: 4px;
+      cursor: pointer; font-size: 0.8rem; letter-spacing: 0.06em;
+      transition: all 0.2s; font-family: inherit;
+    }
+    .lang-btn:hover { background: var(--cyan); color: #fff; }
+
+    /* HERO */
+    .hero {
+      padding: 120px 2rem 60px;
+      background: var(--bg);
+      position: relative; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(2,132,199,0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(124,58,237,0.05) 0%, transparent 60%);
+    }
+    .grid-lines {
+      position: absolute; inset: 0; z-index: 0;
+      background-image:
+        linear-gradient(rgba(2,132,199,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(2,132,199,0.06) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 1;
+      max-width: 860px; margin: 0 auto;
+    }
+    .breadcrumb {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem; color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    .breadcrumb a { color: var(--cyan); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .hero-badge {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem; color: var(--cyan);
+      border: 1px solid var(--border);
+      padding: 4px 16px; border-radius: 20px;
+      margin-bottom: 1.2rem; letter-spacing: 0.1em;
+      background: rgba(0,200,255,0.05);
+    }
+    .hero h1 {
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
+      font-weight: 700; line-height: 1.2;
+      margin-bottom: 1rem; color: var(--text);
+    }
+    .hero h1 .hl {
+      background: linear-gradient(90deg, var(--cyan), var(--purple));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-meta {
+      font-size: 0.88rem; color: var(--muted);
+      margin-bottom: 2rem; line-height: 1.6;
+    }
+    .hero-links { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+    .btn {
+      padding: 9px 22px; border-radius: 6px;
+      font-size: 0.85rem; text-decoration: none;
+      font-weight: 600; letter-spacing: 0.04em;
+      transition: all 0.25s; display: inline-flex; align-items: center; gap: 6px;
+    }
+    .btn-primary { background: var(--cyan); color: #fff; }
+    .btn-primary:hover { box-shadow: 0 0 20px rgba(0,200,255,0.4); transform: translateY(-2px); }
+    .btn-outline { border: 1px solid var(--border); color: var(--text); background: transparent; }
+    .btn-outline:hover { border-color: var(--cyan); color: var(--cyan); transform: translateY(-2px); }
+    .btn-purple { border: 1px solid rgba(124,58,237,0.4); color: var(--purple); background: rgba(124,58,237,0.06); }
+    .btn-purple:hover { background: rgba(124,58,237,0.12); transform: translateY(-2px); }
+
+    /* MAIN */
+    main { max-width: 860px; margin: 0 auto; padding: 3rem 2rem 6rem; }
+    section { margin-bottom: 4rem; }
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: var(--cyan);
+      letter-spacing: 0.15em; text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      font-size: 1.4rem; font-weight: 600;
+      margin-bottom: 1.4rem; color: var(--text);
+    }
+    h2 .hl {
+      background: linear-gradient(90deg, var(--cyan), var(--purple));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    p.desc { font-size: 0.95rem; color: var(--muted); line-height: 1.9; margin-bottom: 1rem; }
+
+    /* DEMO PLACEHOLDER */
+    .demo-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .demo-placeholder {
+      background: var(--card); border: 1px dashed var(--border);
+      border-radius: 10px; aspect-ratio: 16/9;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 0.5rem;
+      color: var(--muted); font-size: 0.82rem;
+    }
+    .demo-placeholder .icon { font-size: 2rem; opacity: 0.4; }
+    .demo-video-placeholder {
+      background: var(--card); border: 1px dashed var(--border);
+      border-radius: 10px; aspect-ratio: 16/9;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 0.5rem;
+      color: var(--muted); font-size: 0.82rem;
+    }
+    .demo-video-placeholder .icon { font-size: 2.5rem; opacity: 0.4; }
+
+    /* PAPER CARD */
+    .paper-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.4rem 1.6rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .paper-card:hover { border-color: rgba(2,132,199,0.4); box-shadow: var(--glow); }
+    .paper-title { font-weight: 600; font-size: 0.95rem; color: var(--text); margin-bottom: 0.4rem; line-height: 1.5; }
+    .paper-authors { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.3rem; }
+    .paper-venue { font-size: 0.85rem; color: var(--cyan); font-style: italic; }
+    .paper-links { display: flex; gap: 0.6rem; margin-top: 0.9rem; flex-wrap: wrap; }
+    .paper-badge {
+      display: inline-block; font-size: 0.72rem;
+      padding: 2px 10px; border-radius: 4px;
+      font-weight: 600; font-family: 'JetBrains Mono', monospace;
+    }
+    .badge-journal { background: rgba(2,132,199,0.1); color: var(--cyan); border: 1px solid rgba(2,132,199,0.2); }
+
+    /* RESOURCES GRID */
+    .resource-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.8rem; }
+    .resource-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 1rem 1.2rem;
+      text-decoration: none; color: var(--text);
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+      display: flex; flex-direction: column; gap: 0.4rem;
+    }
+    .resource-card:hover { border-color: rgba(2,132,199,0.4); box-shadow: var(--glow); transform: translateY(-2px); }
+    .resource-icon { font-size: 1.4rem; }
+    .resource-name { font-weight: 600; font-size: 0.88rem; }
+    .resource-desc { font-size: 0.78rem; color: var(--muted); }
+
+    /* COMING SOON */
+    .coming-soon {
+      background: var(--card); border: 1px dashed var(--border);
+      border-radius: 8px; padding: 1rem 1.2rem;
+      opacity: 0.6;
+      display: flex; flex-direction: column; gap: 0.4rem;
+    }
+    .coming-soon .resource-name { color: var(--muted); }
+
+    /* FOOTER */
+    footer {
+      text-align: center; padding: 2rem;
+      font-size: 0.8rem; color: var(--muted);
+      border-top: 1px solid var(--border);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* LANG TOGGLE */
+    [lang-en], [lang-ja] { display: none; }
+    body.lang-en [lang-en] { display: revert; }
+    body.lang-ja [lang-ja] { display: revert; }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      nav { padding: 0 1.2rem; }
+      .demo-grid { grid-template-columns: 1fr; }
+      .hero { padding: 100px 1.2rem 50px; }
+      main { padding: 2rem 1.2rem 5rem; }
+    }
+  </style>
+</head>
+<body class="lang-en">
+
+<!-- NAV -->
+<nav>
+  <a href="../../index.html" class="nav-logo">ShanLu<span style="color:var(--muted);">.research</span></a>
+  <div class="nav-right">
+    <a href="../../index.html#research"><span lang-en>Research</span><span lang-ja>研究</span></a>
+    <a href="../../index.html#publications"><span lang-en>Publications</span><span lang-ja>業績</span></a>
+    <a href="../../index.html#contact"><span lang-en>Contact</span><span lang-ja>連絡先</span></a>
+    <button class="lang-btn" onclick="toggleLang()">JA / EN</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="grid-lines"></div>
+  <div class="hero-content">
+    <div class="breadcrumb">
+      <a href="../../index.html">shanlu.research</a> › <span lang-en>Projects</span><span lang-ja>プロジェクト</span> › Light Trail
+    </div>
+    <div class="hero-badge">
+      <span lang-en>Image Sensor Communication · Visible Light</span>
+      <span lang-ja>イメージセンサ通信 · 可視光通信</span>
+    </div>
+    <h1>
+      <span lang-en>Theoretical Modeling for <span class="hl">LED Propeller-Based</span><br>Image Sensor Communication</span>
+      <span lang-ja>LEDプロペラ型<span class="hl">イメージセンサ通信</span>の<br>理論的モデリングと干渉防止</span>
+    </h1>
+    <div class="hero-meta">
+      <span lang-en>S. Asaoka &nbsp;·&nbsp; <strong>S. Lu</strong> &nbsp;·&nbsp; T. Yamazato &nbsp;·&nbsp; Z. Tang &nbsp;·&nbsp; Nagoya University &nbsp;·&nbsp; 2025</span>
+      <span lang-ja>浅岡 駿 &nbsp;·&nbsp; <strong>路 姍</strong> &nbsp;·&nbsp; 山里 敬也 &nbsp;·&nbsp; 唐 振 &nbsp;·&nbsp; 名古屋大学 &nbsp;·&nbsp; 2025年</span>
+    </div>
+    <div class="hero-links">
+      <a href="https://doi.org/10.23919/comex.2025XBL0126" target="_blank" class="btn btn-primary">
+        <span>📄</span>
+        <span lang-en>Read Paper</span><span lang-ja>論文を読む</span>
+      </a>
+      <a href="https://github.com/LusLabGF/Light_Trail_program_asaoka" target="_blank" class="btn btn-outline">
+        <span>💻</span>
+        <span lang-en>View Code</span><span lang-ja>コードを見る</span>
+      </a>
+      <a href="slides.pdf" class="btn btn-purple" id="slides-btn" style="display:none;">
+        <span>📊</span>
+        <span lang-en>Slides (PDF)</span><span lang-ja>発表資料 (PDF)</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <!-- OVERVIEW -->
+  <section>
+    <div class="section-label">// 01 &nbsp;<span lang-en>OVERVIEW</span><span lang-ja>概要</span></div>
+    <h2><span lang-en>Project <span class="hl">Overview</span></span><span lang-ja>プロジェクト<span class="hl">概要</span></span></h2>
+    <p class="desc">
+      <span lang-en>
+        This project investigates image sensor communication (ISC) using an LED propeller as a transmitter.
+        When an LED-mounted propeller rotates at high speed, it generates a visible "light trail" pattern that can be captured by an image sensor camera.
+        We develop theoretical models to characterize these light trail patterns and propose methods to prevent interference between multiple transmitters.
+      </span>
+      <span lang-ja>
+        本プロジェクトでは，LEDプロペラを送信機として用いたイメージセンサ通信（ISC）を研究しています．
+        高速回転するLED搭載プロペラは，イメージセンサカメラで撮影可能な「ライトトレイル」パターンを生成します．
+        本研究では，このライトトレイルパターンの理論的モデルを構築し，複数の送信機間の干渉を防止する手法を提案します．
+      </span>
+    </p>
+    <p class="desc">
+      <span lang-en>
+        The proposed theoretical framework enables accurate prediction of light trail geometry, signal intensity distribution, and inter-symbol interference,
+        providing a foundation for the design of reliable LED propeller-based ISC systems.
+      </span>
+      <span lang-ja>
+        提案する理論的枠組みにより，ライトトレイルの形状・信号強度分布・シンボル間干渉の正確な予測が可能となり，
+        信頼性の高いLEDプロペラ型ISCシステム設計の基盤を提供します．
+      </span>
+    </p>
+  </section>
+
+  <!-- DEMO -->
+  <section>
+    <div class="section-label">// 02 &nbsp;<span lang-en>DEMONSTRATION</span><span lang-ja>デモンストレーション</span></div>
+    <h2><span lang-en><span class="hl">Demo</span> & Results</span><span lang-ja><span class="hl">デモ</span>・実験結果</span></h2>
+    <div class="demo-grid">
+      <div class="demo-placeholder">
+        <div class="icon">🖼</div>
+        <span lang-en>Demo image coming soon</span>
+        <span lang-ja>デモ画像 近日公開</span>
+      </div>
+      <div class="demo-placeholder">
+        <div class="icon">🖼</div>
+        <span lang-en>Demo image coming soon</span>
+        <span lang-ja>デモ画像 近日公開</span>
+      </div>
+    </div>
+    <div class="demo-video-placeholder">
+      <div class="icon">▶</div>
+      <span lang-en>Demo video coming soon</span>
+      <span lang-ja>デモ動画 近日公開</span>
+    </div>
+  </section>
+
+  <!-- PUBLICATION -->
+  <section>
+    <div class="section-label">// 03 &nbsp;<span lang-en>PUBLICATION</span><span lang-ja>関連論文</span></div>
+    <h2><span lang-en>Related <span class="hl">Paper</span></span><span lang-ja>関連<span class="hl">論文</span></span></h2>
+    <div class="paper-card">
+      <div class="paper-title">
+        <span lang-en>Theoretical modeling and interference prevention of light trails for LED-propeller based image sensor communication</span>
+        <span lang-ja>LEDプロペラ型イメージセンサ通信におけるライトトレイルの理論的モデリングと干渉防止</span>
+      </div>
+      <div class="paper-authors">S. Asaoka, <strong>S. Lu</strong>, T. Yamazato, Z. Tang</div>
+      <div class="paper-venue">
+        <span class="paper-badge badge-journal">Journal</span>
+        IEICE Communications Express, vol. X14-B, no. 12, Dec. 2025
+      </div>
+      <div class="paper-links">
+        <a href="https://doi.org/10.23919/comex.2025XBL0126" target="_blank" class="btn btn-primary" style="font-size:0.8rem; padding:6px 16px;">
+          <span lang-en>DOI / PDF</span><span lang-ja>DOI / PDF</span>
+        </a>
+        <a href="https://github.com/LusLabGF/Light_Trail_program_asaoka" target="_blank" class="btn btn-outline" style="font-size:0.8rem; padding:6px 16px;">
+          <span lang-en>Code</span><span lang-ja>コード</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESOURCES -->
+  <section>
+    <div class="section-label">// 04 &nbsp;<span lang-en>RESOURCES</span><span lang-ja>資料</span></div>
+    <h2><span lang-en>Downloads &amp; <span class="hl">Resources</span></span><span lang-ja>ダウンロード・<span class="hl">資料</span></span></h2>
+    <div class="resource-grid">
+      <a href="https://github.com/LusLabGF/Light_Trail_program_asaoka" target="_blank" class="resource-card">
+        <div class="resource-icon">💻</div>
+        <div class="resource-name"><span lang-en>Source Code</span><span lang-ja>ソースコード</span></div>
+        <div class="resource-desc">GitHub — LusLabGF</div>
+      </a>
+      <a href="https://doi.org/10.23919/comex.2025XBL0126" target="_blank" class="resource-card">
+        <div class="resource-icon">📄</div>
+        <div class="resource-name"><span lang-en>Paper (PDF)</span><span lang-ja>論文 (PDF)</span></div>
+        <div class="resource-desc">IEICE Commun. Express, 2025</div>
+      </a>
+      <div class="coming-soon resource-card">
+        <div class="resource-icon">📊</div>
+        <div class="resource-name"><span lang-en>Slides</span><span lang-ja>発表スライド</span></div>
+        <div class="resource-desc"><span lang-en>Coming soon</span><span lang-ja>近日公開</span></div>
+      </div>
+      <div class="coming-soon resource-card">
+        <div class="resource-icon">🎬</div>
+        <div class="resource-name"><span lang-en>Demo Video</span><span lang-ja>デモ動画</span></div>
+        <div class="resource-desc"><span lang-en>Coming soon</span><span lang-ja>近日公開</span></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span lang-en>&copy; 2026 Shan Lu &nbsp;·&nbsp; Nagoya University &nbsp;·&nbsp; <a href="../../index.html" style="color:var(--cyan); text-decoration:none;">← Back to Homepage</a></span>
+  <span lang-ja>&copy; 2026 路 姍 &nbsp;·&nbsp; 名古屋大学 &nbsp;·&nbsp; <a href="../../index.html" style="color:var(--cyan); text-decoration:none;">← ホームに戻る</a></span>
+</footer>
+
+<script>
+  function toggleLang() {
+    const body = document.body;
+    if (body.classList.contains('lang-en')) {
+      body.classList.replace('lang-en', 'lang-ja');
+      document.documentElement.lang = 'ja';
+    } else {
+      body.classList.replace('lang-ja', 'lang-en');
+      document.documentElement.lang = 'en';
+    }
+  }
+</script>
+
+</body>
+</html>
