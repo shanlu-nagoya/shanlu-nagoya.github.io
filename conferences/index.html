@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conference Tracker | Shan Lu</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+    :root {
+      --bg: #faf8f4;
+      --bg2: #f3efe8;
+      --card: #ffffff;
+      --border: #e5dfd5;
+      --cyan: #0284c7;
+      --purple: #7c3aed;
+      --green: #059669;
+      --red: #dc2626;
+      --orange: #ea580c;
+      --text: #1a2332;
+      --muted: #7a8694;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg2); }
+    ::-webkit-scrollbar-thumb { background: var(--cyan); border-radius: 3px; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem; height: 60px;
+      background: rgba(250, 248, 244, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 12px rgba(0,0,0,0.06);
+    }
+    .nav-logo {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1rem; color: var(--cyan); letter-spacing: 0.1em;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none;
+      font-size: 0.85rem; letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--cyan); }
+
+    .page-header {
+      padding: 100px 2.5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .page-header h1 {
+      font-size: 2rem; font-weight: 700;
+      color: var(--text); margin-bottom: 0.5rem;
+    }
+    .page-header p {
+      color: var(--muted); font-size: 0.95rem;
+    }
+    .updated-tag {
+      display: inline-block;
+      margin-top: 0.5rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--cyan);
+      background: rgba(2,132,199,0.08);
+      padding: 2px 10px;
+      border-radius: 4px;
+    }
+
+    .controls {
+      max-width: 1200px;
+      margin: 0 auto 1.5rem;
+      padding: 0 2.5rem;
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .filter-btn {
+      padding: 5px 16px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--muted);
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+    .filter-btn:hover { border-color: var(--cyan); color: var(--cyan); }
+    .filter-btn.active {
+      background: var(--cyan);
+      border-color: var(--cyan);
+      color: #fff;
+    }
+
+    .legend {
+      max-width: 1200px;
+      margin: 0 auto 1.5rem;
+      padding: 0 2.5rem;
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      font-size: 0.8rem;
+      color: var(--muted);
+      align-items: center;
+    }
+    .dot {
+      display: inline-block;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+
+    .table-wrap {
+      max-width: 1200px;
+      margin: 0 auto 4rem;
+      padding: 0 2.5rem;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--card);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+    }
+    thead tr {
+      background: var(--bg2);
+    }
+    th {
+      padding: 12px 16px;
+      text-align: left;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    td {
+      padding: 12px 16px;
+      font-size: 0.87rem;
+      border-top: 1px solid var(--border);
+      vertical-align: top;
+    }
+    tr:hover td { background: rgba(2,132,199,0.04); }
+
+    .conf-name {
+      font-weight: 600;
+      color: var(--cyan);
+      text-decoration: none;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+    }
+    .conf-name:hover { text-decoration: underline; }
+    .conf-full {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 9px;
+      border-radius: 10px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+    .badge-ieee { background: rgba(2,132,199,0.12); color: var(--cyan); }
+    .badge-ieice { background: rgba(124,58,237,0.12); color: var(--purple); }
+    .badge-comm { background: rgba(5,150,105,0.1); color: var(--green); }
+    .badge-it { background: rgba(234,88,12,0.1); color: var(--orange); }
+
+    .deadline-cell { font-family: 'JetBrains Mono', monospace; font-size: 0.83rem; }
+    .deadline-urgent { color: var(--red); font-weight: 600; }
+    .deadline-soon   { color: var(--orange); font-weight: 600; }
+    .deadline-ok     { color: var(--green); }
+    .deadline-past   { color: var(--muted); text-decoration: line-through; }
+    .deadline-na     { color: var(--muted); font-style: italic; }
+
+    .no-data {
+      text-align: center;
+      padding: 3rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--cyan); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">SL.</a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/conferences/" style="color: var(--cyan);">Conferences</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <h1>Conference Tracker</h1>
+  <p>IEEE &amp; IEICE international conferences in communications and information theory</p>
+  <span class="updated-tag" id="updated-tag">Loading...</span>
+</div>
+
+<div class="controls">
+  <span style="font-size:0.8rem;color:var(--muted);margin-right:4px;">Filter:</span>
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="IEEE">IEEE</button>
+  <button class="filter-btn" data-filter="IEICE">IEICE</button>
+  <button class="filter-btn" data-filter="Communications">Communications</button>
+  <button class="filter-btn" data-filter="Information Theory">Info Theory</button>
+</div>
+
+<div class="legend">
+  <span><span class="dot" style="background:var(--red)"></span>Deadline &lt; 30 days</span>
+  <span><span class="dot" style="background:var(--orange)"></span>30–60 days</span>
+  <span><span class="dot" style="background:var(--green)"></span>&gt; 60 days</span>
+  <span><span class="dot" style="background:var(--muted)"></span>Passed / TBD</span>
+</div>
+
+<div class="table-wrap">
+  <table id="conf-table">
+    <thead>
+      <tr>
+        <th>Conference</th>
+        <th>Org</th>
+        <th>Category</th>
+        <th>Submission Deadline</th>
+        <th>Dates</th>
+        <th>Location</th>
+      </tr>
+    </thead>
+    <tbody id="conf-body">
+      <tr><td colspan="6" class="no-data">Loading conference data…</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<footer>
+  Data source: <a href="http://www.wikicfp.com" target="_blank">WikiCFP</a> · Updated weekly via GitHub Actions ·
+  <a href="/">← Back to Shan Lu's site</a>
+</footer>
+
+<script>
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  function deadlineClass(dateStr) {
+    if (!dateStr) return "deadline-na";
+    const d = new Date(dateStr);
+    const diff = Math.floor((d - today) / 86400000);
+    if (diff < 0)   return "deadline-past";
+    if (diff <= 30) return "deadline-urgent";
+    if (diff <= 60) return "deadline-soon";
+    return "deadline-ok";
+  }
+
+  function formatDate(dateStr) {
+    if (!dateStr) return "TBD";
+    const d = new Date(dateStr + "T00:00:00");
+    return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+  }
+
+  function formatRange(start, end) {
+    if (!start) return "TBD";
+    if (!end || start === end) return formatDate(start);
+    const s = new Date(start + "T00:00:00");
+    const e = new Date(end + "T00:00:00");
+    const sStr = s.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+    const eStr = e.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+    return `${sStr} – ${eStr}`;
+  }
+
+  let allData = [];
+  let activeFilter = "all";
+
+  function renderTable(data) {
+    const tbody = document.getElementById("conf-body");
+    if (!data.length) {
+      tbody.innerHTML = `<tr><td colspan="6" class="no-data">No conferences found.</td></tr>`;
+      return;
+    }
+
+    tbody.innerHTML = data.map(c => {
+      const orgBadge = c.organizer === "IEEE"
+        ? `<span class="badge badge-ieee">IEEE</span>`
+        : `<span class="badge badge-ieice">IEICE</span>`;
+      const catBadge = c.category === "Communications"
+        ? `<span class="badge badge-comm">Comm.</span>`
+        : `<span class="badge badge-it">Info Theory</span>`;
+      const dlClass = deadlineClass(c.deadline);
+      const dlText  = c.deadline ? formatDate(c.deadline) : "TBD";
+
+      return `
+        <tr data-org="${c.organizer}" data-cat="${c.category}">
+          <td>
+            <a class="conf-name" href="${c.url}" target="_blank">${c.name}</a>
+            <div class="conf-full">${c.full_name || ""}</div>
+          </td>
+          <td>${orgBadge}</td>
+          <td>${catBadge}</td>
+          <td class="deadline-cell ${dlClass}">${dlText}</td>
+          <td style="white-space:nowrap;font-size:0.82rem">${formatRange(c.start, c.end)}</td>
+          <td style="font-size:0.82rem">${c.location || "TBD"}</td>
+        </tr>`;
+    }).join("");
+  }
+
+  function applyFilter(filter) {
+    activeFilter = filter;
+    document.querySelectorAll(".filter-btn").forEach(btn => {
+      btn.classList.toggle("active", btn.dataset.filter === filter);
+    });
+
+    if (filter === "all") {
+      renderTable(allData);
+    } else {
+      renderTable(allData.filter(c =>
+        c.organizer === filter || c.category === filter
+      ));
+    }
+  }
+
+  document.querySelectorAll(".filter-btn").forEach(btn => {
+    btn.addEventListener("click", () => applyFilter(btn.dataset.filter));
+  });
+
+  fetch("data.json?v=" + Date.now())
+    .then(r => r.json())
+    .then(json => {
+      allData = json.conferences || [];
+      document.getElementById("updated-tag").textContent = "Updated: " + json.updated;
+      applyFilter(activeFilter);
+    })
+    .catch(() => {
+      document.getElementById("conf-body").innerHTML =
+        `<tr><td colspan="6" class="no-data">Failed to load data. Please try again later.</td></tr>`;
+      document.getElementById("updated-tag").textContent = "Data unavailable";
+    });
+</script>
+</body>
+</html>
