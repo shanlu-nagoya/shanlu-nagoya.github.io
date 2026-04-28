@@ -263,7 +263,7 @@
 </div>
 
 <footer>
-  Data source: <a href="http://www.wikicfp.com" target="_blank">WikiCFP</a> · Updated weekly via GitHub Actions ·
+  Data source: <a href="https://github.com/ccfddl/ccf-deadlines" target="_blank">ccf-deadlines</a> · Updated weekly via GitHub Actions ·
   <a href="/">← Back to Shan Lu's site</a>
 </footer>
 
@@ -351,10 +351,20 @@
     btn.addEventListener("click", () => applyFilter(btn.dataset.filter));
   });
 
+  function sortConferences(data) {
+    const todayStr = today.toISOString().slice(0, 10);
+    const upcoming = data.filter(c => c.deadline && c.deadline >= todayStr);
+    const past     = data.filter(c => c.deadline && c.deadline <  todayStr);
+    const tbd      = data.filter(c => !c.deadline);
+    upcoming.sort((a, b) => a.deadline.localeCompare(b.deadline)); // soonest first
+    past.sort((a, b) => b.deadline.localeCompare(a.deadline));     // most recent first
+    return [...upcoming, ...past, ...tbd];
+  }
+
   fetch("data.json?v=" + Date.now())
     .then(r => r.json())
     .then(json => {
-      allData = json.conferences || [];
+      allData = sortConferences(json.conferences || []);
       document.getElementById("updated-tag").textContent = "Updated: " + json.updated;
       applyFilter(activeFilter);
     })
