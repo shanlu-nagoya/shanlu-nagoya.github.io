@@ -358,7 +358,7 @@
     const tbd      = data.filter(c => !c.deadline);
     upcoming.sort((a, b) => a.deadline.localeCompare(b.deadline)); // soonest first
     past.sort((a, b) => b.deadline.localeCompare(a.deadline));     // most recent first
-    return [...upcoming, ...past, ...tbd];
+    return [...tbd, ...upcoming, ...past];
   }
 
   fetch("data.json?v=" + Date.now())
