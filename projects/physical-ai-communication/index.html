@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Physical AI Communication | Shan Lu</title>
+  <meta name="description" content="Physical AI Communication research vision by Shan Lu: communication through light, imaging, physical models, and AI-native receivers toward 6G." />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+    :root {
+      --bg: #faf8f4;
+      --bg2: #f3efe8;
+      --card: #ffffff;
+      --border: #e5dfd5;
+      --cyan: #0284c7;
+      --teal: #00aacc;
+      --blue: #003b8e;
+      --purple: #7c3aed;
+      --text: #1a2332;
+      --muted: #7a8694;
+      --glow: 0 4px 24px rgba(2,132,199,0.12);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem; height: 60px;
+      background: rgba(250, 248, 244, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 12px rgba(0,0,0,0.06);
+    }
+    .nav-logo {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1rem; color: var(--cyan); letter-spacing: 0.1em;
+      text-decoration: none;
+    }
+    .nav-right { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-right a {
+      color: var(--muted); text-decoration: none;
+      font-size: 0.85rem; letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    .nav-right a:hover { color: var(--cyan); }
+    .lang-btn {
+      background: transparent;
+      border: 1px solid var(--cyan);
+      color: var(--cyan); padding: 5px 14px; border-radius: 4px;
+      cursor: pointer; font-size: 0.8rem; letter-spacing: 0.06em;
+      transition: all 0.2s; font-family: inherit;
+    }
+    .lang-btn:hover { background: var(--cyan); color: #fff; }
+
+    .hero {
+      min-height: 94vh;
+      padding: 118px 2rem 70px;
+      background:
+        radial-gradient(ellipse 80% 48% at 64% 20%, rgba(2,132,199,0.10) 0%, transparent 70%),
+        radial-gradient(ellipse 56% 34% at 88% 76%, rgba(124,58,237,0.07) 0%, transparent 62%),
+        var(--bg);
+      position: relative;
+      overflow: hidden;
+    }
+    .grid-lines {
+      position: absolute; inset: 0; z-index: 0;
+      background-image:
+        linear-gradient(rgba(2,132,199,0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(2,132,199,0.055) 1px, transparent 1px);
+      background-size: 58px 58px;
+      mask-image: radial-gradient(ellipse 84% 84% at 50% 48%, black 16%, transparent 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 1;
+      max-width: 1120px; margin: 0 auto;
+      display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.86fr);
+      gap: 54px; align-items: center;
+    }
+    .breadcrumb {
+      font-size: 0.82rem; color: var(--muted); margin-bottom: 1.2rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .breadcrumb a { color: var(--cyan); text-decoration: none; }
+    .hero-badge {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem; color: var(--cyan);
+      border: 1px solid var(--border);
+      padding: 4px 16px; border-radius: 20px;
+      margin-bottom: 1.4rem; letter-spacing: 0.1em;
+      background: rgba(0,200,255,0.05);
+    }
+    h1 {
+      font-size: clamp(2.5rem, 5.8vw, 5.4rem);
+      font-weight: 700; line-height: 1.04;
+      margin-bottom: 1.2rem;
+      letter-spacing: 0;
+    }
+    .hl {
+      background: linear-gradient(135deg, var(--cyan), var(--purple));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-lead {
+      max-width: 680px; color: var(--muted);
+      font-size: 1.08rem; margin-bottom: 1.8rem;
+    }
+    .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 10px 22px; border-radius: 4px;
+      text-decoration: none; font-size: 0.88rem;
+      font-weight: 600; transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--cyan); color: white;
+      box-shadow: var(--glow);
+    }
+    .btn-outline {
+      border: 1px solid var(--border); color: var(--text); background: rgba(255,255,255,0.58);
+    }
+    .btn:hover { transform: translateY(-1px); }
+
+    .logo-panel {
+      min-height: 370px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.52);
+      border-radius: 12px;
+      box-shadow: 0 18px 48px rgba(26,35,50,0.08);
+      padding: 2rem;
+    }
+    .logo-mark { width: min(100%, 470px); height: auto; }
+    .trail-main {
+      fill: none; stroke: url(#trail); stroke-width: 12;
+      stroke-linecap: round; filter: url(#glowFilter);
+    }
+    .trail-motion {
+      fill: none; stroke: rgba(2,132,199,0.46);
+      stroke-width: 4; stroke-linecap: round;
+    }
+    .node { fill: var(--purple); filter: url(#glowFilter); }
+    .node-small { fill: var(--cyan); }
+    .logo-caption {
+      margin-top: -28px;
+      color: var(--muted);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    main { max-width: 1040px; margin: 0 auto; padding: 0 2rem 5rem; }
+    section { padding: 4.5rem 0; border-top: 1px solid var(--border); }
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem; color: var(--cyan);
+      letter-spacing: 0.14em; margin-bottom: 0.8rem;
+    }
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      line-height: 1.12; margin-bottom: 1.1rem;
+    }
+    .desc {
+      color: var(--muted); max-width: 780px;
+      font-size: 1.03rem; margin-bottom: 2rem;
+    }
+    .grid-3 {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1rem; margin-top: 1.6rem;
+    }
+    .grid-2 {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 1rem; margin-top: 1.6rem;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.4rem;
+      box-shadow: 0 10px 32px rgba(26,35,50,0.045);
+    }
+    .card h3 {
+      font-size: 1.08rem; margin-bottom: 0.6rem;
+    }
+    .card p { color: var(--muted); font-size: 0.95rem; }
+    .timeline {
+      display: grid; gap: 0.9rem; margin-top: 1.5rem;
+    }
+    .timeline-item {
+      display: grid; grid-template-columns: 140px 1fr;
+      gap: 1rem; padding: 1.1rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .year {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--cyan); font-weight: 600;
+    }
+    .pub-list {
+      list-style: none; margin-top: 1.4rem;
+    }
+    .pub-list li {
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+    }
+    footer {
+      text-align: center;
+      padding: 2.5rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    [lang-ja] { display: none; }
+    body.lang-ja [lang-en] { display: none; }
+    body.lang-ja [lang-ja] { display: inline; }
+    body.lang-ja p[lang-ja], body.lang-ja div[lang-ja] { display: block; }
+
+    @media (max-width: 860px) {
+      nav { padding: 0 1rem; }
+      .nav-right { gap: 0.8rem; }
+      .hero-content { grid-template-columns: 1fr; }
+      .logo-panel { min-height: 280px; }
+      .grid-3, .grid-2 { grid-template-columns: 1fr; }
+      .timeline-item { grid-template-columns: 1fr; gap: 0.3rem; }
+    }
+  </style>
+</head>
+<body class="lang-en">
+
+<nav>
+  <a href="../../index.html" class="nav-logo">ShanLu<span style="color:var(--muted);">.research</span></a>
+  <div class="nav-right">
+    <a href="../../index.html#research"><span lang-en>Research</span><span lang-ja>研究</span></a>
+    <a href="../../index.html#publications"><span lang-en>Publications</span><span lang-ja>業績</span></a>
+    <a href="../../index.html#contact"><span lang-en>Contact</span><span lang-ja>連絡先</span></a>
+    <button class="lang-btn" onclick="toggleLang()">JA / EN</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="grid-lines"></div>
+  <div class="hero-content">
+    <div>
+      <div class="breadcrumb">
+        <a href="../../index.html">shanlu.research</a> › <span lang-en>Projects</span><span lang-ja>プロジェクト</span> › Physical AI Communication
+      </div>
+      <div class="hero-badge">
+        <span lang-en>Light · Imaging · AI-native 6G</span>
+        <span lang-ja>光 · イメージング · AIネイティブ6G</span>
+      </div>
+      <h1>
+        <span lang-en>Reinventing communication through <span class="hl">light, imaging, and AI.</span></span>
+        <span lang-ja><span class="hl">光・イメージング・AI</span>による通信の再設計</span>
+      </h1>
+      <p class="hero-lead">
+        <span lang-en>Physical AI Communication integrates physical models, optical/image-sensor measurements, and AI-native receivers toward robust 6G communication systems.</span>
+        <span lang-ja>Physical AI Communication は、物理モデル、光・イメージセンサ計測、AIネイティブ受信機を統合し、堅牢な6G通信システムを目指す研究構想です。</span>
+      </p>
+      <div class="hero-links">
+        <a href="#vision" class="btn btn-primary"><span lang-en>Research Vision</span><span lang-ja>研究ビジョン</span></a>
+        <a href="#evolution" class="btn btn-outline"><span lang-en>Research Evolution</span><span lang-ja>研究の展開</span></a>
+      </div>
+    </div>
+
+    <div class="logo-panel" aria-label="Light-Trail Infinity logo">
+      <div>
+        <svg class="logo-mark" viewBox="0 0 520 260" role="img">
+          <defs>
+            <linearGradient id="trail" x1="52" y1="130" x2="468" y2="130" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#003B8E"/>
+              <stop offset="0.52" stop-color="#00AACC"/>
+              <stop offset="1" stop-color="#7A3FFF"/>
+            </linearGradient>
+            <filter id="glowFilter" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="4" result="blur"/>
+              <feMerge>
+                <feMergeNode in="blur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+          <path class="trail-main" d="M62 132 C139 52 200 52 260 130 C320 208 381 208 458 128"/>
+          <path class="trail-main" d="M62 128 C139 208 200 208 260 130 C320 52 381 52 458 132"/>
+          <path class="trail-motion" d="M102 130 C158 88 202 88 246 130"/>
+          <circle class="node node-small" cx="122" cy="94" r="5"/>
+          <circle class="node" cx="260" cy="130" r="7"/>
+          <circle class="node node-small" cx="398" cy="166" r="5"/>
+        </svg>
+        <div class="logo-caption">Light-Trail Infinity</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main>
+  <section id="vision">
+    <div class="section-label">// 01 VISION</div>
+    <h2>
+      <span lang-en>Physical models as the bridge between communication theory and AI.</span>
+      <span lang-ja>物理モデルを通信理論とAIの橋渡しにする</span>
+    </h2>
+    <p class="desc">
+      <span lang-en>The goal is not to replace theory with black-box learning, but to build AI-assisted communication systems whose design, data generation, and evaluation remain grounded in measurable physical phenomena.</span>
+      <span lang-ja>目標は理論をブラックボックス学習で置き換えることではなく、計測可能な物理現象に基づいて設計・データ生成・評価を行うAI支援型通信システムを構築することです。</span>
+    </p>
+    <div class="grid-3">
+      <div class="card">
+        <h3><span lang-en>Physical Phenomena</span><span lang-ja>物理現象</span></h3>
+        <p><span lang-en>Light-trails, image sensors, fading channels, geometry, and optical propagation.</span><span lang-ja>光軌跡、イメージセンサ、フェージング、幾何構造、光伝搬。</span></p>
+      </div>
+      <div class="card">
+        <h3><span lang-en>Communication Systems</span><span lang-ja>通信システム</span></h3>
+        <p><span lang-en>ISI/BER analysis, signature codes, ML-aided coding, and optical-RF hybrid decisions.</span><span lang-ja>ISI/BER解析、シグネチャ符号、ML支援符号化、光-RFハイブリッド判断。</span></p>
+      </div>
+      <div class="card">
+        <h3><span lang-en>Future 6G Systems</span><span lang-ja>将来6Gシステム</span></h3>
+        <p><span lang-en>AI-native receivers, sensing-integrated systems, vehicular links, and satellite IoT access.</span><span lang-ja>AIネイティブ受信、センシング統合、車両通信、衛星IoTアクセス。</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="signature">
+    <div class="section-label">// 02 SIGNATURE WORK</div>
+    <h2><span lang-en>Research threads</span><span lang-ja>主要な研究の流れ</span></h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Signature Codes for Multiple-Access Channels</h3>
+        <p>k-ary signature codes and uniquely decodable codes for noisy multiple-access channels.</p>
+      </div>
+      <div class="card">
+        <h3>AI-native Decoding</h3>
+        <p>DNN-based decoders and iterative neural receivers for fading and multi-user channels.</p>
+      </div>
+      <div class="card">
+        <h3>Image Sensor Communication</h3>
+        <p>Rolling-shutter, event-camera, and vehicular visible light communication systems.</p>
+      </div>
+      <div class="card">
+        <h3>Satellite OTFS & Massive Access</h3>
+        <p>OTFS-SDMA for massive grant-free random access in LEO satellite IoT systems.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="evolution">
+    <div class="section-label">// 03 EVOLUTION</div>
+    <h2><span lang-en>Research evolution: 2013-2026</span><span lang-ja>研究展開：2013-2026</span></h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="year">2013-2015</div>
+        <div><h3>Communication Theory Foundations</h3><p>Signature codes, LDPC, and spatial coupling.</p></div>
+      </div>
+      <div class="timeline-item">
+        <div class="year">2016-2019</div>
+        <div><h3>Coding Theory Expansion</h3><p>RIO codes, polar x spatial coupling, UD k-ary codes, and 2D LDPC.</p></div>
+      </div>
+      <div class="timeline-item">
+        <div class="year">2020-2022</div>
+        <div><h3>AI x Communication</h3><p>DNN-based decoding and deep learning based positioning.</p></div>
+      </div>
+      <div class="timeline-item">
+        <div class="year">2023-2024</div>
+        <div><h3>Optical x Image Sensor</h3><p>Rolling-shutter VLC and ML-aided polar decoding.</p></div>
+      </div>
+      <div class="timeline-item">
+        <div class="year">2025-2026</div>
+        <div><h3>6G Physical AI</h3><p>Vehicular VLC, physical digital twins, and OTFS-SDMA for LEO satellite IoT.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="publications">
+    <div class="section-label">// 04 SELECTED PUBLICATIONS</div>
+    <ul class="pub-list">
+      <li>ISI Modeling and BER Performance for Rotating Light-Trail Image Sensor Communication, IEEE Communications Letters.</li>
+      <li>OTFS-SDMA for Massive Grant-Free Random Access in LEO Satellite IoT, IEEE Transactions on Wireless Communications.</li>
+      <li>User Identification and Channel Estimation by DNN-based Decoder, IEEE GLOBECOM.</li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  © Shan Lu · Physical AI Communication
+</footer>
+
+<script>
+  function toggleLang() {
+    document.body.classList.toggle('lang-ja');
+    document.body.classList.toggle('lang-en');
+  }
+</script>
+</body>
+</html>
