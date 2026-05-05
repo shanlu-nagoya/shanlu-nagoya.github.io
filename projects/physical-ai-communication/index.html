@@ -191,10 +191,28 @@
       padding: 1.4rem;
       box-shadow: 0 10px 32px rgba(26,35,50,0.045);
     }
+    a.card {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    }
+    a.card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(2,132,199,0.42);
+      box-shadow: 0 14px 36px rgba(2,132,199,0.10);
+    }
     .card h3 {
       font-size: 1.08rem; margin-bottom: 0.6rem;
     }
     .card p { color: var(--muted); font-size: 0.95rem; }
+    .card-link {
+      display: inline-block;
+      margin-top: 0.9rem;
+      color: var(--cyan);
+      font-size: 0.84rem;
+      font-weight: 600;
+    }
     .timeline {
       display: grid; gap: 0.9rem; margin-top: 1.5rem;
     }
@@ -215,6 +233,41 @@
       border-bottom: 1px solid var(--border);
       color: var(--muted);
     }
+    .project-link-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 1.4rem;
+    }
+    .project-link-card {
+      display: block;
+      background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(243,248,252,0.92));
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.4rem;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 0 10px 32px rgba(26,35,50,0.045);
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    }
+    .project-link-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(2,132,199,0.42);
+      box-shadow: 0 14px 36px rgba(2,132,199,0.10);
+    }
+    .project-link-card .kicker {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--cyan);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.6rem;
+      text-transform: uppercase;
+    }
+    .project-link-card h3 { margin-bottom: 0.5rem; }
+    .project-link-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
     footer {
       text-align: center;
       padding: 2.5rem;
@@ -232,7 +285,7 @@
       .nav-right { gap: 0.8rem; }
       .hero-content { grid-template-columns: 1fr; }
       .logo-panel { min-height: 280px; }
-      .grid-3, .grid-2 { grid-template-columns: 1fr; }
+      .grid-3, .grid-2, .project-link-grid { grid-template-columns: 1fr; }
       .timeline-item { grid-template-columns: 1fr; gap: 0.3rem; }
     }
   </style>
@@ -343,10 +396,11 @@
         <h3>AI-native Decoding</h3>
         <p>DNN-based decoders and iterative neural receivers for fading and multi-user channels.</p>
       </div>
-      <div class="card">
+      <a class="card" href="../light-trail/index.html">
         <h3>Image Sensor Communication</h3>
         <p>Rolling-shutter, event-camera, and vehicular visible light communication systems.</p>
-      </div>
+        <span class="card-link">Open Light Trail project →</span>
+      </a>
       <div class="card">
         <h3>Satellite OTFS & Massive Access</h3>
         <p>OTFS-SDMA for massive grant-free random access in LEO satellite IoT systems.</p>
@@ -381,8 +435,44 @@
     </div>
   </section>
 
+  <section id="project-pages">
+    <div class="section-label">// 04 PROJECT PAGES</div>
+    <h2>
+      <span lang-en>Concrete project pages connected to this research building</span>
+      <span lang-ja>この研究構想につながる具体的プロジェクト</span>
+    </h2>
+    <p class="desc">
+      <span lang-en>This page is the overall research architecture. The following pages document concrete implementations, papers, and project-level outputs within the same direction.</span>
+      <span lang-ja>このページは研究全体の構造を示す入口です。以下のページでは、同じ研究方向に属する具体的な実装、論文、プロジェクト成果を整理しています。</span>
+    </p>
+    <div class="project-link-grid">
+      <a class="project-link-card" href="../light-trail/index.html">
+        <div class="kicker">Image Sensor Communication</div>
+        <h3>
+          <span lang-en>Light Trail Project</span>
+          <span lang-ja>Light Trail プロジェクト</span>
+        </h3>
+        <p>
+          <span lang-en>Theoretical modeling for LED propeller-based image sensor communication, including light-trail geometry and BER/ISI analysis.</span>
+          <span lang-ja>LEDプロペラ型イメージセンサ通信の理論的モデリング、光軌跡の幾何構造、BER/ISI解析。</span>
+        </p>
+      </a>
+      <a class="project-link-card" href="../../index.html#research">
+        <div class="kicker">Research Overview</div>
+        <h3>
+          <span lang-en>Main research area summary</span>
+          <span lang-ja>主要研究領域の概要</span>
+        </h3>
+        <p>
+          <span lang-en>Return to the main homepage research section for the broader profile, publications, grants, and group information.</span>
+          <span lang-ja>ホームページの研究セクションに戻り、研究概要、論文、外部資金、研究室情報を確認できます。</span>
+        </p>
+      </a>
+    </div>
+  </section>
+
   <section id="publications">
-    <div class="section-label">// 04 SELECTED PUBLICATIONS</div>
+    <div class="section-label">// 05 SELECTED PUBLICATIONS</div>
     <ul class="pub-list">
       <li>ISI Modeling and BER Performance for Rotating Light-Trail Image Sensor Communication, IEEE Communications Letters.</li>
       <li>OTFS-SDMA for Massive Grant-Free Random Access in LEO Satellite IoT, IEEE Transactions on Wireless Communications.</li>
