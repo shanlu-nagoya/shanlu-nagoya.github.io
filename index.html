@@ -147,6 +147,14 @@
       font-size: 0.88rem; color: var(--muted);
       margin-bottom: 2rem;
     }
+    .hero-thesis {
+      max-width: 680px;
+      margin: 0 auto 1.6rem;
+      color: var(--text);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    .hero-thesis strong { color: var(--cyan); font-weight: 700; }
     .hero-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
     .btn {
       padding: 10px 24px; border-radius: 6px;
@@ -237,6 +245,26 @@
     }
     .tag:hover { border-color: var(--cyan); color: var(--cyan); }
     p.desc { font-size: 0.95rem; color: var(--muted); line-height: 1.8; }
+    .research-statement {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.72);
+      border-radius: 10px;
+      padding: 1.2rem 1.4rem;
+      margin: 1.4rem 0 1.8rem;
+      box-shadow: var(--glow);
+    }
+    .research-statement strong { color: var(--cyan); }
+    .research-statement p {
+      color: var(--text);
+      font-size: 0.98rem;
+      margin-bottom: 0.8rem;
+    }
+    .research-statement .mini-line {
+      color: var(--muted);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.03em;
+    }
 
     /* ── PUBLICATIONS ── */
     .pub-category-label {
@@ -472,6 +500,10 @@
       <span lang-en>Nagoya University &nbsp;·&nbsp; Information and Communication Engineering</span>
       <span lang-ja>名古屋大学 &nbsp;·&nbsp; 情報・通信工学専攻</span>
     </div>
+    <div class="hero-thesis">
+      <span lang-en>I develop <strong>physically grounded AI communication systems</strong> that connect optical sensing, communication theory, and intelligent receivers for future 6G networks.</span>
+      <span lang-ja><strong>物理モデルに基づくAI通信システム</strong>を軸に、光センシング、通信理論、知的受信機を結び、将来の6Gネットワークに向けた研究を進めています。</span>
+    </div>
     <div class="hero-links">
       <a href="#research" class="btn btn-primary">
         <span lang-en>View Research</span>
@@ -608,9 +640,19 @@
     <div class="section-label">// 02 &nbsp;<span lang-en>RESEARCH</span><span lang-ja>研究内容</span></div>
     <h2><span lang-en>Research <span class="hl">Areas</span></span><span lang-ja>研究<span class="hl">領域</span></span></h2>
     <p class="desc">
-      <span lang-en>My research focuses on <strong style="color:var(--text)">information theory</strong> and <strong style="color:var(--text)">channel coding</strong>, particularly signature codes for multiple-access channels and channel estimation. I also work on visible light communication (VLC) using image sensors, V2X communications, and machine learning integration with communication systems.</span>
-      <span lang-ja>情報理論および通信路符号化を中心に研究しています。特に多元接続チャネル向けシグネチャ符号、チャネル推定、イメージセンサを用いた可視光通信（VLC）、V2X通信、そして機械学習と通信システムの融合に取り組んでいます。</span>
+      <span lang-en>My work builds a path from communication theory to AI-native optical and sensing-integrated systems. The central question is how physical phenomena, structured codes, and learned receivers can be designed together rather than treated as separate layers.</span>
+      <span lang-ja>通信理論からAIネイティブな光・センシング統合通信システムへとつながる研究を進めています。中心的な問いは、物理現象、構造化された符号、学習型受信機を別々の層としてではなく、一体として設計する方法です。</span>
     </p>
+    <div class="research-statement">
+      <p>
+        <span lang-en><strong>Research direction:</strong> Physical AI Communication for optical and sensing-integrated 6G systems.</span>
+        <span lang-ja><strong>研究方向：</strong> 光・センシング統合6Gシステムに向けた Physical AI Communication。</span>
+      </p>
+      <div class="mini-line">
+        <span lang-en>physical environment → measurement → digital twin → AI-aided design → communication system → evaluation</span>
+        <span lang-ja>物理環境 → 計測 → デジタルツイン → AI支援設計 → 通信システム → 評価</span>
+      </div>
+    </div>
 
     <!-- Featured Projects -->
     <div style="margin-top:1.8rem;">

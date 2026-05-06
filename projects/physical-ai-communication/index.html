@@ -184,6 +184,46 @@
       display: grid; grid-template-columns: repeat(2, 1fr);
       gap: 1rem; margin-top: 1.6rem;
     }
+    .architecture-flow {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0.7rem;
+      margin-top: 1.5rem;
+    }
+    .flow-step {
+      position: relative;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem;
+      min-height: 138px;
+    }
+    .flow-step:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      right: -0.55rem;
+      top: 50%;
+      width: 0.7rem;
+      height: 1px;
+      background: var(--cyan);
+      opacity: 0.5;
+    }
+    .flow-step .num {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--cyan);
+      font-size: 0.74rem;
+      margin-bottom: 0.5rem;
+    }
+    .flow-step h3 {
+      font-size: 0.95rem;
+      line-height: 1.25;
+      margin-bottom: 0.45rem;
+    }
+    .flow-step p {
+      color: var(--muted);
+      font-size: 0.84rem;
+      line-height: 1.55;
+    }
     .card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -268,6 +308,23 @@
       color: var(--muted);
       font-size: 0.95rem;
     }
+    .impact-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1.4rem;
+    }
+    .impact-item {
+      border-left: 3px solid var(--cyan);
+      background: rgba(255,255,255,0.62);
+      padding: 1rem 1.1rem;
+      border-radius: 0 10px 10px 0;
+      border-top: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .impact-item h3 { font-size: 1rem; margin-bottom: 0.4rem; }
+    .impact-item p { color: var(--muted); font-size: 0.92rem; }
     footer {
       text-align: center;
       padding: 2.5rem;
@@ -285,7 +342,8 @@
       .nav-right { gap: 0.8rem; }
       .hero-content { grid-template-columns: 1fr; }
       .logo-panel { min-height: 280px; }
-      .grid-3, .grid-2, .project-link-grid { grid-template-columns: 1fr; }
+      .grid-3, .grid-2, .project-link-grid, .impact-list, .architecture-flow { grid-template-columns: 1fr; }
+      .flow-step:not(:last-child)::after { display: none; }
       .timeline-item { grid-template-columns: 1fr; gap: 0.3rem; }
     }
   </style>
@@ -323,6 +381,7 @@
       </p>
       <div class="hero-links">
         <a href="#vision" class="btn btn-primary"><span lang-en>Research Vision</span><span lang-ja>研究ビジョン</span></a>
+        <a href="#architecture" class="btn btn-outline"><span lang-en>Architecture</span><span lang-ja>研究構造</span></a>
         <a href="#evolution" class="btn btn-outline"><span lang-en>Research Evolution</span><span lang-ja>研究の展開</span></a>
       </div>
     </div>
@@ -385,8 +444,52 @@
     </div>
   </section>
 
+  <section id="architecture">
+    <div class="section-label">// 02 ARCHITECTURE</div>
+    <h2>
+      <span lang-en>A research building for physically grounded AI communication</span>
+      <span lang-ja>物理モデルに基づくAI通信の研究構造</span>
+    </h2>
+    <p class="desc">
+      <span lang-en>The long-term goal is to create a repeatable workflow that turns real optical and wireless environments into measurable data, calibrated models, AI-assisted designs, and communication systems that can be evaluated by both link-level and task-level metrics.</span>
+      <span lang-ja>長期的な目標は、実環境を計測データ、校正されたモデル、AI支援設計、通信システムへと接続し、リンクレベル指標とタスクレベル指標の両方で評価できる再利用可能な研究ワークフローを構築することです。</span>
+    </p>
+    <div class="architecture-flow">
+      <div class="flow-step">
+        <div class="num">01</div>
+        <h3><span lang-en>Physical Scene</span><span lang-ja>実環境</span></h3>
+        <p><span lang-en>Distance, angle, occlusion, ambient light, mobility, and human/vehicle context.</span><span lang-ja>距離、角度、遮蔽、外乱光、移動、人・車両の文脈。</span></p>
+      </div>
+      <div class="flow-step">
+        <div class="num">02</div>
+        <h3><span lang-en>Measurement</span><span lang-ja>計測</span></h3>
+        <p><span lang-en>Waveforms, images, SNR, BER, position, trajectories, and semantic labels.</span><span lang-ja>波形、画像、SNR、BER、位置、軌跡、意味ラベル。</span></p>
+      </div>
+      <div class="flow-step">
+        <div class="num">03</div>
+        <h3><span lang-en>Digital Twin</span><span lang-ja>デジタルツイン</span></h3>
+        <p><span lang-en>Physics-based models calibrated by data and supported by AI performance predictors.</span><span lang-ja>データで校正された物理モデルとAI性能予測。</span></p>
+      </div>
+      <div class="flow-step">
+        <div class="num">04</div>
+        <h3><span lang-en>Design Support</span><span lang-ja>設計支援</span></h3>
+        <p><span lang-en>Information selection, unequal protection, coding, waveform, and VLC-RF decisions.</span><span lang-ja>情報選択、UEP、符号、波形、VLC-RF併用判断。</span></p>
+      </div>
+      <div class="flow-step">
+        <div class="num">05</div>
+        <h3><span lang-en>System Evaluation</span><span lang-ja>評価</span></h3>
+        <p><span lang-en>BER, delay, reliability of critical information, and task success rate.</span><span lang-ja>BER、遅延、重要情報到達率、タスク成功率。</span></p>
+      </div>
+      <div class="flow-step">
+        <div class="num">06</div>
+        <h3><span lang-en>Shared Assets</span><span lang-ja>共有資産</span></h3>
+        <p><span lang-en>Datasets, code, simulation notebooks, project pages, and reproducible figures.</span><span lang-ja>データセット、コード、シミュレーション、プロジェクトページ、再現図。</span></p>
+      </div>
+    </div>
+  </section>
+
   <section id="signature">
-    <div class="section-label">// 02 SIGNATURE WORK</div>
+    <div class="section-label">// 03 SIGNATURE WORK</div>
     <h2><span lang-en>Research threads</span><span lang-ja>主要な研究の流れ</span></h2>
     <div class="grid-2">
       <div class="card">
@@ -410,7 +513,7 @@
   </section>
 
   <section id="evolution">
-    <div class="section-label">// 03 EVOLUTION</div>
+    <div class="section-label">// 04 EVOLUTION</div>
     <h2><span lang-en>Research evolution: 2013-2026</span><span lang-ja>研究展開：2013-2026</span></h2>
     <div class="timeline">
       <div class="timeline-item">
@@ -437,7 +540,7 @@
   </section>
 
   <section id="project-pages">
-    <div class="section-label">// 04 PROJECT PAGES</div>
+    <div class="section-label">// 05 PROJECT PAGES</div>
     <h2>
       <span lang-en>Concrete project pages connected to this research building</span>
       <span lang-ja>この研究構想につながる具体的プロジェクト</span>
@@ -472,8 +575,34 @@
     </div>
   </section>
 
+  <section id="impact">
+    <div class="section-label">// 06 IMPACT PATH</div>
+    <h2>
+      <span lang-en>How this research is designed to travel beyond a single paper</span>
+      <span lang-ja>単一の論文を超えて研究を届けるために</span>
+    </h2>
+    <p class="desc">
+      <span lang-en>The research output should not stop at publication. Each representative work is organized as a visible research asset that can be read, reproduced, reused, and connected to collaboration.</span>
+      <span lang-ja>研究成果は論文だけで終わらせず、読める・再現できる・再利用できる・共同研究につながる研究資産として整理していきます。</span>
+    </p>
+    <div class="impact-list">
+      <div class="impact-item">
+        <h3><span lang-en>Project pages</span><span lang-ja>プロジェクトページ</span></h3>
+        <p><span lang-en>Each major paper becomes a readable page with problem, idea, evidence, code/data, and citation.</span><span lang-ja>主要論文を、問題・アイデア・根拠・コード/データ・引用情報を持つページにします。</span></p>
+      </div>
+      <div class="impact-item">
+        <h3><span lang-en>Reproducible assets</span><span lang-ja>再現可能な資産</span></h3>
+        <p><span lang-en>Simulation scripts, figures, datasets, and benchmark tasks make the work easier to build on.</span><span lang-ja>シミュレーション、図、データセット、ベンチマークにより、他者が発展させやすくします。</span></p>
+      </div>
+      <div class="impact-item">
+        <h3><span lang-en>Collaboration hooks</span><span lang-ja>共同研究への接点</span></h3>
+        <p><span lang-en>Open problems in V2X, optical sensing, AI receivers, and massive access are made explicit.</span><span lang-ja>V2X、光センシング、AI受信機、大規模アクセスの未解決問題を明確化します。</span></p>
+      </div>
+    </div>
+  </section>
+
   <section id="publications">
-    <div class="section-label">// 05 SELECTED PUBLICATIONS</div>
+    <div class="section-label">// 07 SELECTED PUBLICATIONS</div>
     <ul class="pub-list">
       <li>ISI Modeling and BER Performance for Rotating Light-Trail Image Sensor Communication, IEEE Communications Letters.</li>
       <li>OTFS-SDMA for Massive Grant-Free Random Access in LEO Satellite IoT, IEEE Transactions on Wireless Communications.</li>
