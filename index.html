@@ -354,18 +354,63 @@
       border-radius: 12px; padding: 2rem;
       backdrop-filter: blur(8px);
     }
-    .contact-row { display: flex; align-items: center; gap: 1rem; padding: 0.7rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
-    .contact-row:last-child { border-bottom: none; }
-    .contact-icon {
-      width: 36px; height: 36px; border-radius: 8px;
-      background: rgba(0,200,255,0.08); border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1rem; flex-shrink: 0;
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.85rem;
     }
-    .contact-label { font-size: 0.78rem; color: var(--muted); }
-    .contact-value { font-size: 0.92rem; color: var(--text); }
-    .contact-value a { color: var(--cyan); text-decoration: none; }
-    .contact-value a:hover { text-decoration: underline; }
+    .contact-tile {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      min-height: 132px;
+      padding: 1rem;
+      background: rgba(255,255,255,0.52);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    }
+    .contact-tile:hover {
+      transform: translateY(-2px);
+      border-color: rgba(2,132,199,0.45);
+      box-shadow: 0 10px 28px rgba(2,132,199,0.10);
+    }
+    .contact-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 9px;
+      background: rgba(0,200,255,0.08);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--cyan);
+      flex-shrink: 0;
+    }
+    .contact-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.9;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .contact-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--cyan);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .contact-value {
+      font-size: 0.84rem;
+      color: var(--muted);
+      line-height: 1.45;
+      word-break: break-word;
+    }
 
     /* ── FOOTER ── */
     footer {
@@ -452,6 +497,7 @@
       .nav-links a { display: none; }
       .about-grid { grid-template-columns: 1fr; }
       .project-item { flex-direction: column; }
+      .contact-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -933,54 +979,55 @@
     <h2><span lang-en>Get in <span class="hl">Touch</span></span><span lang-ja><span class="hl">連絡先</span></span></h2>
     <div style="display:flex; align-items:flex-start; gap:1.5rem;">
     <div class="contact-card" style="flex:1;">
-      <div class="contact-row">
-        <div class="contact-icon">✉</div>
-        <div>
-          <div class="contact-label">Email</div>
-          <div class="contact-value"><a href="mailto:lu.shan.f7@f.mail.nagoya-u.ac.jp">lu.shan.f7[at]f.mail.nagoya-u.ac.jp</a></div>
-        </div>
-      </div>
-      <div class="contact-row">
-        <div class="contact-icon">🏛</div>
-        <div>
-          <div class="contact-label"><span lang-en>Affiliation</span><span lang-ja>所属</span></div>
-          <div class="contact-value">
-            <span lang-en>Graduate School of Engineering, Nagoya University, Nagoya, Japan</span>
-            <span lang-ja>名古屋大学 大学院工学研究科，名古屋市，日本</span>
+      <div class="contact-grid">
+        <a class="contact-tile" href="mailto:lu.shan.f7@f.mail.nagoya-u.ac.jp">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
           </div>
-        </div>
-      </div>
-      <div class="contact-row">
-        <div class="contact-icon">🔬</div>
-        <div>
-          <div class="contact-label"><span lang-en>Lab Website</span><span lang-ja>研究室ウェブサイト</span></div>
-          <div class="contact-value"><a href="https://www.yamazato.nuee.nagoya-u.ac.jp/" target="_blank">yamazato.nuee.nagoya-u.ac.jp</a></div>
-        </div>
-      </div>
-      <div class="contact-row">
-        <div class="contact-icon">🏫</div>
-        <div>
-          <div class="contact-label"><span lang-en>Department</span><span lang-ja>学科</span></div>
-          <div class="contact-value"><a href="https://www.nuee.nagoya-u.ac.jp/" target="_blank">nuee.nagoya-u.ac.jp</a></div>
-        </div>
-      </div>
-      <div class="contact-row">
-        <div class="contact-icon">🔗</div>
-        <div>
-          <div class="contact-label">researchmap</div>
-          <div class="contact-value"><a href="https://researchmap.jp/shanlu" target="_blank">researchmap.jp/shanlu</a></div>
-        </div>
-      </div>
-      <div class="contact-row">
-        <div class="contact-icon">🎓</div>
-        <div>
-          <div class="contact-label">Google Scholar</div>
-          <div class="contact-value"><a href="https://scholar.google.com/citations?user=BWQxy10AAAAJ" target="_blank">Google Scholar Profile</a></div>
-        </div>
-        <div>
-          <div class="contact-label">GitHub</div>
-          <div class="contact-value"><a href="https://github.com/LusLabGF" target="_blank">github.com/LusLabGF</a></div>
-        </div>
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-value">lu.shan.f7[at]f.mail.nagoya-u.ac.jp</div>
+          </div>
+        </a>
+        <a class="contact-tile" href="https://www.nagoya-u.ac.jp/" target="_blank">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V9l7-4 7 4v12"/><path d="M9 21v-6h6v6"/></svg>
+          </div>
+          <div>
+            <div class="contact-label"><span lang-en>Affiliation</span><span lang-ja>所属</span></div>
+            <div class="contact-value">
+              <span lang-en>Nagoya University, Graduate School of Engineering</span>
+              <span lang-ja>名古屋大学 大学院工学研究科</span>
+            </div>
+          </div>
+        </a>
+        <a class="contact-tile" href="https://www.yamazato.nuee.nagoya-u.ac.jp/" target="_blank">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M10 3h4"/><path d="M12 3v6"/><path d="M8 21h8"/><path d="M9 9h6l3 9H6z"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Lab</div>
+            <div class="contact-value">Yamazato Laboratory</div>
+          </div>
+        </a>
+        <a class="contact-tile" href="https://scholar.google.com/citations?user=BWQxy10AAAAJ" target="_blank">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 3 3 8l9 5 9-5z"/><path d="M6 10v5c2 3 10 3 12 0v-5"/><path d="M21 8v7"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Scholar</div>
+            <div class="contact-value">Google Scholar Profile</div>
+          </div>
+        </a>
+        <a class="contact-tile" href="https://github.com/LusLabGF" target="_blank">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M9 19c-4 1.5-4-2-6-2.5"/><path d="M15 22v-3.5c0-1 .1-1.4-.5-2 2-.2 4.5-1 4.5-5A4 4 0 0 0 18 8.7c.1-.8.1-1.7-.2-2.7 0 0-1 0-2.8 1.3A9.7 9.7 0 0 0 12 7a9.7 9.7 0 0 0-3 .3C7.2 6 6.2 6 6.2 6c-.3 1-.3 1.9-.2 2.7A4 4 0 0 0 5 11.5c0 4 2.5 4.8 4.5 5-.6.6-.6 1.2-.5 2V22"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">GitHub</div>
+            <div class="contact-value">github.com/LusLabGF</div>
+          </div>
+        </a>
       </div>
     </div>
     <div style="flex-shrink:0; display:flex; flex-direction:column; align-items:center; pointer-events:none; cursor:default; margin-top:0.5rem;">
