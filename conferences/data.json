@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-28",
+  "updated": "2026-05-14",
   "conferences": [
     {
       "name": "ICETC2026",
@@ -12,78 +12,6 @@
       "end": "2026-11-25",
       "location": "Taipei, Taiwan",
       "url": "https://www.ieice.org/cs_r/jpn/events/conferences/calendar.html"
-    },
-    {
-      "name": "ISIT 2027",
-      "full_name": "IEEE International Symposium on Information Theory",
-      "organizer": "IEEE",
-      "category": "Information Theory",
-      "deadline": null,
-      "notification": null,
-      "start": null,
-      "end": null,
-      "location": "Sorrento, Italy",
-      "url": "https://www.itsoc.org/news-events/upcoming-events"
-    },
-    {
-      "name": "ITW 2026",
-      "full_name": "IEEE Information Theory Workshop",
-      "organizer": "IEEE",
-      "category": "Information Theory",
-      "deadline": null,
-      "notification": null,
-      "start": "2026-11-10",
-      "end": "2026-11-13",
-      "location": "Tempe, Arizona, USA",
-      "url": "https://www.itsoc.org/news-events/upcoming-events"
-    },
-    {
-      "name": "ITW 2027",
-      "full_name": "IEEE Information Theory Workshop",
-      "organizer": "IEEE",
-      "category": "Information Theory",
-      "deadline": null,
-      "notification": null,
-      "start": "2027-04-05",
-      "end": "2027-04-08",
-      "location": "Munich, Germany",
-      "url": "https://www.itsoc.org/news-events/upcoming-events"
-    },
-    {
-      "name": "VTC2026-Spring",
-      "full_name": "2026 IEEE 103rd Vehicular Technology Conference",
-      "organizer": "IEEE",
-      "category": "Communications",
-      "deadline": null,
-      "notification": null,
-      "start": "2026-06-09",
-      "end": "2026-06-12",
-      "location": "Nice, France",
-      "url": "https://vtsociety.org/event/conference/2026-ieee-103rd-vehicular-technology-conference"
-    },
-    {
-      "name": "VTC2026-Fall",
-      "full_name": "2026 IEEE 104th Vehicular Technology Conference",
-      "organizer": "IEEE",
-      "category": "Communications",
-      "deadline": null,
-      "notification": null,
-      "start": "2026-09-06",
-      "end": "2026-09-09",
-      "location": "Boston, MA, USA",
-      "url": "https://vtsociety.org/event/conference/2026-ieee-104th-vehicular-technology-conference"
-    },
-    {
-      "name": "VTC2027-Spring",
-      "full_name": "VTC2027-Spring",
-      "organizer": "IEEE",
-      "category": "Communications",
-      "deadline": null,
-      "notification": null,
-      "start": "2027-06-20",
-      "end": "2027-06-23",
-      "location": "Hamburg, Germany",
-      "url": "https://vtsociety.org/event/conference/vtc2027-spring"
     },
     {
       "name": "GLOBECOM 2026",
