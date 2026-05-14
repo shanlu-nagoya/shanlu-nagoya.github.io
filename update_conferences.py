@@ -19,6 +19,16 @@ OUTPUT_FILE = "conferences/data.json"
 #         start (YYYY-MM-DD or null), end (YYYY-MM-DD or null),
 #         location, url
 CONFERENCES = [
+    # ── 2024 ─────────────────────────────────────────────────────────────────
+    {
+        "name": "ISITA 2024",
+        "full_name": "International Symposium on Information Theory and Its Applications",
+        "organizer": "IEICE", "category": "Information Theory",
+        "deadline": "2024-06-30", "notification": None,
+        "start": "2024-11-10", "end": "2024-11-13",
+        "location": "Taipei, Taiwan",
+        "url": "https://isita.ieice.org/2024/",
+    },
     # ── 2025 ─────────────────────────────────────────────────────────────────
     {
         "name": "WCNC 2025",
@@ -64,6 +74,24 @@ CONFERENCES = [
         "start": "2025-06-22", "end": "2025-06-27",
         "location": "Ann Arbor, MI, USA",
         "url": "https://2025.ieee-isit.org/",
+    },
+    {
+        "name": "IEEE IV 2025",
+        "full_name": "IEEE Intelligent Vehicles Symposium",
+        "organizer": "IEEE", "category": "ITS",
+        "deadline": "2024-11-15", "notification": None,
+        "start": "2025-06-22", "end": "2025-06-25",
+        "location": "Cluj-Napoca, Romania",
+        "url": "https://ieee-iv.org/2025/",
+    },
+    {
+        "name": "OECC/PSC 2025",
+        "full_name": "OptoElectronics and Communications Conference / Photonics in Switching and Computing",
+        "organizer": "IEICE", "category": "Optical Communications",
+        "deadline": "2025-02-14", "notification": None,
+        "start": "2025-06-29", "end": "2025-07-03",
+        "location": "Sapporo, Japan",
+        "url": "https://www.oeccpsc2025.org/",
     },
     {
         "name": "ICCC 2025",
@@ -139,6 +167,24 @@ CONFERENCES = [
         "url": "https://events.vtsociety.org/vtc2026-spring/",
     },
     {
+        "name": "IEEE IV 2026",
+        "full_name": "IEEE Intelligent Vehicles Symposium",
+        "organizer": "IEEE", "category": "ITS",
+        "deadline": "2025-11-15", "notification": None,
+        "start": "2026-06-22", "end": "2026-06-25",
+        "location": "Detroit, MI, USA",
+        "url": "https://ieee-iv.org/2026/",
+    },
+    {
+        "name": "OECC 2026",
+        "full_name": "OptoElectronics and Communications Conference",
+        "organizer": "IEICE", "category": "Optical Communications",
+        "deadline": "2026-02-27", "notification": None,
+        "start": "2026-06-28", "end": "2026-07-02",
+        "location": "Busan, South Korea",
+        "url": "https://oecc2026.org/",
+    },
+    {
         "name": "INFOCOM 2026",
         "full_name": "IEEE International Conference on Computer Communications",
         "organizer": "IEEE", "category": "Communications",
@@ -164,6 +210,24 @@ CONFERENCES = [
         "start": "2026-09-06", "end": "2026-09-09",
         "location": "Boston, MA, USA",
         "url": "https://events.vtsociety.org/vtc2026-fall/",
+    },
+    {
+        "name": "ISITA 2026",
+        "full_name": "International Symposium on Information Theory and Its Applications",
+        "organizer": "IEICE", "category": "Information Theory",
+        "deadline": "2026-04-30", "notification": None,
+        "start": "2026-11-01", "end": "2026-11-04",
+        "location": "Okinawa, Japan",
+        "url": "https://isita.ieice.org/2026/",
+    },
+    {
+        "name": "ACP 2026",
+        "full_name": "Asia Communications and Photonics Conference",
+        "organizer": "IEICE/IEEE", "category": "Optical Communications",
+        "deadline": None, "notification": None,
+        "start": "2026-11-01", "end": "2026-11-04",
+        "location": "Hangzhou, China",
+        "url": "https://www.acpconf.com/",
     },
     {
         "name": "ITW 2026",
