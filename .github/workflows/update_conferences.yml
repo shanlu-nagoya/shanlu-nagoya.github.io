@@ -5,6 +5,9 @@ on:
     - cron: '0 9 * * 1'   # Every Monday 9:00 AM UTC
   workflow_dispatch:        # Allow manual trigger from GitHub UI
 
+permissions:
+  contents: write
+
 jobs:
   update-conferences:
     runs-on: ubuntu-latest
