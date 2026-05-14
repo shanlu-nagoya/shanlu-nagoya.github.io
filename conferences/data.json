@@ -14,6 +14,18 @@
       "url": "https://www.ieice.org/cs_r/jpn/events/conferences/calendar.html"
     },
     {
+      "name": "VTC2027-Spring",
+      "full_name": "VTC2027-Spring",
+      "organizer": "IEEE",
+      "category": "Communications",
+      "deadline": null,
+      "notification": null,
+      "start": "2027-06-20",
+      "end": "2027-06-23",
+      "location": "Hamburg, Germany",
+      "url": "https://vtsociety.org/event/conference/vtc2027-spring"
+    },
+    {
       "name": "GLOBECOM 2026",
       "full_name": "IEEE Global Communications Conference",
       "organizer": "IEEE",
@@ -24,6 +36,30 @@
       "end": "2026-12-11",
       "location": "Macao, China",
       "url": "https://globecom2026.ieee-globecom.org/"
+    },
+    {
+      "name": "ITW 2026",
+      "full_name": "IEEE Information Theory Workshop",
+      "organizer": "IEEE",
+      "category": "Information Theory",
+      "deadline": "2026-05-03",
+      "notification": null,
+      "start": "2026-11-10",
+      "end": "2026-11-13",
+      "location": "Tempe, AZ, USA",
+      "url": "https://2026.ieee-itw.org/"
+    },
+    {
+      "name": "VTC2026-Fall",
+      "full_name": "IEEE 104th Vehicular Technology Conference",
+      "organizer": "IEEE",
+      "category": "Communications",
+      "deadline": "2026-03-21",
+      "notification": null,
+      "start": "2026-09-06",
+      "end": "2026-09-09",
+      "location": "Boston, MA, USA",
+      "url": "https://events.vtsociety.org/vtc2026-fall/"
     },
     {
       "name": "All Photonic Network",
@@ -48,6 +84,18 @@
       "end": "2026-07-03",
       "location": "Guangzhou, China",
       "url": "https://2026.ieee-isit.org/"
+    },
+    {
+      "name": "VTC2026-Spring",
+      "full_name": "IEEE 103rd Vehicular Technology Conference",
+      "organizer": "IEEE",
+      "category": "Communications",
+      "deadline": "2026-01-04",
+      "notification": null,
+      "start": "2026-06-09",
+      "end": "2026-06-12",
+      "location": "Nice, France",
+      "url": "https://events.vtsociety.org/vtc2026-spring/"
     },
     {
       "name": "ICC 2026",
@@ -86,6 +134,18 @@
       "url": "https://infocom2026.ieee-infocom.org/"
     },
     {
+      "name": "ITW 2025",
+      "full_name": "IEEE Information Theory Workshop",
+      "organizer": "IEEE",
+      "category": "Information Theory",
+      "deadline": "2025-04-21",
+      "notification": null,
+      "start": "2025-09-29",
+      "end": "2025-10-03",
+      "location": "Sydney, Australia",
+      "url": "https://www.ieee-itw2025.org/"
+    },
+    {
       "name": "GLOBECOM 2025",
       "full_name": "IEEE Global Communications Conference",
       "organizer": "IEEE",
@@ -96,6 +156,42 @@
       "end": "2025-12-12",
       "location": "Taipei, Taiwan",
       "url": "https://globecom2025.ieee-globecom.org/"
+    },
+    {
+      "name": "VTC2025-Fall",
+      "full_name": "IEEE 102nd Vehicular Technology Conference",
+      "organizer": "IEEE",
+      "category": "Communications",
+      "deadline": "2025-03-05",
+      "notification": null,
+      "start": "2025-10-19",
+      "end": "2025-10-22",
+      "location": "Chengdu, China",
+      "url": "https://events.vtsociety.org/vtc2025-fall/"
+    },
+    {
+      "name": "ISIT 2025",
+      "full_name": "IEEE International Symposium on Information Theory",
+      "organizer": "IEEE",
+      "category": "Information Theory",
+      "deadline": "2025-01-15",
+      "notification": null,
+      "start": "2025-06-22",
+      "end": "2025-06-27",
+      "location": "Ann Arbor, MI, USA",
+      "url": "https://2025.ieee-isit.org/"
+    },
+    {
+      "name": "VTC2025-Spring",
+      "full_name": "IEEE 101st Vehicular Technology Conference",
+      "organizer": "IEEE",
+      "category": "Communications",
+      "deadline": "2024-11-07",
+      "notification": null,
+      "start": "2025-06-17",
+      "end": "2025-06-20",
+      "location": "Oslo, Norway",
+      "url": "https://events.vtsociety.org/vtc2025-spring/"
     },
     {
       "name": "ICC 2025",

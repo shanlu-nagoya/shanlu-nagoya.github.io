@@ -39,6 +39,76 @@ CCF_SOURCES = [
     ("CT", "isit",     "IEEE", "Information Theory"),
 ]
 
+# ── Manually maintained fallback list (sites that block scrapers) ─────────────
+MANUAL_CONFERENCES = [
+    # VTC — vtsociety.org frequently returns 403
+    {
+        "name": "VTC2025-Spring",
+        "full_name": "IEEE 101st Vehicular Technology Conference",
+        "organizer": "IEEE", "category": "Communications",
+        "deadline": "2024-11-07", "notification": None,
+        "start": "2025-06-17", "end": "2025-06-20",
+        "location": "Oslo, Norway",
+        "url": "https://events.vtsociety.org/vtc2025-spring/",
+    },
+    {
+        "name": "VTC2025-Fall",
+        "full_name": "IEEE 102nd Vehicular Technology Conference",
+        "organizer": "IEEE", "category": "Communications",
+        "deadline": "2025-03-05", "notification": None,
+        "start": "2025-10-19", "end": "2025-10-22",
+        "location": "Chengdu, China",
+        "url": "https://events.vtsociety.org/vtc2025-fall/",
+    },
+    {
+        "name": "VTC2026-Spring",
+        "full_name": "IEEE 103rd Vehicular Technology Conference",
+        "organizer": "IEEE", "category": "Communications",
+        "deadline": "2026-01-04", "notification": None,
+        "start": "2026-06-09", "end": "2026-06-12",
+        "location": "Nice, France",
+        "url": "https://events.vtsociety.org/vtc2026-spring/",
+    },
+    {
+        "name": "VTC2026-Fall",
+        "full_name": "IEEE 104th Vehicular Technology Conference",
+        "organizer": "IEEE", "category": "Communications",
+        "deadline": "2026-03-21", "notification": None,
+        "start": "2026-09-06", "end": "2026-09-09",
+        "location": "Boston, MA, USA",
+        "url": "https://events.vtsociety.org/vtc2026-fall/",
+    },
+    # ITW — itsoc.org frequently returns 403
+    {
+        "name": "ITW 2025",
+        "full_name": "IEEE Information Theory Workshop",
+        "organizer": "IEEE", "category": "Information Theory",
+        "deadline": "2025-04-21", "notification": None,
+        "start": "2025-09-29", "end": "2025-10-03",
+        "location": "Sydney, Australia",
+        "url": "https://www.ieee-itw2025.org/",
+    },
+    {
+        "name": "ITW 2026",
+        "full_name": "IEEE Information Theory Workshop",
+        "organizer": "IEEE", "category": "Information Theory",
+        "deadline": "2026-05-03", "notification": None,
+        "start": "2026-11-10", "end": "2026-11-13",
+        "location": "Tempe, AZ, USA",
+        "url": "https://2026.ieee-itw.org/",
+    },
+    # ISIT 2025 — missing from CCF yml
+    {
+        "name": "ISIT 2025",
+        "full_name": "IEEE International Symposium on Information Theory",
+        "organizer": "IEEE", "category": "Information Theory",
+        "deadline": "2025-01-15", "notification": None,
+        "start": "2025-06-22", "end": "2025-06-27",
+        "location": "Ann Arbor, MI, USA",
+        "url": "https://2025.ieee-isit.org/",
+    },
+]
+
 # ── Country name map for IEICE Japanese location strings ──────────────────────
 IEICE_COUNTRY = {
     "日本": "Japan", "台湾": "Taiwan", "中国": "China", "アメリカ": "USA",
@@ -519,6 +589,9 @@ def sort_conferences(confs: list[dict]) -> list[dict]:
 def main() -> None:
     # 1. ccf-deadlines (authoritative deadlines)
     all_data = load_ccf_conferences()
+
+    # 1b. manual fallback (VTC, ITW, ISIT 2025 — scrapers blocked by 403)
+    merge_into(all_data, MANUAL_CONFERENCES)
 
     # 2. IEICE CS calendar
     merge_into(all_data, scrape_ieice_calendar())
