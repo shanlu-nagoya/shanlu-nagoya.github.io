@@ -2,20 +2,44 @@
   "updated": "2026-05-14",
   "conferences": [
     {
-      "name": "ICETC2026",
-      "full_name": "The 7th IEICE-CS International Conference on Emerging Technologies for Communications(ICETC2026)",
-      "organizer": "IEICE",
+      "name": "ICCC 2026",
+      "full_name": "IEEE/CIC International Conference on Communications in China",
+      "organizer": "IEEE",
       "category": "Communications",
       "deadline": null,
       "notification": null,
-      "start": "2026-11-23",
-      "end": "2026-11-25",
-      "location": "Taipei, Taiwan",
-      "url": "https://www.ieice.org/cs_r/jpn/events/conferences/calendar.html"
+      "start": "2026-08-07",
+      "end": "2026-08-10",
+      "location": "Wuhan, China",
+      "url": "https://iccc2026.ieee-iccc.org/"
+    },
+    {
+      "name": "APCC 2026",
+      "full_name": "Asia-Pacific Conference on Communications",
+      "organizer": "IEICE/IEEE",
+      "category": "Communications",
+      "deadline": null,
+      "notification": null,
+      "start": "2026-11-10",
+      "end": "2026-11-12",
+      "location": "Xi'an, China",
+      "url": "https://apcc2026.org/"
+    },
+    {
+      "name": "ICC 2027",
+      "full_name": "IEEE International Conference on Communications",
+      "organizer": "IEEE",
+      "category": "Communications",
+      "deadline": null,
+      "notification": null,
+      "start": "2027-05-30",
+      "end": "2027-06-03",
+      "location": "Washington, DC, USA",
+      "url": "https://icc2027.ieee-icc.org/"
     },
     {
       "name": "VTC2027-Spring",
-      "full_name": "VTC2027-Spring",
+      "full_name": "IEEE 105th Vehicular Technology Conference",
       "organizer": "IEEE",
       "category": "Communications",
       "deadline": null,
@@ -23,19 +47,43 @@
       "start": "2027-06-20",
       "end": "2027-06-23",
       "location": "Hamburg, Germany",
-      "url": "https://vtsociety.org/event/conference/vtc2027-spring"
+      "url": "https://events.vtsociety.org/vtc2027-spring/"
     },
     {
-      "name": "GLOBECOM 2026",
+      "name": "ISIT 2027",
+      "full_name": "IEEE International Symposium on Information Theory",
+      "organizer": "IEEE",
+      "category": "Information Theory",
+      "deadline": null,
+      "notification": null,
+      "start": "2027-06-27",
+      "end": "2027-07-02",
+      "location": "Sorrento, Italy",
+      "url": "https://2027.ieee-isit.org/"
+    },
+    {
+      "name": "VTC2027-Fall",
+      "full_name": "IEEE 106th Vehicular Technology Conference",
+      "organizer": "IEEE",
+      "category": "Communications",
+      "deadline": null,
+      "notification": null,
+      "start": null,
+      "end": null,
+      "location": "Osaka, Japan",
+      "url": "https://events.vtsociety.org/vtc2027-fall/"
+    },
+    {
+      "name": "GLOBECOM 2027",
       "full_name": "IEEE Global Communications Conference",
       "organizer": "IEEE",
       "category": "Communications",
-      "deadline": "2026-05-03",
+      "deadline": null,
       "notification": null,
-      "start": "2026-12-07",
-      "end": "2026-12-11",
-      "location": "Macao, China",
-      "url": "https://globecom2026.ieee-globecom.org/"
+      "start": "2027-12-06",
+      "end": "2027-12-10",
+      "location": "Abu Dhabi, UAE",
+      "url": "https://globecom2027.ieee-globecom.org/"
     },
     {
       "name": "ITW 2026",
@@ -50,6 +98,18 @@
       "url": "https://2026.ieee-itw.org/"
     },
     {
+      "name": "GLOBECOM 2026",
+      "full_name": "IEEE Global Communications Conference",
+      "organizer": "IEEE",
+      "category": "Communications",
+      "deadline": "2026-05-03",
+      "notification": null,
+      "start": "2026-12-07",
+      "end": "2026-12-11",
+      "location": "Macau, China",
+      "url": "https://globecom2026.ieee-globecom.org/"
+    },
+    {
       "name": "VTC2026-Fall",
       "full_name": "IEEE 104th Vehicular Technology Conference",
       "organizer": "IEEE",
@@ -60,18 +120,6 @@
       "end": "2026-09-09",
       "location": "Boston, MA, USA",
       "url": "https://events.vtsociety.org/vtc2026-fall/"
-    },
-    {
-      "name": "All Photonic Network",
-      "full_name": "All Photonic Network Workshop (APN Workshop)(XG/AI Network Symposium)",
-      "organizer": "IEICE",
-      "category": "Communications",
-      "deadline": "2026-03-06",
-      "notification": null,
-      "start": "2026-05-14",
-      "end": "2026-05-15",
-      "location": "Taipei, Taiwan",
-      "url": "https://www.ieice.org/cs_r/jpn/events/conferences/calendar.html"
     },
     {
       "name": "ISIT 2026",
@@ -107,11 +155,11 @@
       "start": "2026-05-24",
       "end": "2026-05-28",
       "location": "Glasgow, Scotland, UK",
-      "url": "https://icc2026.ieee-icc.org"
+      "url": "https://icc2026.ieee-icc.org/"
     },
     {
       "name": "WCNC 2026",
-      "full_name": "Wireless Communications and Networking Conference",
+      "full_name": "IEEE Wireless Communications and Networking Conference",
       "organizer": "IEEE",
       "category": "Communications",
       "deadline": "2025-09-14",
@@ -119,7 +167,7 @@
       "start": "2026-04-13",
       "end": "2026-04-16",
       "location": "Kuala Lumpur, Malaysia",
-      "url": "https://wcnc2026.ieee-wcnc.org/group/21"
+      "url": "https://wcnc2026.ieee-wcnc.org/"
     },
     {
       "name": "INFOCOM 2026",
@@ -130,7 +178,7 @@
       "notification": null,
       "start": null,
       "end": null,
-      "location": "Tokyo, Japan",
+      "location": "TBD",
       "url": "https://infocom2026.ieee-infocom.org/"
     },
     {
@@ -156,6 +204,18 @@
       "end": "2025-12-12",
       "location": "Taipei, Taiwan",
       "url": "https://globecom2025.ieee-globecom.org/"
+    },
+    {
+      "name": "ICCC 2025",
+      "full_name": "IEEE/CIC International Conference on Communications in China",
+      "organizer": "IEEE",
+      "category": "Communications",
+      "deadline": "2025-04-01",
+      "notification": null,
+      "start": "2025-08-10",
+      "end": "2025-08-13",
+      "location": "Shanghai, China",
+      "url": "https://iccc2025.ieee-iccc.org/"
     },
     {
       "name": "VTC2025-Fall",
@@ -202,12 +262,12 @@
       "notification": null,
       "start": "2025-06-08",
       "end": "2025-06-12",
-      "location": "Palais des congrès de Montréal in Montreal, Quebec, Canada",
-      "url": "https://icc2025.ieee-icc.org"
+      "location": "Montreal, Canada",
+      "url": "https://icc2025.ieee-icc.org/"
     },
     {
       "name": "WCNC 2025",
-      "full_name": "Wireless Communications and Networking Conference",
+      "full_name": "IEEE Wireless Communications and Networking Conference",
       "organizer": "IEEE",
       "category": "Communications",
       "deadline": "2024-09-02",
@@ -226,7 +286,7 @@
       "notification": null,
       "start": "2025-05-19",
       "end": "2025-05-22",
-      "location": "London, United Kindom",
+      "location": "London, UK",
       "url": "https://infocom2025.ieee-infocom.org/"
     }
   ]
