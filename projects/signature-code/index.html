@@ -4,6 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Signature Code Theory | Shan Lu</title>
+  <meta name="description" content="Signature codes and uniquely decodable codes for the multiple-access adder channel, and their extension to unsourced random access. Shan Lu, Nagoya University." />
+  <link rel="canonical" href="https://shanlu-nagoya.github.io/projects/signature-code/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Signature Code Theory | Shan Lu" />
+  <meta property="og:description" content="Signature codes and uniquely decodable codes for the multiple-access adder channel, and their extension to unsourced random access. Shan Lu, Nagoya University." />
+  <meta property="og:url" content="https://shanlu-nagoya.github.io/projects/signature-code/" />
+  <meta property="og:image" content="https://shanlu-nagoya.github.io/photo.jpg" />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
     :root {
@@ -91,7 +98,15 @@
       border-radius: 10px;
       padding: 1.5rem;
       color: var(--muted);
+      margin-bottom: 1rem;
     }
+    .card h3 { color: var(--text); font-size: 1rem; margin-bottom: 0.4rem; }
+    h2 { font-size: 1.4rem; margin: 2.4rem 0 1rem; }
+    .pubs { max-width: 820px; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.9rem; }
+    .pubs strong { color: var(--cyan); }
+    .pubs em { color: var(--muted); }
+    .pubs a, .back a { color: var(--text); text-decoration-color: var(--cyan); text-underline-offset: 3px; }
+    .back { margin-top: 2rem; font-size: 0.88rem; }
     @media (max-width: 720px) {
       nav { padding: 0 1rem; }
       .nav-right { gap: 0.9rem; }
@@ -112,8 +127,35 @@
     <div class="breadcrumb"><a href="../../index.html">shanlu.research</a> › Projects › Signature Code</div>
     <div class="badge">MULTIPLE-ACCESS · CODING THEORY</div>
     <h1>Signature Code Theory for <span class="hl">Multiple-Access Communication</span></h1>
-    <p class="lead">A project page for signature codes, uniquely decodable codes, and code design for multi-user communication systems.</p>
-    <div class="card">This page is a placeholder. Detailed content will be added after the project description, publications, and figures are prepared.</div>
+    <p class="lead">When many users transmit at once over a shared channel, how can the receiver tell who sent what — without coordination, and with as little redundancy as possible? This project studies that question through code design for the multiple-access adder channel and its modern successor, unsourced random access.</p>
+
+    <h2>Research threads</h2>
+    <div class="card">
+      <h3>1. Uniquely decodable and signature codes for the adder channel</h3>
+      <p>In the T-user multiple-access adder channel, the receiver observes the sum of all users' codewords. A signature code assigns each user a codeword set so that every sum is uniquely decodable. We developed recursive and generalized constructions of multiary (k-ary) signature codes, including error-correcting families for the noisy adder channel and constructions with arbitrary code length.</p>
+    </div>
+    <div class="card">
+      <h3>2. Learning-aided signature codes for fading channels</h3>
+      <p>Classical constructions assume a noiseless or Gaussian sum. For Rayleigh-fading multiple-access channels, we combine signature codes with deep-learning decoders (DNN, BNN, and TISTA-based) to jointly identify active users and estimate their channels, and design the codes end to end.</p>
+    </div>
+    <div class="card">
+      <h3>3. Unsourced random access</h3>
+      <p>In massive machine-type communication, all users share one codebook and the receiver only needs the list of transmitted messages. We improve coded compressed sensing schemes by raising the survival probability of messages through tree decoding and by increasing the maximum number of tolerable active users.</p>
+    </div>
+
+    <h2>Key publications</h2>
+    <ul class="pubs">
+      <li><strong>S. Lu</strong>, W. Hou, and J. Cheng, "<a href="https://ieeexplore.ieee.org/document/7270311/" target="_blank">A family of (k+1)-ary signature code for noisy multiple-access adder channel</a>," <em>IEEE Trans. Inf. Theory</em>, vol. 61, no. 11, pp. 5848–5853, 2015.</li>
+      <li><strong>S. Lu</strong>, J. Cheng, and Y. Watanabe, "<a href="https://www.jstage.jst.go.jp/article/transfun/E96.A/12/E96.A_2368/_article" target="_blank">Recursive construction of (k+1)-ary error-correcting signature code for multiple-access adder channel</a>," <em>IEICE Trans. Fundamentals</em>, vol. E96-A, no. 12, pp. 2368–2373, 2013.</li>
+      <li><strong>S. Lu</strong>, J. Cheng, W. Hou, and Y. Watanabe, "<a href="https://ieeexplore.ieee.org/document/6620508/" target="_blank">Generalized construction of signature code for T-user multiple-access adder channel</a>," in <em>Proc. IEEE ISIT</em>, 2013.</li>
+      <li><strong>S. Lu</strong>, W. Hou, J. Cheng, and H. Kamabe, "<a href="https://ieeexplore.ieee.org/document/8613495/" target="_blank">A new kind of nonbinary uniquely decodable codes with arbitrary code length for multiple-access adder channel</a>," in <em>Proc. IEEE ITW</em>, 2018.</li>
+      <li><strong>S. Lu</strong>, W. Hou, J. Cheng, and H. Kamabe, "<a href="https://ieeexplore.ieee.org/document/8849304/" target="_blank">Multi-user UD k-ary codes recursively constructed from short-length multiary codes for multiple-access adder channel</a>," in <em>Proc. IEEE ISIT</em>, 2019. [<a href="https://arxiv.org/abs/1901.06757" target="_blank">arXiv</a>]</li>
+      <li>L. Wei, <strong>S. Lu</strong>, and H. Kamabe, "End-to-end machine-learning-aided signature code for multi-access Rayleigh fading channel," <em>IEICE Trans. Fundamentals</em>, vol. E109-A, no. 3, 2026.</li>
+      <li>L. Wei, <strong>S. Lu</strong>, and H. Kamabe, "<a href="https://ieeexplore.ieee.org/document/10161674/" target="_blank">BNNs- and TISTA-based signature code design for user identification and channel estimation over multiple-access channel with Rayleigh fading</a>," in <em>Proc. IEEE ITW</em>, 2023.</li>
+      <li><strong>S. Lu</strong> and H. Kamabe, "<a href="https://ieeexplore.ieee.org/document/10683908/" target="_blank">Improved survival probability for coded compressed sensing in unsourced random access</a>," in <em>Proc. ISITA</em>, 2022. <strong>Young Researcher Best Paper Award.</strong></li>
+      <li><strong>S. Lu</strong> and H. Kamabe, "Enhancing the maximum tolerable number of active users for unsourced random access," in <em>Proc. IEEE ISIT</em>, 2024.</li>
+    </ul>
+    <p class="back"><a href="../../index.html#publications">← Full publication list</a></p>
   </main>
 </body>
 </html>

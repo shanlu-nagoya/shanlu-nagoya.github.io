@@ -12,19 +12,47 @@
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shan Lu | 路 姍</title>
-  <meta name="description" content="Shan Lu (路姍), Researcher at Nagoya University. Research interests: information theory, channel coding, signature codes, visible light communication (VLC), V2X communications." />
-  <meta name="keywords" content="Shan Lu, 路姍, Nagoya University, information theory, channel coding, signature codes, VLC, visible light communication, V2X" />
+  <meta name="description" content="Shan Lu (路姍), Lecturer at Nagoya University. Research: information theory and channel coding for optical wireless and 6G — image sensor / event-camera communication, visible light communication (VLC), V2X, and multiple access." />
+  <meta name="keywords" content="Shan Lu, 路姍, 路 姍, Lu Shan, Nagoya University, 名古屋大学, information theory, channel coding, signature codes, unsourced random access, VLC, visible light communication, image sensor communication, optical camera communication, event camera, V2X, 6G" />
   <meta name="author" content="Shan Lu" />
   <link rel="canonical" href="https://shanlu-nagoya.github.io/" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Shan Lu | 路 姍" />
-  <meta property="og:description" content="Researcher at Nagoya University. Information theory, channel coding, visible light communication (VLC), V2X." />
+  <meta property="og:description" content="Lecturer at Nagoya University. Information theory and coding for image sensor / visible light communication, V2X, and 6G." />
   <meta property="og:url" content="https://shanlu-nagoya.github.io/" />
   <meta property="og:image" content="https://shanlu-nagoya.github.io/photo.jpg" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Shan Lu | 路 姍" />
-  <meta name="twitter:description" content="Researcher at Nagoya University. Information theory, channel coding, visible light communication (VLC), V2X." />
+  <meta name="twitter:description" content="Lecturer at Nagoya University. Information theory and coding for image sensor / visible light communication, V2X, and 6G." />
   <meta name="twitter:image" content="https://shanlu-nagoya.github.io/photo.jpg" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Shan Lu",
+    "alternateName": ["路姍", "路 姍", "Lu Shan"],
+    "jobTitle": "Lecturer",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "Nagoya University",
+      "department": { "@type": "Organization", "name": "Graduate School of Engineering, Information and Communication Engineering" }
+    },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "Doshisha University" },
+      { "@type": "CollegeOrUniversity", "name": "Xidian University" }
+    ],
+    "url": "https://shanlu-nagoya.github.io/",
+    "image": "https://shanlu-nagoya.github.io/photo.jpg",
+    "knowsAbout": ["Information Theory", "Channel Coding", "Signature Codes", "Unsourced Random Access", "Visible Light Communication", "Image Sensor Communication", "Event Cameras", "V2X Communication", "6G"],
+    "sameAs": [
+      "https://scholar.google.com/citations?user=BWQxy10AAAAJ",
+      "https://orcid.org/0000-0002-9837-5606",
+      "https://researchmap.jp/shanlu",
+      "https://arxiv.org/a/lu_s_4.html",
+      "https://github.com/LusLabGF"
+    ]
+  }
+  </script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
 
@@ -294,6 +322,27 @@
       vertical-align: middle; font-weight: 600;
     }
     .badge-award { background: rgba(255,193,7,0.15); color: #b45309; border: 1px solid rgba(255,193,7,0.4); }
+    .pub-en { display: block; font-size: 0.82rem; color: var(--muted); }
+    .pub-links { display: inline-flex; flex-wrap: wrap; gap: 0.35rem; margin-left: 0.4rem; vertical-align: middle; }
+    .pub-links a, .ref-list li .pub-links a {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;
+      padding: 1px 7px; border: 1px solid var(--border); border-radius: 4px;
+      color: var(--muted); text-decoration: none; line-height: 1.6;
+    }
+    .pub-links a:hover, .ref-list li .pub-links a:hover { border-color: var(--cyan); color: var(--cyan); }
+
+    /* ── REPRESENTATIVE WORKS ── */
+    .rep-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; margin-bottom: 2.4rem; }
+    .rep-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+      padding: 1rem 1.2rem; display: flex; flex-direction: column; gap: 0.45rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .rep-card:hover { border-color: rgba(2,132,199,0.4); box-shadow: var(--glow); }
+    .rep-venue { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--cyan); letter-spacing: 0.05em; }
+    .rep-title { font-weight: 600; font-size: 0.9rem; line-height: 1.45; color: var(--text); }
+    .rep-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.6; flex: 1; }
+    .rep-card .pub-links { margin-left: 0; }
 
     /* ── PROJECTS ── */
     .project-grid { display: flex; flex-direction: column; gap: 0.8rem; }
@@ -513,7 +562,7 @@
     <a href="#publications"><span lang-en>Publications</span><span lang-ja>業績</span></a>
     <a href="#projects"><span lang-en>Grants</span><span lang-ja>科研費</span></a>
     <a href="#teaching"><span lang-en>Teaching</span><span lang-ja>教育</span></a>
-    <a href="#group"><span lang-en>Group</span><span lang-ja>研究室</span></a>
+    <a href="#group"><span lang-en>Join Us</span><span lang-ja>募集</span></a>
     <a href="#contact"><span lang-en>Contact</span><span lang-ja>連絡先</span></a>
     <a href="/conferences/" style="color:var(--cyan);font-weight:600;"><span lang-en>Conference Tracker</span><span lang-ja>会議トラッカー</span></a>
     <button class="lang-btn" onclick="toggleLang()">JA / EN</button>
@@ -527,8 +576,8 @@
   <div class="hero-content">
     <img src="photo.jpg" alt="Shan Lu" class="hero-photo" />
     <div class="hero-badge">
-      <span lang-en>Researcher · Nagoya University</span>
-      <span lang-ja>研究者 · 名古屋大学</span>
+      <span lang-en>Information Theory · Optical Wireless · 6G</span>
+      <span lang-ja>情報理論 · 光無線通信 · 6G</span>
     </div>
     <h1>
       <span lang-en>Shan Lu</span>
@@ -558,6 +607,9 @@
       <a href="https://researchmap.jp/shanlu" target="_blank" class="btn btn-outline">researchmap</a>
       <a href="https://arxiv.org/a/lu_s_4.html" target="_blank" class="btn btn-outline">arXiv</a>
       <a href="https://github.com/LusLabGF" target="_blank" class="btn btn-outline">GitHub</a>
+      <!-- TODO: upload cv.pdf to the repo root, then uncomment:
+      <a href="cv.pdf" target="_blank" class="btn btn-outline">CV (PDF)</a>
+      -->
     </div>
   </div>
   <div class="scroll-hint">
@@ -583,7 +635,7 @@
       </li>
       <li class="news-item">
         <span class="news-date">2026.05</span>
-        <span class="news-text"><span class="news-tag tag-paper">Paper</span><span lang-en>Our paper on ISI modeling and BER performance analysis for rotating light-trail image sensor communication has been published in <em>IEEE Communications Letters</em>.</span><span lang-ja><em>IEEE Communications letter</em>に論文が掲載されました：ISI Modeling and BER Performance for Rotating Light-Trail Image Sensor Communication。本論文では、回転型可視光通信システムを対象として、通信路モデル化およびBER性能解析を行っています。</span></span>
+        <span class="news-text"><span class="news-tag tag-paper">Paper</span><span lang-en>Our paper on ISI modeling and BER performance analysis for rotating light-trail image sensor communication has been published in <em>IEEE Communications Letters</em>.</span><span lang-ja><em>IEEE Communications Letters</em>に論文が掲載されました：ISI Modeling and BER Performance for Rotating Light-Trail Image Sensor Communication。本論文では、回転型可視光通信システムを対象として、通信路モデル化およびBER性能解析を行っています。</span></span>
       </li>
       <li class="news-item">
         <span class="news-date">2026.04</span>
@@ -697,8 +749,8 @@
             <span lang-ja>多元接続通信のためのシグネチャ符号理論</span>
           </div>
           <div class="project-meta">
-            <span lang-en>Project page placeholder &nbsp;·&nbsp; Signature codes, uniquely decodable codes, and multi-user access</span>
-            <span lang-ja>プロジェクトページ準備中 &nbsp;·&nbsp; シグネチャ符号、一意復号可能符号、多元接続</span>
+            <span lang-en>Uniquely decodable codes, signature codes, and unsourced random access</span>
+            <span lang-ja>一意復号可能符号、シグネチャ符号、アンソースドランダムアクセス</span>
           </div>
         </div>
         <div class="project-funder">Signature Code</div>
@@ -720,31 +772,89 @@
   <!-- PUBLICATIONS -->
   <section id="publications" class="fade-in">
     <div class="section-label">// 03 &nbsp;<span lang-en>PUBLICATIONS</span><span lang-ja>研究業績</span></div>
-    <h2><span lang-en>Selected <span class="hl">Publications</span></span><span lang-ja>主要<span class="hl">論文・業績</span></span></h2>
-    <p class="desc" style="margin-bottom:1.6rem;">
-      <span lang-en>Recent selected works:</span>
-      <span lang-ja>最近の主要業績：</span>
-    </p>
+    <h2><span lang-en><span class="hl">Publications</span></span><span lang-ja><span class="hl">論文・業績</span></span></h2>
+
+    <!-- Representative Works -->
+    <div class="pub-category-label">
+      <span lang-en>Representative Works</span><span lang-ja>代表的な業績</span>
+    </div>
+    <div class="rep-grid">
+      <div class="rep-card">
+        <div class="rep-venue">IEEE Trans. Inf. Theory · 2015</div>
+        <div class="rep-title">A family of (k+1)-ary signature codes for noisy multiple-access adder channel</div>
+        <div class="rep-desc">
+          <span lang-en>Error-correcting multiary signature codes that let many users share one adder channel and still be uniquely identified under noise.</span>
+          <span lang-ja>雑音のある加算型多元接続通信路で多数ユーザを一意に識別できる誤り訂正多元シグネチャ符号の構成。</span>
+        </div>
+        <div class="pub-links"><a href="https://ieeexplore.ieee.org/document/7270311/" target="_blank">IEEE</a></div>
+      </div>
+      <div class="rep-card">
+        <div class="rep-venue">ISITA 2022 · 🏆 Best Paper</div>
+        <div class="rep-title">Improved survival probability for coded compressed sensing in unsourced random access</div>
+        <div class="rep-desc">
+          <span lang-en>Raises the probability that messages survive tree decoding in coded compressed sensing, the backbone scheme for massive unsourced random access. Extended at ISIT 2024.</span>
+          <span lang-ja>大規模アンソースドランダムアクセスの代表的方式である符号化圧縮センシングにおいて、メッセージの生存確率を改善。ISIT 2024 で拡張。</span>
+        </div>
+        <div class="pub-links"><a href="https://ieeexplore.ieee.org/document/10683908/" target="_blank">IEEE</a></div>
+      </div>
+      <div class="rep-card">
+        <div class="rep-venue">IEEE Commun. Letters · 2026</div>
+        <div class="rep-title">ISI modeling and BER performance for rotating light-trail image sensor communication</div>
+        <div class="rep-desc">
+          <span lang-en>A channel model and BER analysis for image sensor communication with a rotating LED transmitter, where light trails cause inter-symbol interference.</span>
+          <span lang-ja>回転LED送信機による光跡が符号間干渉を生むイメージセンサ通信の通信路モデルとBER解析。</span>
+        </div>
+        <div class="pub-links"><a href="https://doi.org/10.1109/LCOMM.2026.3691874" target="_blank">DOI</a><a href="https://arxiv.org/abs/2605.17272" target="_blank">arXiv</a></div>
+      </div>
+      <div class="rep-card">
+        <div class="rep-venue">IEEE IV · 2025</div>
+        <div class="rep-title">Vehicular visible light communication using multiple LEDs and event cameras</div>
+        <div class="rep-desc">
+          <span lang-en>Road experiments of event-camera-based vehicular VLC with multiple LED transmitters in real driving conditions.</span>
+          <span lang-ja>複数LED送信機とイベントカメラを用いた車両用可視光通信を実走行環境で評価。</span>
+        </div>
+        <div class="pub-links"><a href="https://ieeexplore.ieee.org/document/11097663/" target="_blank">IEEE</a><a href="https://arxiv.org/abs/2505.15412" target="_blank">arXiv</a></div>
+      </div>
+      <div class="rep-card">
+        <div class="rep-venue">IEEE Trans. Wireless Commun. · 2025</div>
+        <div class="rep-title">OTFS-SDMA for massive grant-free random access in LEO satellite IoT</div>
+        <div class="rep-desc">
+          <span lang-en>An OTFS-based space-division multiple-access scheme for grant-free access of massive IoT devices over LEO satellite links.</span>
+          <span lang-ja>LEO衛星IoTにおける大規模グラントフリーアクセスのためのOTFSベース空間分割多元接続方式。</span>
+        </div>
+        <div class="pub-links"><a href="https://doi.org/10.1109/TWC.2025.3556873" target="_blank">DOI</a></div>
+      </div>
+    </div>
+
+    <!-- Preprints -->
+    <div class="pub-category-label">
+      <span lang-en>Preprints</span><span lang-ja>プレプリント</span>
+    </div>
+    <ol class="ref-list" style="margin-bottom:2rem;">
+      <li>H. Yang, <strong>S. Lu</strong>, and T. Yamazato, "Semantic Extraction Framework for Goal-Oriented V2X Communication Supporting Safe Intersection Passage," <em>arXiv:2611.09118</em>, 2026. <span class="pub-links"><a href="https://arxiv.org/abs/2611.09118" target="_blank">arXiv</a></span></li>
+      <li>Q. Lu, <strong>S. Lu</strong>, and T. Yamazato, "Layered Construction of Message-Wise Unequal Error Protection Codes," <em>arXiv:2605.23390</em>, 2026. <span class="pub-links"><a href="https://arxiv.org/abs/2605.23390" target="_blank">arXiv</a></span></li>
+      <li>T. Shi, <strong>S. Lu</strong>, and T. Yamazato, "Channel Modeling and LED Spot Detection for Dense Image-Sensor Visible Light Communication," <em>arXiv:2605.17375</em>, 2026. <span class="pub-links"><a href="https://arxiv.org/abs/2605.17375" target="_blank">arXiv</a></span></li>
+    </ol>
 
     <!-- Journal Papers -->
     <div class="pub-category-label">
       <span lang-en>Journal Papers</span><span lang-ja>学術雑誌論文</span>
     </div>
     <ol class="ref-list">
-      <li>S. Asaoka, <strong>S. Lu</strong>, T. Yamazato, and Z. Tang, "<a href="https://doi.org/10.1109/LCOMM.2026.3691874" target="_blank">ISI Modeling and BER Performance for Rotating Light-Trail Image Sensor Communication</a>," <em>IEEE Communications Letters</em>, 2026.</li>
+      <li>S. Asaoka, <strong>S. Lu</strong>, T. Yamazato, and Z. Tang, "<a href="https://doi.org/10.1109/LCOMM.2026.3691874" target="_blank">ISI Modeling and BER Performance for Rotating Light-Trail Image Sensor Communication</a>," <em>IEEE Communications Letters</em>, 2026. <span class="pub-links"><a href="https://arxiv.org/abs/2605.17272" target="_blank">arXiv</a></span></li>
       <li>R. Kondo, T. Shimizu, S. Shiba, K. Nakano, R. Soga, A. Sawada, <strong>S. Lu</strong>, and T. Yamazato, "V2X Visible Light Communication Using an LED Bar and a Rolling Shutter Image Sensor: A Demodulation Method with Complementary Use of Raw and Processed Images for Long-Range and High-Speed Mobile Environments," <em>IEICE Commun. Express</em>, May 2026.</li>
-      <li>小林正尚, 清水司, 芝慎太朗, <strong>路姍</strong>, 山里敬也, "イベントベース視覚センサを用いた自動運転向け路車間距離推定の屋外実験," <em>電子情報通信学会論文誌 B</em>, vol. J109-B, no. 3, pp. 292–293, 2026.</li>
-      <li>曽我亮太, 清水司, 芝慎太朗, 小堀訓成, <strong>路姍</strong>, 山里敬也, "イベントカメラと複数光源を用いた車両用可視光通信システムの車載環境性能評価," <em>電子情報通信学会論文誌 B</em>, 2026.</li>
-      <li>山里敬也, 中野幸亮, <strong>路姍</strong>, "協調認識とITSスマートインフラによる地域ICTプラットフォームの構築：自動運転に向けたV2X・可視光通信連携の展望," <em>電子情報通信学会論文誌</em>, vol. J109-B, no. 2, pp. 98–106, Feb. 2026.</li>
-      <li>W. Lantian, <strong>S. Lu</strong>, and H. Kamabe, "End-to-End Machine-Learning-Aided Signature Code for Multi-Access Rayleigh Fading Channel," <em>IEICE Trans. Fundamentals</em>, vol. E109-A, no. 3, Mar. 2026.</li>
-      <li>S. Asaoka, <strong>S. Lu</strong>, T. Yamazato, and Z. Tang, "Theoretical modeling and interference prevention of light trails for LED-propeller based image sensor communication," <em>IEICE Commun. Express</em>, vol. X14-B, no. 12, Dec. 2025.</li>
+      <li>小林正尚, 清水司, 芝慎太朗, <strong>路姍</strong>, 山里敬也, "イベントベース視覚センサを用いた自動運転向け路車間距離推定の屋外実験," <em>電子情報通信学会論文誌 B</em>, vol. J109-B, no. 3, pp. 292–293, 2026.<span class="pub-en">[In Japanese] Outdoor experiments on road-to-vehicle distance estimation for autonomous driving using event-based vision sensors</span></li>
+      <li>曽我亮太, 清水司, 芝慎太朗, 小堀訓成, <strong>路姍</strong>, 山里敬也, "イベントカメラと複数光源を用いた車両用可視光通信システムの車載環境性能評価," <em>電子情報通信学会論文誌 B</em>, 2026.<span class="pub-en">[In Japanese] In-vehicle performance evaluation of a vehicular visible light communication system using an event camera and multiple light sources</span></li>
+      <li>山里敬也, 中野幸亮, <strong>路姍</strong>, "協調認識とITSスマートインフラによる地域ICTプラットフォームの構築：自動運転に向けたV2X・可視光通信連携の展望," <em>電子情報通信学会論文誌</em>, vol. J109-B, no. 2, pp. 98–106, Feb. 2026.<span class="pub-en">[In Japanese] Building a regional ICT platform with collective perception and ITS smart infrastructure: prospects for integrating V2X and visible light communication toward autonomous driving</span></li>
+      <li>L. Wei, <strong>S. Lu</strong>, and H. Kamabe, "End-to-End Machine-Learning-Aided Signature Code for Multi-Access Rayleigh Fading Channel," <em>IEICE Trans. Fundamentals</em>, vol. E109-A, no. 3, Mar. 2026.</li>
+      <li>S. Asaoka, <strong>S. Lu</strong>, T. Yamazato, and Z. Tang, "Theoretical modeling and interference prevention of light trails for LED-propeller based image sensor communication," <em>IEICE Commun. Express</em>, vol. 14, no. 12, Dec. 2025.</li>
       <li>Q. Ren, Y. Li, Z. Zhang, and <strong>S. Lu</strong>, "<a href="https://doi.org/10.1109/TWC.2025.3556873" target="_blank">OTFS-SDMA for Massive Grant-Free Random Access in LEO Satellite Internet of Things</a>," <em>IEEE Trans. Wireless Commun.</em>, 2025.</li>
       <li>J. He, Q. Lian, S. Liu, <strong>S. Lu</strong>, and L. Zhou, "<a href="https://doi.org/10.1016/j.phycom.2025.102693" target="_blank">Probabilistic shaping of joint source-channel coding and modulation system based on SC-LDPC codes</a>," <em>Physical Communication</em>, vol. 71, 102693, 2025.</li>
       <li>G. Sun, Y. Li, Z. Zhang, and <strong>S. Lu</strong>, "<a href="https://doi.org/10.1109/JIOT.2025.3542398" target="_blank">Hybrid-Driven Dynamic Neural Network for Adaptive User-Activity Detection in Massive Random Access</a>," <em>IEEE Internet of Things J.</em>, vol. 12, no. 12, pp. 19855–19867, Jun. 2025.</li>
-      <li>近藤涼太, <strong>路姍</strong>, 山里敬也, "<a href="https://search.ieice.org/bin/summary.php?id=j108-b_3_195&category=B&year=2025" target="_blank">LEDアレイと車載ローリングシャッタ方式イメージセンサを使用した路車間可視光通信システムの時速50 kmにおける通信性能評価</a>," <em>電子情報通信学会論文誌</em>, vol. J108-B, no. 3, pp. 195–197, Mar. 2025.</li>
+      <li>近藤涼太, <strong>路姍</strong>, 山里敬也, "<a href="https://search.ieice.org/bin/summary.php?id=j108-b_3_195&category=B&year=2025" target="_blank">LEDアレイと車載ローリングシャッタ方式イメージセンサを使用した路車間可視光通信システムの時速50 kmにおける通信性能評価</a>," <em>電子情報通信学会論文誌</em>, vol. J108-B, no. 3, pp. 195–197, Mar. 2025.<span class="pub-en">[In Japanese] Communication performance at 50 km/h of a road-to-vehicle visible light communication system using an LED array and an in-vehicle rolling-shutter image sensor</span></li>
       <li>A. Otsuka, Z. Tang, <strong>S. Lu</strong>, and T. Yamazato, "<a href="https://doi.org/10.23919/comex.2024COL0009" target="_blank">Code Synchronization in Visible Light Communication System Using Dual Orthogonal Rolling Shutter Image Sensors</a>," <em>IEICE Commun. Express</em>, vol. 13, no. 12, pp. 450–453, Dec. 2024.</li>
-      <li>A. Isozaki, T. Yamazato, M. Saito, and <strong>S. Lu</strong>, "<a href="https://www.jstage.jst.go.jp/article/comex/13/8/13_2024TCL0018/_article/" target="_blank">16 QAM-OFDM Receiver Using 1-bit ADC for Noise Utilization Characterization in Fading Channels with Large Amplitude Fluctuations</a>," <em>IEICE Commun. Express</em>, vol. X13-B, no. 8, pp. 1–5, Aug. 2024.</li>
-      <li>F.-S. Liang, <strong>S. Lu</strong>, and Y.-L. Ueng, "<a href="https://ieeexplore.ieee.org/document/10288478/" target="_blank">Deep-learning-aided successive cancellation list flip decoding for Polar codes</a>," <em>IEEE Trans. Cognitive Commun. Netw.</em>, vol. 10, no. 2, pp. 374–386, Apr. 2024.</li>
+      <li>A. Isozaki, T. Yamazato, M. Saito, and <strong>S. Lu</strong>, "<a href="https://www.jstage.jst.go.jp/article/comex/13/8/13_2024TCL0018/_article/" target="_blank">16 QAM-OFDM Receiver Using 1-bit ADC for Noise Utilization Characterization in Fading Channels with Large Amplitude Fluctuations</a>," <em>IEICE Commun. Express</em>, vol. 13, no. 8, pp. 1–5, Aug. 2024.</li>
+      <li>F.-S. Liang, <strong>S. Lu</strong>, and Y.-L. Ueng, "<a href="https://ieeexplore.ieee.org/document/10288478/" target="_blank">Deep-learning-aided successive cancellation list flip decoding for Polar codes</a>," <em>IEEE Trans. Cognitive Commun. Netw.</em>, vol. 10, no. 2, pp. 374–386, Apr. 2024. <span class="pub-links"><a href="https://arxiv.org/abs/2605.23124" target="_blank">arXiv</a></span></li>
       <li>L. Wei, <strong>S. Lu</strong>, H. Kamabe, and J. Cheng, "<a href="https://www.jstage.jst.go.jp/article/transfun/E105.A/3/E105.A_2021TAP0008/_article" target="_blank">User identification and channel estimation by iterative DNN-based decoder on multiple-access fading channel</a>," <em>IEICE Trans. Fundamentals</em>, vol. E105-A, no. 3, pp. 417–424, 2022.</li>
       <li>A. Yamawaki, H. Kamabe, and <strong>S. Lu</strong>, "<a href="https://www.jstage.jst.go.jp/article/transfun/E101.A/12/E101.A_2125/_article" target="_blank">Construction of parallel random I/O codes using coset coding with Hamming codes</a>," <em>IEICE Trans. Fundamentals</em>, vol. E101-A, no. 12, pp. 2125–2134, 2018.</li>
       <li><strong>S. Lu</strong>, H. Kamabe, J. Cheng, and A. Yamawaki, "<a href="https://www.jstage.jst.go.jp/article/transfun/E101.A/12/E101.A_2135/_article" target="_blank">Unrestricted-rate parallel random input-output codes for multilevel flash memory</a>," <em>IEICE Trans. Fundamentals</em>, vol. E101-A, no. 12, pp. 2135–2140, 2018.</li>
@@ -761,20 +871,22 @@
       <span lang-en>International Conference Papers</span><span lang-ja>国際会議論文</span>
     </div>
     <ol class="ref-list">
-      <li>R. Soga, T. Shimizu, S. Shiba, Q. Kong, <strong>S. Lu</strong>, and T. Yamazato, "Real-world Latency Analysis of Vehicular Visible Light Communication with Multiple LED Transmitters and an Event-Based Camera," in <em>Proc. IEEE VTC2026-Spring</em>, Jun. 2026.</li>
+      <li>R. Soga, T. Shimizu, S. Shiba, Q. Kong, <strong>S. Lu</strong>, and T. Yamazato, "Real-world Latency Analysis of Vehicular Visible Light Communication with Multiple LED Transmitters and an Event-Based Camera," in <em>Proc. IEEE VTC2026-Spring</em>, Jun. 2026. <span class="pub-links"><a href="https://arxiv.org/abs/2605.05541" target="_blank">arXiv</a></span></li>
       <li>Y.-H. Kuo, <strong>S. Lu</strong>, T. Yamazato, and Y.-L. Ueng, "Design of an Iterative Detection and Decoding Receiver for LDPC-Coded Visible Light Communication," in <em>Proc. IEEE VTC2026-Spring</em>, Jun. 2026.</li>
-      <li>K. Nakano, <strong>S. Lu</strong>, and T. Yamazato, "Feasibility Study of VLC-Based Collective Perception for Vehicular Communication," in <em>Proc. IEEE ICC</em>, May 2026.</li>
+      <li>K. Nakano, <strong>S. Lu</strong>, and T. Yamazato, "Feasibility Study of VLC-Based Collective Perception for Vehicular Communication," in <em>Proc. IEEE ICC</em>, May 2026. <span class="pub-links"><a href="https://arxiv.org/abs/2605.24246" target="_blank">arXiv</a></span></li>
       <li>C. Okawa, H. Okada, T. Wada, <strong>S. Lu</strong>, and T. Yamazato, "Enhancing Visual Quality and Throughput with Inverse Frames in Display-Camera Visible Light Communications," in <em>Proc. NCSP</em>, pp. 211–214, Feb. 2026.</li>
       <li>S. Asaoka, <strong>S. Lu</strong>, Z. Tang, and T. Yamazato, "Theoretical Performance Analysis for Image Sensor Communication using a Propeller LED Transmitter," in <em>Proc. ICETC</em>, Dec. 2025.</li>
       <li>K. Nakano, <strong>S. Lu</strong>, and T. Yamazato, "Delay Modeling of Camera-Based Visible Light Communication Systems Using Queuing Theory," Dec. 2025.</li>
-      <li>S. Tianhao, <strong>S. Lu</strong>, T. Yamazato, Y.-H. Kuo, and Y.-L. Ueng, "Robust Detection of Overlapping LED Spots in Dense VLC via Pilot-Aided Geometric Recognition," in <em>Proc. APCC</em>, Dec. 2025.</li>
-      <li>R. Soga, M. Kobayashi, T. Shimizu, S. Shiba, Q. Kong, <strong>S. Lu</strong>, and T. Yamazato, "<a href="https://arxiv.org/abs/2510.17203" target="_blank">Performance Evaluation of an Integrated System for Visible Light Communication and Positioning Using an Event Camera</a>," in <em>Proc. APCC</em>, Dec. 2025.</li>
+      <li>T. Shi, <strong>S. Lu</strong>, T. Yamazato, Y.-H. Kuo, and Y.-L. Ueng, "Robust Detection of Overlapping LED Spots in Dense VLC via Pilot-Aided Geometric Recognition," in <em>Proc. APCC</em>, Dec. 2025.</li>
+      <li>R. Soga, M. Kobayashi, T. Shimizu, S. Shiba, Q. Kong, <strong>S. Lu</strong>, and T. Yamazato, "<a href="https://arxiv.org/abs/2510.17203" target="_blank">Performance Evaluation of an Integrated System for Visible Light Communication and Positioning Using an Event Camera</a>," in <em>Proc. APCC</em>, Dec. 2025. <span class="pub-links"><a href="https://arxiv.org/abs/2510.17203" target="_blank">arXiv</a></span></li>
       <li>R. Kondo, S. Shiba, N. Kobori, T. Shimizu, <strong>S. Lu</strong>, and T. Yamazato, "V2X Visible Light Communication Using Rolling Shutter Image Sensor with Offset Unary Encoding," in <em>Proc. IEEE ITSC</em>, Dec. 2025.</li>
       <li>Y.-W. Lu, <strong>S. Lu</strong>, T. Yamazato, Z.-K. Lin, and Y.-L. Ueng, "Deep Learning-Aided Polar Coded Modulation," in <em>Proc. IEEE VTC2025-Fall</em>, Oct. 2025.</li>
       <li>W.-C. Wang, M.-R. Wu, <strong>S. Lu</strong>, C.-H. Wang, and Y.-L. Ueng, "Successive Cancellation List Flip Decoding for eBCH-polar Codes," in <em>Proc. IEEE VTC2025-Fall</em>, Oct. 2025.</li>
-      <li>R. Soga, M. Kobayashi, T. Shimizu, S. Shiba, N. Kobori, <strong>S. Lu</strong>, and T. Yamazato, "<a href="https://ieeexplore.ieee.org/document/11097663/" target="_blank">Evaluation of Mobile Environment for Vehicular Visible Light Communication Using Multiple LEDs and Event Cameras</a>," in <em>Proc. IEEE IV</em>, Jun. 2025.</li>
+      <li>R. Soga, M. Kobayashi, T. Shimizu, S. Shiba, N. Kobori, <strong>S. Lu</strong>, and T. Yamazato, "<a href="https://ieeexplore.ieee.org/document/11097663/" target="_blank">Evaluation of Mobile Environment for Vehicular Visible Light Communication Using Multiple LEDs and Event Cameras</a>," in <em>Proc. IEEE IV</em>, Jun. 2025. <span class="pub-links"><a href="https://arxiv.org/abs/2505.15412" target="_blank">arXiv</a></span></li>
       <li>M. Kobayashi, S. Shiba, Q. Kong, N. Kobori, T. Shimizu, <strong>S. Lu</strong>, and T. Yamazato, "Distance Estimation in Outdoor Driving Environments Using Phase-only Correlation Method with Event Cameras," in <em>Proc. IEEE IV</em>, Jun. 2025.</li>
-      <li>[Low-Power Receiver Design with a Noise Enhanced 1-bit ADC and Signal Constellation Rearrangement for 16-QAM Transmitters,] in <em>Proc. IEEE GLOBECOM</em>, Dec. 2024.</li>
+      <!-- TODO: add authors, then restore this entry
+      <li>AUTHORS, "Low-Power Receiver Design with a Noise Enhanced 1-bit ADC and Signal Constellation Rearrangement for 16-QAM Transmitters," in <em>Proc. IEEE GLOBECOM</em>, Dec. 2024.</li>
+      -->
       <li>K. Yoshida, H. Kamabe, and <strong>S. Lu</strong>, "BP Decoding and SGRAND for Partially Permuted Factor Graphs of Polar Codes," in <em>Proc. ISITA 2024</em>, Nov. 2024.</li>
       <li>Y.-W. Lu, <strong>S. Lu</strong>, T. Yamazato, and Y.-L. Ueng, "Improving Convergence Speed of Neural Polar Decoder Using Weighted Loss Function," in <em>Proc. ISITA 2024</em>, Nov. 2024.</li>
       <li><strong>S. Lu</strong> and H. Kamabe, "Enhancing the Maximum Tolerable Number of Active Users for Unsourced Random Access," in <em>Proc. IEEE ISIT</em>, Athens, Greece, Jul. 2024.</li>
@@ -784,7 +896,7 @@
       <li>L. Wei, <strong>S. Lu</strong>, H. Kamabe, and J. Cheng, "<a href="https://ieeexplore.ieee.org/document/9322258/" target="_blank">User identification and channel estimation by DNN-based decoder on multiple-access channel</a>," in <em>Proc. IEEE GLOBECOM Workshops</em>, Taipei, Taiwan, 2020, pp. 1–6.</li>
       <li>Y. Naruse, <strong>S. Lu</strong>, and H. Kamabe, "<a href="https://ieeexplore.ieee.org/document/9366145/" target="_blank">Design of ZDF code using uniform shift enumerator</a>," in <em>Proc. ISITA</em>, Kapolei, HI, USA, 2020, pp. 126–130.</li>
       <li>H. Kamabe and <strong>S. Lu</strong>, "<a href="https://ieeexplore.ieee.org/document/9013593/" target="_blank">Burst Erasure Correction by 2D LDPC Codes</a>," in <em>Proc. IEEE GLOBECOM</em>, Waikoloa, HI, USA, 2019, pp. 1–7.</li>
-      <li><strong>S. Lu</strong>, W. Hou, J. Cheng, and H. Kamabe, "<a href="https://ieeexplore.ieee.org/document/8849304/" target="_blank">Multi-user UD k-ary codes recursively constructed from short-length multiary codes for multiple-access adder channel</a>," in <em>Proc. IEEE ISIT</em>, Paris, France, 2019, pp. 425–429.</li>
+      <li><strong>S. Lu</strong>, W. Hou, J. Cheng, and H. Kamabe, "<a href="https://ieeexplore.ieee.org/document/8849304/" target="_blank">Multi-user UD k-ary codes recursively constructed from short-length multiary codes for multiple-access adder channel</a>," in <em>Proc. IEEE ISIT</em>, Paris, France, 2019, pp. 425–429. <span class="pub-links"><a href="https://arxiv.org/abs/1901.06757" target="_blank">arXiv</a></span></li>
       <li><strong>S. Lu</strong>, W. Hou, J. Cheng, and H. Kamabe, "<a href="https://ieeexplore.ieee.org/document/8613495/" target="_blank">A new kind of nonbinary uniquely decodable codes with arbitrary code length for multiple-access adder channel</a>," in <em>Proc. IEEE ITW</em>, Guangzhou, China, 2018, pp. 1–5.</li>
       <li><strong>S. Lu</strong>, W. Hou, J. Cheng, and H. Kamabe, "<a href="https://ieeexplore.ieee.org/document/8664318/" target="_blank">Recursive construction of k-ary uniquely decodable codes for multiple-access adder channel</a>," in <em>Proc. ISITA</em>, Singapore, 2018, pp. 565–569.</li>
       <li>K. Shibata, <strong>S. Lu</strong>, M. Yoshida, K. R. Narayanan, and J. Cheng, "<a href="https://ieeexplore.ieee.org/document/8664369/" target="_blank">Error floor estimation of spatially-coupled irregular LDPC code ensembles</a>," in <em>Proc. ISITA</em>, Singapore, 2018, pp. 379–383.</li>
@@ -793,7 +905,7 @@
       <li><strong>S. Lu</strong>, H. Kamabe, and J. Cheng, "<a href="https://ieeexplore.ieee.org/document/8277982/" target="_blank">Codes for T-user asymmetric multiple-access channel with independent sources</a>," in <em>Proc. IEEE ITW</em>, Kaohsiung, Taiwan, 2017, pp. 359–363.</li>
       <li>A. Yamawaki, H. Kamabe, and <strong>S. Lu</strong>, "<a href="https://ieeexplore.ieee.org/document/8277956/" target="_blank">Construction of parallel RIO codes using coset coding with Hamming codes</a>," in <em>Proc. IEEE ITW</em>, Kaohsiung, Taiwan, 2017, pp. 239–243.</li>
       <li>A. Yamawaki, H. Kamabe, and <strong>S. Lu</strong>, "<a href="https://ieeexplore.ieee.org/document/8006976/" target="_blank">Lower bounds on the number of write operations by index-less indexed flash code with inversion cells</a>," in <em>Proc. IEEE ISIT</em>, Aachen, Germany, 2017, pp. 2483–2487.</li>
-      <li><strong>S. Lu</strong>, H. Kamabe, J. Cheng, and A. Yamawaki, "<a href="https://ieeexplore.ieee.org/document/8006604/" target="_blank">Construction of unrestricted-rate parallel random input-output code</a>," in <em>Proc. IEEE ISIT</em>, Aachen, Germany, 2017, pp. 629–633.</li>
+      <li><strong>S. Lu</strong>, H. Kamabe, J. Cheng, and A. Yamawaki, "<a href="https://ieeexplore.ieee.org/document/8006604/" target="_blank">Construction of unrestricted-rate parallel random input-output code</a>," in <em>Proc. IEEE ISIT</em>, Aachen, Germany, 2017, pp. 629–633. <span class="pub-links"><a href="https://arxiv.org/abs/1702.02716" target="_blank">arXiv</a></span></li>
       <li><strong>S. Lu</strong>, W. Hou, and J. Cheng, "Input-output weight distribution of terminated RSC codes with limited codelength," in <em>Proc. ISITA</em>, Monterey, CA, USA, 2016, pp. 493–497.</li>
       <li><strong>S. Lu</strong>, W. Hou, and J. Cheng, "Coding scheme for T-user noisy multiple-access adder channel," in <em>Proc. ISITA</em>, Melbourne, Australia, 2014, pp. 536–540.</li>
       <li>W. Hou, <strong>S. Lu</strong>, and J. Cheng, "<a href="https://ieeexplore.ieee.org/document/6955091/" target="_blank">Rate-compatible spatially coupled LDPC codes via repeat-accumulation extension</a>," in <em>Proc. ISTC</em>, Bremen, Germany, 2014, pp. 87–91.</li>
@@ -913,7 +1025,7 @@
 
   <!-- TEACHING -->
   <section id="teaching" class="fade-in">
-    <div class="section-label">// 08 &nbsp;<span lang-en>TEACHING</span><span lang-ja>教育活動</span></div>
+    <div class="section-label">// 07 &nbsp;<span lang-en>TEACHING</span><span lang-ja>教育活動</span></div>
     <h2><span lang-en><span class="hl">Teaching</span></span><span lang-ja><span class="hl">担当授業</span></span></h2>
     <ul class="teaching-list">
       <li class="teaching-item">
@@ -943,7 +1055,7 @@
 
   <!-- INVITED TALKS -->
   <section id="talks" class="fade-in">
-    <div class="section-label">// 09 &nbsp;<span lang-en>INVITED TALKS</span><span lang-ja>招待講演</span></div>
+    <div class="section-label">// 08 &nbsp;<span lang-en>INVITED TALKS</span><span lang-ja>招待講演</span></div>
     <h2><span lang-en>Invited <span class="hl">Talks</span></span><span lang-ja><span class="hl">招待講演</span></span></h2>
     <ul class="talk-list">
       <li class="talk-item">
@@ -960,22 +1072,22 @@
 
   <!-- RESEARCH GROUP -->
   <section id="group" class="fade-in">
-    <div class="section-label">// 10 &nbsp;<span lang-en>RESEARCH GROUP</span><span lang-ja>研究室メンバー</span></div>
-    <h2><span lang-en>Research <span class="hl">Group</span></span><span lang-ja>研究室<span class="hl">メンバー</span></span></h2>
+    <div class="section-label">// 09 &nbsp;<span lang-en>JOIN US</span><span lang-ja>メンバー募集</span></div>
+    <h2><span lang-en>Prospective <span class="hl">Students</span></span><span lang-ja>学生・研究者の<span class="hl">募集</span></span></h2>
     <p class="desc" style="margin-bottom:1.2rem;">
-      <span lang-en>I am always looking for motivated students and collaborators interested in information theory, channel coding, and visible light communications. Feel free to contact me.</span>
-      <span lang-ja>情報理論・符号理論・可視光通信に興味のある学生・研究者を随時募集しています。お気軽にご連絡ください。</span>
+      <span lang-en>I welcome motivated students and collaborators who want to work at the intersection of information theory, coding, and optical wireless systems — image sensor and event-camera communication, V2X, and multiple access for 6G. Experimental work is carried out with the <a href="https://www.yamazato.nuee.nagoya-u.ac.jp/" target="_blank" style="color:var(--cyan);">Yamazato Laboratory</a> testbeds. Please email me with your CV and a short statement of interests.</span>
+      <span lang-ja>情報理論・符号理論と光無線システム（イメージセンサ／イベントカメラ通信、V2X、6G多元接続）の融合領域に挑戦したい学生・研究者を歓迎します。実験は<a href="https://www.yamazato.nuee.nagoya-u.ac.jp/" target="_blank" style="color:var(--cyan);">山里研究室</a>の実験基盤を用いて行います。CVと興味のある研究テーマを添えてメールでご連絡ください。</span>
     </p>
     <div class="group-grid">
       <div class="group-card">
-        <div class="group-name"><span lang-en>Doctoral Students</span><span lang-ja>博士課程学生</span></div>
+        <div class="group-name"><span lang-en>Ph.D. Applicants</span><span lang-ja>博士課程志望者</span></div>
         <div class="group-role">Ph.D.</div>
-        <div class="group-topic"><span lang-en>Details coming soon.</span><span lang-ja>近日公開予定。</span></div>
+        <div class="group-topic"><span lang-en>Strong background in communication theory, coding, or signal processing. International applicants are encouraged to apply for scholarships (e.g., MEXT) in advance.</span><span lang-ja>通信理論・符号理論・信号処理の基礎を有する方。留学希望者は奨学金（文部科学省奨学金など）への事前応募を推奨します。</span></div>
       </div>
       <div class="group-card">
-        <div class="group-name"><span lang-en>Master's Students</span><span lang-ja>修士課程学生</span></div>
+        <div class="group-name"><span lang-en>Master's &amp; Research Students</span><span lang-ja>修士課程・研究生</span></div>
         <div class="group-role">M.S.</div>
-        <div class="group-topic"><span lang-en>Details coming soon.</span><span lang-ja>近日公開予定。</span></div>
+        <div class="group-topic"><span lang-en>Admission through the Nagoya University Graduate School of Engineering entrance examination. Please contact me before applying.</span><span lang-ja>名古屋大学大学院工学研究科の入試を経て入学。出願前にご相談ください。</span></div>
       </div>
       <div class="group-card">
         <div class="group-name"><span lang-en>Collaborators</span><span lang-ja>共同研究者</span></div>
@@ -988,10 +1100,9 @@
   <!-- CONTACT -->
 
   <section id="contact" class="fade-in">
-    <div class="section-label">// 07 &nbsp;<span lang-en>CONTACT</span><span lang-ja>連絡先</span></div>
+    <div class="section-label">// 10 &nbsp;<span lang-en>CONTACT</span><span lang-ja>連絡先</span></div>
     <h2><span lang-en>Get in <span class="hl">Touch</span></span><span lang-ja><span class="hl">連絡先</span></span></h2>
-    <div style="display:flex; align-items:flex-start; gap:1.5rem;">
-    <div class="contact-card" style="flex:1;">
+    <div class="contact-card">
       <div class="contact-grid">
         <a class="contact-tile" href="mailto:lu.shan.f7@f.mail.nagoya-u.ac.jp">
           <div class="contact-icon">
@@ -1043,23 +1154,13 @@
         </a>
       </div>
     </div>
-    <div style="flex-shrink:0; display:flex; flex-direction:column; align-items:center; pointer-events:none; cursor:default; margin-top:0.5rem;">
-      <div style="width:120px; height:120px; overflow:hidden;">
-      <div style="transform:scale(0.3); transform-origin:left top; width:400px; height:400px;">
-        <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=oDsVtc_-Z7lCpLLx0yT0JIbqps43ycRH0-4zYJMzLts"></script>
-      </div>
-    </div>
-      <div style="margin-top:0.4rem; text-align:center;">
-        <img src="https://clustrmaps.com/map_v2.png?d=oDsVtc_-Z7lCpLLx0yT0JIbqps43ycRH0-4zYJMzLts&cl=ffffff&w=120" alt="Visitor Map" style="width:120px; border-radius:4px;">
-      </div>
-    </div>
   </section>
 
 </main>
 
 <footer>
-  <span lang-en>&copy; 2026 Shan Lu &nbsp;·&nbsp; Nagoya University &nbsp;·&nbsp; Last updated May 2026</span>
-  <span lang-ja>&copy; 2026 路 姍 &nbsp;·&nbsp; 名古屋大学 &nbsp;·&nbsp; 最終更新：2026年5月</span>
+  <span lang-en>&copy; 2026 Shan Lu &nbsp;·&nbsp; Nagoya University &nbsp;·&nbsp; Last updated Nov 2026</span>
+  <span lang-ja>&copy; 2026 路 姍 &nbsp;·&nbsp; 名古屋大学 &nbsp;·&nbsp; 最終更新：2026年11月</span>
 </footer>
 
 <script>
