@@ -340,6 +340,19 @@
 
     [lang-ja] { display: none; }
     body.lang-ja [lang-en] { display: none; }
+    .definition {
+      background: var(--card); border: 1px solid var(--border);
+      border-left: 3px solid var(--cyan); border-radius: 8px;
+      padding: 1.2rem 1.4rem; margin: 0 0 1.8rem;
+    }
+    .definition-label {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.78rem;
+      color: var(--cyan); letter-spacing: 0.06em; margin-bottom: 0.5rem;
+    }
+    .definition-main { font-size: 1rem; line-height: 1.7; color: var(--text); margin-bottom: 0.8rem; }
+    .definition-main strong { color: var(--cyan); }
+    .definition-list { padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.9rem; line-height: 1.65; color: var(--text); }
+    .definition-note { font-size: 0.86rem; color: var(--muted); margin-top: 0.8rem; }
     body.lang-ja [lang-ja] { display: inline; }
     body.lang-ja p[lang-ja], body.lang-ja div[lang-ja] { display: block; }
 
@@ -433,6 +446,27 @@
       <span lang-en>The goal is not to replace theory with black-box learning, but to build AI-assisted communication systems whose design, data generation, and evaluation remain grounded in measurable physical phenomena.</span>
       <span lang-ja>目標は理論をブラックボックス学習で置き換えることではなく、計測可能な物理現象に基づいて設計・データ生成・評価を行うAI支援型通信システムを構築することです。</span>
     </p>
+    <div class="definition">
+      <div class="definition-label"><span lang-en>What is Physical AI Communication?</span><span lang-ja>Physical AI Communication とは</span></div>
+      <p class="definition-main">
+        <span lang-en>We use <strong>Physical AI communication</strong> to denote communication systems that both <em>serve</em> and are <em>designed by</em> AI agents operating in the physical world, grounded in physical channel models and digital twins.</span>
+        <span lang-ja><strong>Physical AI Communication</strong> とは、物理世界で動作する AI エージェント（車両・ロボットなど）に<em>奉仕し</em>、かつ AI によって<em>設計される</em>通信システムであり、その設計は物理的な通信路モデルとデジタルツインに基づきます。</span>
+      </p>
+      <ul class="definition-list">
+        <li>
+          <span lang-en><strong>Communication for Physical AI</strong> — low-latency, reliable links that let vehicles and robots share perception and coordinate decisions, such as V2X and collective perception.</span>
+          <span lang-ja><strong>Physical AI のための通信</strong> — 車両やロボットが認識結果を共有し、協調して判断するための低遅延・高信頼な通信（V2X、協調認識など）。</span>
+        </li>
+        <li>
+          <span lang-en><strong>Physical AI for communication</strong> — physical models and digital twins generate channel and environment data, and AI turns them into transceiver designs.</span>
+          <span lang-ja><strong>通信のための Physical AI</strong> — 物理モデルとデジタルツインで通信路・環境データを生成し、AI で送受信機を設計する。</span>
+        </li>
+      </ul>
+      <p class="definition-note">
+        <span lang-en>Optical camera communication connects the two: the camera that serves as the eye of a physical AI agent can also be its receiver.</span>
+        <span lang-ja>光カメラ通信は両者をつなぎます。Physical AI エージェントの「目」であるカメラは、そのまま受信機にもなり得ます。</span>
+      </p>
+    </div>
     <div class="grid-3">
       <a class="card" href="../light-trail/index.html">
         <h3><span lang-en>Physical Phenomena</span><span lang-ja>物理現象</span></h3>
