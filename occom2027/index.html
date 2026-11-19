@@ -10,91 +10,170 @@
   <meta property="og:title" content="OCCoM 2027 | VTC2027-Fall Workshop" />
   <meta property="og:description" content="Optical Camera Communications for Cooperative Mobility: V2X, Perception, and Physical AI. Proposed workshop at IEEE VTC2027-Fall, Osaka." />
   <meta property="og:url" content="https://shanlu-nagoya.github.io/occom2027/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
     :root {
-      --bg: #faf8f4;
+      --night: #070b16;
+      --night-2: #0d1426;
+      --paper: #f7f5f0;
       --card: #ffffff;
-      --border: #e5dfd5;
-      --cyan: #0284c7;
-      --purple: #7c3aed;
-      --text: #1a2332;
-      --muted: #6b7684;
-      --notice-bg: #fff7e6;
-      --notice-border: #f2d39b;
-      --notice-text: #8a5a00;
+      --ink: #121826;
+      --muted: #5b6474;
+      --line: #e4e0d7;
+      --cyan: #22d3ee;
+      --cyan-deep: #0e7490;
+      --amber: #fbbf24;
+      --amber-deep: #b45309;
+      --rose: #fb7185;
+      --rose-deep: #be123c;
+      --violet: #a78bfa;
+      --violet-deep: #6d28d9;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      min-height: 100vh;
-      font-family: 'Inter', 'Segoe UI', sans-serif;
-      background:
-        radial-gradient(ellipse 70% 45% at 50% 0%, rgba(2,132,199,0.08), transparent 70%),
-        var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', 'Segoe UI', sans-serif; background: var(--paper); color: var(--ink); line-height: 1.7; }
+    h1, h2, h3, .display { font-family: 'Space Grotesk', 'Inter', sans-serif; }
+    a { color: inherit; }
+    .wrap { width: min(1080px, calc(100% - 32px)); margin: 0 auto; }
+
+    /* ── NAV ── */
     nav {
-      position: sticky; top: 0; z-index: 10;
+      position: fixed; inset: 0 0 auto 0; z-index: 20;
       display: flex; justify-content: space-between; align-items: center; gap: 1rem;
-      height: 60px; padding: 0 2.5rem;
-      background: rgba(250,248,244,0.92);
-      border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(12px);
+      padding: 14px clamp(16px, 4vw, 40px);
+      background: rgba(7,11,22,0.55); backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
-    .nav-logo { font-family: 'JetBrains Mono', monospace; color: var(--cyan); letter-spacing: 0.08em; text-decoration: none; white-space: nowrap; }
-    .nav-right { display: flex; gap: 1.4rem; flex-wrap: wrap; }
-    .nav-right a { color: var(--muted); text-decoration: none; font-size: 0.85rem; }
-    .nav-right a:hover { color: var(--cyan); }
-    main { width: min(920px, calc(100% - 32px)); margin: 0 auto; padding: 56px 0 72px; }
-    .notice {
-      display: inline-block; margin-bottom: 1.4rem; padding: 6px 14px;
-      background: var(--notice-bg); border: 1px solid var(--notice-border); border-radius: 6px;
-      color: var(--notice-text); font-size: 0.84rem; font-weight: 600;
+    .brand { font-family: 'JetBrains Mono', monospace; color: #fff; text-decoration: none; font-weight: 600; letter-spacing: 0.04em; }
+    .brand span { color: var(--cyan); }
+    .nav-links { display: flex; gap: clamp(0.8rem, 2vw, 1.6rem); flex-wrap: wrap; }
+    .nav-links a { color: rgba(255,255,255,0.72); text-decoration: none; font-size: 0.86rem; }
+    .nav-links a:hover { color: #fff; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; overflow: hidden; color: #fff;
+      background:
+        radial-gradient(ellipse 60% 50% at 80% 20%, rgba(34,211,238,0.16), transparent 70%),
+        radial-gradient(ellipse 50% 40% at 10% 90%, rgba(251,113,133,0.14), transparent 70%),
+        linear-gradient(180deg, var(--night) 0%, var(--night-2) 100%);
+      padding: 128px 0 72px;
     }
-    .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--cyan); letter-spacing: 0.08em; margin-bottom: 0.8rem; }
-    h1 { font-size: clamp(1.9rem, 4.6vw, 3rem); line-height: 1.15; margin-bottom: 0.9rem; }
-    .hl { background: linear-gradient(135deg, var(--cyan), var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .lead { max-width: 720px; color: var(--muted); font-size: 1.05rem; }
-    .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 0.8rem; margin: 2rem 0 0.5rem; }
-    .fact { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 0.9rem 1.1rem; }
-    .fact-label { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--cyan); letter-spacing: 0.06em; }
-    .fact-value { font-weight: 600; font-size: 0.98rem; }
-    section { margin-top: 3rem; }
-    h2 { font-size: 1.4rem; margin-bottom: 1rem; }
-    h2 .num { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--cyan); margin-right: 0.6rem; }
-    p + p { margin-top: 0.8rem; }
-    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.1rem 1.2rem; }
-    .card h3 { font-size: 0.98rem; margin-bottom: 0.3rem; }
-    .card p { font-size: 0.9rem; color: var(--muted); }
-    .topics { columns: 2 280px; column-gap: 2rem; padding-left: 1.2rem; }
-    .topics li { margin-bottom: 0.4rem; break-inside: avoid; }
-    table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
-    td { padding: 0.7rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; font-size: 0.93rem; }
-    tr:last-child td { border-bottom: none; }
-    td:first-child { width: 9rem; color: var(--muted); font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; }
-    .people { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; }
-    .person { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; }
-    .person .role { font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; color: var(--cyan); }
+    .trails { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+    .trail { fill: none; stroke-linecap: round; stroke-width: 2.4; opacity: 0.75; stroke-dasharray: 140 900; animation: drive 6s linear infinite; }
+    .trail.t2 { animation-duration: 7.5s; animation-delay: -2s; }
+    .trail.t3 { animation-duration: 5.2s; animation-delay: -3.4s; }
+    .trail.t4 { animation-duration: 8.4s; animation-delay: -1.2s; }
+    .trail.t5 { animation-duration: 6.6s; animation-delay: -4.6s; }
+    .road { fill: none; stroke: rgba(255,255,255,0.06); stroke-width: 1.2; }
+    @keyframes drive { from { stroke-dashoffset: 1040; } to { stroke-dashoffset: 0; } }
+    .led { animation: blink 1.6s steps(1) infinite; }
+    @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0.12; } }
+
+    .hero-inner { position: relative; z-index: 1; }
+    .pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px; border-radius: 999px;
+      background: rgba(251,191,36,0.12); border: 1px solid rgba(251,191,36,0.45);
+      color: var(--amber); font-size: 0.82rem; font-weight: 600;
+    }
+    .pill::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--amber); box-shadow: 0 0 10px var(--amber); }
+    .kicker { margin-top: 1.6rem; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; letter-spacing: 0.14em; color: var(--cyan); }
+    .hero h1 { margin-top: 0.6rem; font-size: clamp(2.2rem, 6vw, 4.4rem); line-height: 1.04; letter-spacing: -0.02em; max-width: 15ch; }
+    .hero h1 .glow { color: var(--cyan); text-shadow: 0 0 28px rgba(34,211,238,0.45); }
+    .hero .subtitle { margin-top: 0.8rem; font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.05rem, 2.2vw, 1.4rem); color: rgba(255,255,255,0.86); }
+    .hero .lead { margin-top: 1.2rem; max-width: 600px; color: rgba(255,255,255,0.7); font-size: 1.02rem; }
+    .facts { margin-top: 2.4rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.8rem; max-width: 880px; }
+    .fact { padding: 0.9rem 1.1rem; border-radius: 12px; background: rgba(16,24,44,0.88); border: 1px solid rgba(255,255,255,0.14); backdrop-filter: blur(6px); }
+    .fact small { display: block; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.55); }
+    .fact strong { font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; font-weight: 600; }
+    .hero-cta { margin-top: 2rem; display: flex; gap: 0.8rem; flex-wrap: wrap; }
+    .btn { display: inline-block; padding: 12px 22px; border-radius: 10px; font-weight: 600; font-size: 0.92rem; text-decoration: none; transition: transform 0.15s, box-shadow 0.15s; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-glow { background: var(--cyan); color: var(--night); box-shadow: 0 0 24px rgba(34,211,238,0.35); }
+    .btn-ghost { color: #fff; border: 1px solid rgba(255,255,255,0.3); }
+
+    /* ── SECTIONS ── */
+    section { padding: 80px 0 0; }
+    .label { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; letter-spacing: 0.14em; color: var(--cyan-deep); }
+    h2 { margin-top: 0.4rem; font-size: clamp(1.7rem, 3.6vw, 2.4rem); line-height: 1.15; letter-spacing: -0.01em; max-width: 22ch; }
+    .intro { margin-top: 1rem; max-width: 720px; color: var(--muted); font-size: 1.02rem; }
+
+    .why { margin-top: 2.2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.1rem; }
+    .why-card { position: relative; background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 1.5rem 1.4rem; transition: transform 0.2s, box-shadow 0.2s; }
+    .why-card:hover { transform: translateY(-4px); box-shadow: 0 14px 40px rgba(18,24,38,0.08); }
+    .icon { width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center; margin-bottom: 1rem; }
+    .icon svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .i-cyan { background: rgba(34,211,238,0.14); color: var(--cyan-deep); }
+    .i-amber { background: rgba(251,191,36,0.18); color: var(--amber-deep); }
+    .i-rose { background: rgba(251,113,133,0.16); color: var(--rose-deep); }
+    .i-violet { background: rgba(167,139,250,0.18); color: var(--violet-deep); }
+    .why-card h3 { font-size: 1.15rem; margin-bottom: 0.4rem; }
+    .why-card p { color: var(--muted); font-size: 0.94rem; }
+
+    .topic-grid { margin-top: 2.2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.1rem; }
+    .topic-group { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 1.4rem; border-top-width: 4px; }
+    .topic-group.g1 { border-top-color: var(--cyan); }
+    .topic-group.g2 { border-top-color: var(--violet); }
+    .topic-group.g3 { border-top-color: var(--rose); }
+    .topic-group h3 { font-size: 1.08rem; margin-bottom: 0.8rem; }
+    .topic-group ul { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+    .topic-group li { position: relative; padding-left: 1.2rem; font-size: 0.94rem; line-height: 1.5; }
+    .topic-group li::before { content: ''; position: absolute; left: 0; top: 0.52em; width: 7px; height: 7px; border-radius: 2px; }
+    .g1 li::before { background: var(--cyan); }
+    .g2 li::before { background: var(--violet); }
+    .g3 li::before { background: var(--rose); }
+    .note { margin-top: 1rem; font-size: 0.9rem; color: var(--muted); }
+
+    .timeline { margin-top: 2.2rem; position: relative; padding-left: 28px; max-width: 760px; }
+    .timeline::before { content: ''; position: absolute; left: 8px; top: 6px; bottom: 6px; width: 2px; background: linear-gradient(var(--cyan), var(--violet), var(--rose)); border-radius: 2px; }
+    .slot { position: relative; padding: 0 0 1.5rem; }
+    .slot::before { content: ''; position: absolute; left: -26px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--paper); border: 3px solid var(--cyan-deep); }
+    .slot.key::before { background: var(--cyan); border-color: var(--cyan-deep); box-shadow: 0 0 12px rgba(34,211,238,0.6); }
+    .slot small { font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; letter-spacing: 0.1em; color: var(--cyan-deep); }
+    .slot h3 { font-size: 1.08rem; }
+    .slot p { color: var(--muted); font-size: 0.93rem; }
+
+    .people { margin-top: 2rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem; }
+    .person { display: flex; gap: 0.9rem; align-items: center; background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 1.1rem 1.2rem; }
+    .avatar { flex: none; width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: #fff; background: linear-gradient(135deg, var(--cyan-deep), var(--violet-deep)); }
+    .person .role { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em; color: var(--cyan-deep); }
     .person .name { font-weight: 600; }
-    .person .aff { font-size: 0.88rem; color: var(--muted); }
-    .muted { color: var(--muted); }
-    a { color: var(--cyan); }
-    footer { border-top: 1px solid var(--border); padding: 1.4rem 16px; text-align: center; font-size: 0.82rem; color: var(--muted); }
+    .person .aff { font-size: 0.86rem; color: var(--muted); }
+
+    .cta {
+      margin-top: 88px; color: #fff; border-radius: 24px; overflow: hidden; position: relative;
+      background:
+        radial-gradient(ellipse 60% 80% at 100% 0%, rgba(34,211,238,0.22), transparent 70%),
+        radial-gradient(ellipse 50% 70% at 0% 100%, rgba(167,139,250,0.22), transparent 70%),
+        var(--night);
+      padding: clamp(32px, 6vw, 56px);
+    }
+    .cta h2 { color: #fff; max-width: 20ch; }
+    .cta p { margin-top: 0.8rem; color: rgba(255,255,255,0.72); max-width: 560px; }
+    .cta .btn { margin-top: 1.4rem; }
+
+    footer { margin-top: 64px; padding: 28px 16px 36px; text-align: center; font-size: 0.84rem; color: var(--muted); border-top: 1px solid var(--line); }
+    footer a { color: var(--cyan-deep); }
+
     @media (max-width: 640px) {
-      nav { padding: 0 16px; height: auto; min-height: 56px; flex-wrap: wrap; padding-top: 8px; padding-bottom: 8px; }
-      .nav-right { gap: 0.9rem; }
-      main { padding-top: 32px; }
-      td:first-child { width: 6.5rem; }
+      nav { flex-wrap: wrap; }
+      .nav-links { gap: 0.8rem; }
+      .hero { padding-top: 140px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .trail, .led { animation: none; }
+      .btn, .why-card { transition: none; }
     }
   </style>
 </head>
 <body>
   <nav>
-    <a href="../index.html" class="nav-logo">ShanLu<span style="color:var(--muted);">.research</span></a>
-    <div class="nav-right">
-      <a href="#scope">Scope</a>
+    <a class="brand" href="../index.html">OCCoM<span>/</span>2027</a>
+    <div class="nav-links">
+      <a href="#why">Why</a>
       <a href="#topics">Topics</a>
       <a href="#program">Program</a>
       <a href="#organizers">Organizers</a>
@@ -102,96 +181,181 @@
     </div>
   </nav>
 
-  <main>
-    <div class="notice">Proposed workshop for IEEE VTC2027-Fall — pending approval</div>
-    <div class="eyebrow">OCCoM 2027 · HALF-DAY WORKSHOP</div>
-    <h1>Optical Camera Communications for <span class="hl">Cooperative Mobility</span>: V2X, Perception, and Physical AI</h1>
-    <p class="lead">The same camera that perceives the road can also receive data from it. OCCoM brings together the optical wireless, computer vision, and vehicular communities to build the foundations of camera-based cooperative mobility for 6G.</p>
+  <header class="hero">
+    <svg class="trails" viewBox="0 0 1200 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="gc" x1="0" x2="1"><stop offset="0" stop-color="#22d3ee" stop-opacity="0"/><stop offset="1" stop-color="#22d3ee"/></linearGradient>
+        <linearGradient id="ga" x1="0" x2="1"><stop offset="0" stop-color="#fbbf24" stop-opacity="0"/><stop offset="1" stop-color="#fbbf24"/></linearGradient>
+        <linearGradient id="gr" x1="1" x2="0"><stop offset="0" stop-color="#fb7185" stop-opacity="0"/><stop offset="1" stop-color="#fb7185"/></linearGradient>
+        <linearGradient id="gv" x1="0" x2="1"><stop offset="0" stop-color="#a78bfa" stop-opacity="0"/><stop offset="1" stop-color="#a78bfa"/></linearGradient>
+      </defs>
+      <path class="road" d="M-40 600 C300 520 700 470 1240 300"/>
+      <path class="road" d="M-40 640 C320 560 720 520 1240 380"/>
+      <path class="road" d="M-40 560 C280 480 680 420 1240 230"/>
+      <path class="trail" stroke="url(#gc)" d="M-40 600 C300 520 700 470 1240 300"/>
+      <path class="trail t2" stroke="url(#ga)" d="M-40 640 C320 560 720 520 1240 380"/>
+      <path class="trail t3" stroke="url(#gr)" d="M1240 230 C680 420 280 480 -40 560"/>
+      <path class="trail t4" stroke="url(#gv)" d="M-40 560 C280 480 680 420 1240 230"/>
+      <path class="trail t5" stroke="url(#gc)" d="M-40 640 C320 560 720 520 1240 380"/>
+      <g transform="translate(800 96)">
+        <rect x="-14" y="-14" width="196" height="88" rx="10" fill="none" stroke="rgba(255,255,255,0.18)" stroke-dasharray="4 6"/>
+        <g fill="#22d3ee">
+          <circle class="led" cx="8" cy="12" r="5"/>
+          <circle class="led" cx="30" cy="12" r="5" style="animation-delay:-0.4s"/>
+          <circle class="led" cx="52" cy="12" r="5" style="animation-delay:-1.1s"/>
+          <circle class="led" cx="74" cy="12" r="5"/>
+          <circle class="led" cx="96" cy="12" r="5" style="animation-delay:-0.8s"/>
+          <circle class="led" cx="118" cy="12" r="5" style="animation-delay:-1.3s"/>
+          <circle class="led" cx="140" cy="12" r="5" style="animation-delay:-0.2s"/>
+          <circle class="led" cx="162" cy="12" r="5" style="animation-delay:-0.6s"/>
+        </g>
+        <g fill="#fbbf24">
+          <circle class="led" cx="8" cy="36" r="5" style="animation-delay:-0.9s"/>
+          <circle class="led" cx="30" cy="36" r="5" style="animation-delay:-0.3s"/>
+          <circle class="led" cx="52" cy="36" r="5"/>
+          <circle class="led" cx="74" cy="36" r="5" style="animation-delay:-1.4s"/>
+          <circle class="led" cx="96" cy="36" r="5" style="animation-delay:-0.5s"/>
+          <circle class="led" cx="118" cy="36" r="5"/>
+          <circle class="led" cx="140" cy="36" r="5" style="animation-delay:-1.0s"/>
+          <circle class="led" cx="162" cy="36" r="5" style="animation-delay:-0.7s"/>
+        </g>
+        <g fill="#fb7185">
+          <circle class="led" cx="8" cy="60" r="5" style="animation-delay:-0.6s"/>
+          <circle class="led" cx="30" cy="60" r="5"/>
+          <circle class="led" cx="52" cy="60" r="5" style="animation-delay:-1.2s"/>
+          <circle class="led" cx="74" cy="60" r="5" style="animation-delay:-0.3s"/>
+          <circle class="led" cx="96" cy="60" r="5"/>
+          <circle class="led" cx="118" cy="60" r="5" style="animation-delay:-0.9s"/>
+          <circle class="led" cx="140" cy="60" r="5" style="animation-delay:-0.4s"/>
+          <circle class="led" cx="162" cy="60" r="5" style="animation-delay:-1.5s"/>
+        </g>
+      </g>
+    </svg>
 
-    <div class="facts">
-      <div class="fact"><div class="fact-label">CONFERENCE</div><div class="fact-value">IEEE VTC2027-Fall</div></div>
-      <div class="fact"><div class="fact-label">LOCATION</div><div class="fact-value">Osaka, Japan</div></div>
-      <div class="fact"><div class="fact-label">DATES</div><div class="fact-value">27–30 September 2027</div></div>
-      <div class="fact"><div class="fact-label">FORMAT</div><div class="fact-value">Half-day workshop</div></div>
+    <div class="wrap hero-inner">
+      <span class="pill">Proposed workshop for IEEE VTC2027-Fall · pending approval</span>
+      <div class="kicker">OCCoM 2027 · HALF-DAY WORKSHOP</div>
+      <h1>Optical Camera Communications for <span class="glow">Cooperative Mobility</span></h1>
+      <div class="subtitle">V2X, Perception, and Physical AI</div>
+      <p class="lead">The camera that perceives the road can also receive data from it. OCCoM brings together optical wireless, computer vision, and vehicular researchers to build camera-based cooperative mobility for 6G.</p>
+      <div class="facts">
+        <div class="fact"><small>CONFERENCE</small><strong>IEEE VTC2027-Fall</strong></div>
+        <div class="fact"><small>LOCATION</small><strong>Osaka, Japan</strong></div>
+        <div class="fact"><small>DATES</small><strong>27–30 Sep 2027</strong></div>
+        <div class="fact"><small>FORMAT</small><strong>Half-day</strong></div>
+      </div>
+      <div class="hero-cta">
+        <a class="btn btn-glow" href="#topics">Topics of interest</a>
+        <a class="btn btn-ghost" href="#contact">Get involved</a>
+      </div>
     </div>
+  </header>
 
-    <section id="scope">
-      <h2><span class="num">01</span>Scope</h2>
-      <p>Vehicles already carry many cameras, and roads are filled with LED traffic lights, signs, and lamps. Optical camera communication (OCC) turns this existing hardware into a communication and sensing layer that complements RF-based V2X. Event cameras, with microsecond-scale temporal resolution and high dynamic range, are opening vehicular optical links that conventional image sensors cannot support.</p>
-      <p>Yet the field remains fragmented across the optical wireless, computer vision, and vehicular communities. Channel models, coding schemes, and real-world evaluations develop in parallel with little exchange, and the role of OCC in cooperative perception and physical AI systems is still unclear. This workshop aims to build shared theoretical and experimental foundations, and a research roadmap, for camera-based cooperative mobility.</p>
-
-      <div class="cards" style="margin-top:1.4rem;">
-        <div class="card">
+  <main class="wrap">
+    <section id="why">
+      <div class="label">01 · WHY OCCOM</div>
+      <h2>Every car has cameras. Every road has LEDs.</h2>
+      <p class="intro">Optical camera communication (OCC) turns this existing hardware into a communication and sensing layer that complements RF-based V2X. Event cameras, with microsecond-scale temporal resolution and high dynamic range, open vehicular optical links that conventional image sensors cannot support. Yet channel models, coding schemes, and field results are developed in separate communities. OCCoM brings them together.</p>
+      <div class="why">
+        <div class="why-card">
+          <div class="icon i-cyan"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div>
           <h3>Camera as perception and radio</h3>
-          <p>Linking OCC to V2X, collective perception, and physical AI.</p>
+          <p>One sensor that sees the road and receives from it, linking OCC to V2X, collective perception, and physical AI.</p>
         </div>
-        <div class="card">
-          <h3>Theory meets practice</h3>
-          <p>Information-theoretic limits and coding alongside real-world vehicular field trials.</p>
+        <div class="why-card">
+          <div class="icon i-amber"><svg viewBox="0 0 24 24"><path d="M4 19h16"/><path d="M6 15l4-6 3 4 5-8"/><circle cx="18" cy="5" r="1.5"/></svg></div>
+          <h3>Theory meets the road</h3>
+          <p>Information-theoretic limits and coding side by side with real-world vehicular field trials.</p>
         </div>
-        <div class="card">
-          <h3>Three communities, one venue</h3>
+        <div class="why-card">
+          <div class="icon i-violet"><svg viewBox="0 0 24 24"><circle cx="8" cy="9" r="4"/><circle cx="16" cy="9" r="4"/><circle cx="12" cy="15.5" r="4"/></svg></div>
+          <h3>Three communities, one room</h3>
           <p>Optical wireless, computer vision and event-based sensing, and vehicular technology.</p>
         </div>
       </div>
     </section>
 
     <section id="topics">
-      <h2><span class="num">02</span>Topics of Interest</h2>
-      <p class="muted" style="margin-bottom:0.8rem;">Topics include, but are not limited to:</p>
-      <ul class="topics">
-        <li>Channel modeling for image-sensor, rolling-shutter, and event-camera communication</li>
-        <li>Information-theoretic limits and coding for optical camera links</li>
-        <li>Modulation, synchronization, and detection for vehicular optical links</li>
-        <li>Learning-aided receivers and LED detection and tracking</li>
-        <li>Joint communication, positioning, and sensing with cameras</li>
-        <li>Collective perception and semantic communication for V2X</li>
-        <li>Human-centric safety perception and trust in V2X</li>
-        <li>Field trials, testbeds, and open datasets</li>
-        <li>Integration of optical and RF V2X in 6G</li>
-      </ul>
+      <div class="label">02 · TOPICS OF INTEREST</div>
+      <h2>From photons to cooperative decisions</h2>
+      <div class="topic-grid">
+        <div class="topic-group g1">
+          <h3>Theory &amp; Coding</h3>
+          <ul>
+            <li>Channel modeling for image-sensor, rolling-shutter, and event-camera communication</li>
+            <li>Information-theoretic limits and coding for optical camera links</li>
+            <li>Modulation, synchronization, and detection for vehicular optical links</li>
+          </ul>
+        </div>
+        <div class="topic-group g2">
+          <h3>Receivers &amp; Sensing</h3>
+          <ul>
+            <li>Learning-aided receivers and LED detection and tracking</li>
+            <li>Joint communication, positioning, and sensing with cameras</li>
+            <li>Field trials, testbeds, and open datasets</li>
+          </ul>
+        </div>
+        <div class="topic-group g3">
+          <h3>Cooperative Mobility</h3>
+          <ul>
+            <li>Collective perception and semantic communication for V2X</li>
+            <li>Human-centric safety perception and trust in V2X</li>
+            <li>Integration of optical and RF V2X in 6G</li>
+          </ul>
+        </div>
+      </div>
+      <p class="note">Topics include, but are not limited to, the above.</p>
     </section>
 
     <section id="program">
-      <h2><span class="num">03</span>Planned Program</h2>
-      <table>
-        <tr><td>Opening</td><td>Welcome and workshop overview</td></tr>
-        <tr><td>Keynote</td><td>Invited talk on camera-based optical links and sensing for vehicles</td></tr>
-        <tr><td>Session 1</td><td>Channel models, coding, and receivers</td></tr>
-        <tr><td>Session 2</td><td>Systems, field trials, and cooperative perception</td></tr>
-        <tr><td>Panel</td><td>“Can cameras be a V2X radio?” — academia and automotive industry</td></tr>
-      </table>
-      <p class="muted" style="margin-top:0.8rem; font-size:0.9rem;">Paper submission guidelines and important dates will be announced once the workshop is approved. Papers will follow the VTC2027-Fall format and be submitted through the conference system.</p>
+      <div class="label">03 · PLANNED PROGRAM</div>
+      <h2>A half-day built for discussion</h2>
+      <div class="timeline">
+        <div class="slot"><small>OPENING</small><h3>Welcome and overview</h3></div>
+        <div class="slot key"><small>KEYNOTE</small><h3>Camera-based optical links and sensing for vehicles</h3><p>Invited speaker to be announced.</p></div>
+        <div class="slot"><small>SESSION 1</small><h3>Channel models, coding, and receivers</h3></div>
+        <div class="slot"><small>SESSION 2</small><h3>Systems, field trials, and cooperative perception</h3></div>
+        <div class="slot key"><small>PANEL</small><h3>“Can cameras be a V2X radio?”</h3><p>Academia and the automotive industry in conversation.</p></div>
+      </div>
+      <p class="note">Submission guidelines and important dates will be announced once the workshop is approved. Papers will follow the VTC2027-Fall format and be submitted through the conference system.</p>
     </section>
 
     <section id="organizers">
-      <h2><span class="num">04</span>Organizers</h2>
+      <div class="label">04 · ORGANIZERS</div>
+      <h2>Organizing team</h2>
       <div class="people">
         <div class="person">
-          <div class="role">LEAD ORGANIZER</div>
-          <div class="name">Shan Lu</div>
-          <div class="aff">Nagoya University, Japan</div>
+          <div class="avatar" aria-hidden="true">SL</div>
+          <div>
+            <div class="role">LEAD ORGANIZER</div>
+            <div class="name">Shan Lu</div>
+            <div class="aff">Nagoya University, Japan</div>
+          </div>
         </div>
         <!-- Add co-chairs here once confirmed:
         <div class="person">
-          <div class="role">GENERAL CO-CHAIR</div>
-          <div class="name">NAME</div>
-          <div class="aff">AFFILIATION, COUNTRY</div>
+          <div class="avatar" aria-hidden="true">XX</div>
+          <div>
+            <div class="role">GENERAL CO-CHAIR</div>
+            <div class="name">NAME</div>
+            <div class="aff">AFFILIATION, COUNTRY</div>
+          </div>
         </div>
         -->
       </div>
-      <p class="muted" style="margin-top:0.8rem; font-size:0.9rem;">Co-chairs and the Technical Program Committee will be announced soon.</p>
+      <p class="note">Co-chairs and the Technical Program Committee will be announced soon.</p>
     </section>
 
-    <section id="contact">
-      <h2><span class="num">05</span>Contact</h2>
-      <p>Shan Lu, Graduate School of Engineering, Nagoya University<br />
-        <a href="mailto:lu.shan.f7@f.mail.nagoya-u.ac.jp">lu.shan.f7@f.mail.nagoya-u.ac.jp</a></p>
-    </section>
+    <div class="cta" id="contact">
+      <div class="label" style="color:var(--cyan);">05 · GET INVOLVED</div>
+      <h2>Working on camera-based links or cooperative perception?</h2>
+      <p>We welcome researchers and industry engineers interested in submitting, joining the Technical Program Committee, or sharing a demo. Get in touch with the organizers.</p>
+      <a class="btn btn-glow" href="mailto:lu.shan.f7@f.mail.nagoya-u.ac.jp">lu.shan.f7@f.mail.nagoya-u.ac.jp</a>
+    </div>
   </main>
 
   <footer>
-    OCCoM 2027 · Proposed workshop at IEEE VTC2027-Fall · <a href="https://events.vtsociety.org/vtc2027-fall/" target="_blank">Conference website</a>
+    OCCoM 2027 · Proposed workshop at <a href="https://events.vtsociety.org/vtc2027-fall/" target="_blank">IEEE VTC2027-Fall</a>, Osaka · Organized by <a href="../index.html">Shan Lu</a>, Nagoya University
   </footer>
 </body>
 </html>
