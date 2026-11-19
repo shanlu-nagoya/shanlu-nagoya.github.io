@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OCCoM 2027 | VTC2027-Fall Workshop</title>
+  <meta name="description" content="Proposed IEEE VTC2027-Fall workshop (Osaka, 27–30 September 2027): Optical Camera Communications for Cooperative Mobility — V2X, Perception, and Physical AI." />
+  <link rel="canonical" href="https://shanlu-nagoya.github.io/occom2027/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="OCCoM 2027 | VTC2027-Fall Workshop" />
+  <meta property="og:description" content="Optical Camera Communications for Cooperative Mobility: V2X, Perception, and Physical AI. Proposed workshop at IEEE VTC2027-Fall, Osaka." />
+  <meta property="og:url" content="https://shanlu-nagoya.github.io/occom2027/" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+    :root {
+      --bg: #faf8f4;
+      --card: #ffffff;
+      --border: #e5dfd5;
+      --cyan: #0284c7;
+      --purple: #7c3aed;
+      --text: #1a2332;
+      --muted: #6b7684;
+      --notice-bg: #fff7e6;
+      --notice-border: #f2d39b;
+      --notice-text: #8a5a00;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      background:
+        radial-gradient(ellipse 70% 45% at 50% 0%, rgba(2,132,199,0.08), transparent 70%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    nav {
+      position: sticky; top: 0; z-index: 10;
+      display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+      height: 60px; padding: 0 2.5rem;
+      background: rgba(250,248,244,0.92);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+    .nav-logo { font-family: 'JetBrains Mono', monospace; color: var(--cyan); letter-spacing: 0.08em; text-decoration: none; white-space: nowrap; }
+    .nav-right { display: flex; gap: 1.4rem; flex-wrap: wrap; }
+    .nav-right a { color: var(--muted); text-decoration: none; font-size: 0.85rem; }
+    .nav-right a:hover { color: var(--cyan); }
+    main { width: min(920px, calc(100% - 32px)); margin: 0 auto; padding: 56px 0 72px; }
+    .notice {
+      display: inline-block; margin-bottom: 1.4rem; padding: 6px 14px;
+      background: var(--notice-bg); border: 1px solid var(--notice-border); border-radius: 6px;
+      color: var(--notice-text); font-size: 0.84rem; font-weight: 600;
+    }
+    .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--cyan); letter-spacing: 0.08em; margin-bottom: 0.8rem; }
+    h1 { font-size: clamp(1.9rem, 4.6vw, 3rem); line-height: 1.15; margin-bottom: 0.9rem; }
+    .hl { background: linear-gradient(135deg, var(--cyan), var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .lead { max-width: 720px; color: var(--muted); font-size: 1.05rem; }
+    .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 0.8rem; margin: 2rem 0 0.5rem; }
+    .fact { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 0.9rem 1.1rem; }
+    .fact-label { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--cyan); letter-spacing: 0.06em; }
+    .fact-value { font-weight: 600; font-size: 0.98rem; }
+    section { margin-top: 3rem; }
+    h2 { font-size: 1.4rem; margin-bottom: 1rem; }
+    h2 .num { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--cyan); margin-right: 0.6rem; }
+    p + p { margin-top: 0.8rem; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.1rem 1.2rem; }
+    .card h3 { font-size: 0.98rem; margin-bottom: 0.3rem; }
+    .card p { font-size: 0.9rem; color: var(--muted); }
+    .topics { columns: 2 280px; column-gap: 2rem; padding-left: 1.2rem; }
+    .topics li { margin-bottom: 0.4rem; break-inside: avoid; }
+    table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+    td { padding: 0.7rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; font-size: 0.93rem; }
+    tr:last-child td { border-bottom: none; }
+    td:first-child { width: 9rem; color: var(--muted); font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; }
+    .people { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; }
+    .person { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; }
+    .person .role { font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; color: var(--cyan); }
+    .person .name { font-weight: 600; }
+    .person .aff { font-size: 0.88rem; color: var(--muted); }
+    .muted { color: var(--muted); }
+    a { color: var(--cyan); }
+    footer { border-top: 1px solid var(--border); padding: 1.4rem 16px; text-align: center; font-size: 0.82rem; color: var(--muted); }
+    @media (max-width: 640px) {
+      nav { padding: 0 16px; height: auto; min-height: 56px; flex-wrap: wrap; padding-top: 8px; padding-bottom: 8px; }
+      .nav-right { gap: 0.9rem; }
+      main { padding-top: 32px; }
+      td:first-child { width: 6.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="../index.html" class="nav-logo">ShanLu<span style="color:var(--muted);">.research</span></a>
+    <div class="nav-right">
+      <a href="#scope">Scope</a>
+      <a href="#topics">Topics</a>
+      <a href="#program">Program</a>
+      <a href="#organizers">Organizers</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="notice">Proposed workshop for IEEE VTC2027-Fall — pending approval</div>
+    <div class="eyebrow">OCCoM 2027 · HALF-DAY WORKSHOP</div>
+    <h1>Optical Camera Communications for <span class="hl">Cooperative Mobility</span>: V2X, Perception, and Physical AI</h1>
+    <p class="lead">The same camera that perceives the road can also receive data from it. OCCoM brings together the optical wireless, computer vision, and vehicular communities to build the foundations of camera-based cooperative mobility for 6G.</p>
+
+    <div class="facts">
+      <div class="fact"><div class="fact-label">CONFERENCE</div><div class="fact-value">IEEE VTC2027-Fall</div></div>
+      <div class="fact"><div class="fact-label">LOCATION</div><div class="fact-value">Osaka, Japan</div></div>
+      <div class="fact"><div class="fact-label">DATES</div><div class="fact-value">27–30 September 2027</div></div>
+      <div class="fact"><div class="fact-label">FORMAT</div><div class="fact-value">Half-day workshop</div></div>
+    </div>
+
+    <section id="scope">
+      <h2><span class="num">01</span>Scope</h2>
+      <p>Vehicles already carry many cameras, and roads are filled with LED traffic lights, signs, and lamps. Optical camera communication (OCC) turns this existing hardware into a communication and sensing layer that complements RF-based V2X. Event cameras, with microsecond-scale temporal resolution and high dynamic range, are opening vehicular optical links that conventional image sensors cannot support.</p>
+      <p>Yet the field remains fragmented across the optical wireless, computer vision, and vehicular communities. Channel models, coding schemes, and real-world evaluations develop in parallel with little exchange, and the role of OCC in cooperative perception and physical AI systems is still unclear. This workshop aims to build shared theoretical and experimental foundations, and a research roadmap, for camera-based cooperative mobility.</p>
+
+      <div class="cards" style="margin-top:1.4rem;">
+        <div class="card">
+          <h3>Camera as perception and radio</h3>
+          <p>Linking OCC to V2X, collective perception, and physical AI.</p>
+        </div>
+        <div class="card">
+          <h3>Theory meets practice</h3>
+          <p>Information-theoretic limits and coding alongside real-world vehicular field trials.</p>
+        </div>
+        <div class="card">
+          <h3>Three communities, one venue</h3>
+          <p>Optical wireless, computer vision and event-based sensing, and vehicular technology.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="topics">
+      <h2><span class="num">02</span>Topics of Interest</h2>
+      <p class="muted" style="margin-bottom:0.8rem;">Topics include, but are not limited to:</p>
+      <ul class="topics">
+        <li>Channel modeling for image-sensor, rolling-shutter, and event-camera communication</li>
+        <li>Information-theoretic limits and coding for optical camera links</li>
+        <li>Modulation, synchronization, and detection for vehicular optical links</li>
+        <li>Learning-aided receivers and LED detection and tracking</li>
+        <li>Joint communication, positioning, and sensing with cameras</li>
+        <li>Collective perception and semantic communication for V2X</li>
+        <li>Human-centric safety perception and trust in V2X</li>
+        <li>Field trials, testbeds, and open datasets</li>
+        <li>Integration of optical and RF V2X in 6G</li>
+      </ul>
+    </section>
+
+    <section id="program">
+      <h2><span class="num">03</span>Planned Program</h2>
+      <table>
+        <tr><td>Opening</td><td>Welcome and workshop overview</td></tr>
+        <tr><td>Keynote</td><td>Invited talk on camera-based optical links and sensing for vehicles</td></tr>
+        <tr><td>Session 1</td><td>Channel models, coding, and receivers</td></tr>
+        <tr><td>Session 2</td><td>Systems, field trials, and cooperative perception</td></tr>
+        <tr><td>Panel</td><td>“Can cameras be a V2X radio?” — academia and automotive industry</td></tr>
+      </table>
+      <p class="muted" style="margin-top:0.8rem; font-size:0.9rem;">Paper submission guidelines and important dates will be announced once the workshop is approved. Papers will follow the VTC2027-Fall format and be submitted through the conference system.</p>
+    </section>
+
+    <section id="organizers">
+      <h2><span class="num">04</span>Organizers</h2>
+      <div class="people">
+        <div class="person">
+          <div class="role">LEAD ORGANIZER</div>
+          <div class="name">Shan Lu</div>
+          <div class="aff">Nagoya University, Japan</div>
+        </div>
+        <!-- Add co-chairs here once confirmed:
+        <div class="person">
+          <div class="role">GENERAL CO-CHAIR</div>
+          <div class="name">NAME</div>
+          <div class="aff">AFFILIATION, COUNTRY</div>
+        </div>
+        -->
+      </div>
+      <p class="muted" style="margin-top:0.8rem; font-size:0.9rem;">Co-chairs and the Technical Program Committee will be announced soon.</p>
+    </section>
+
+    <section id="contact">
+      <h2><span class="num">05</span>Contact</h2>
+      <p>Shan Lu, Graduate School of Engineering, Nagoya University<br />
+        <a href="mailto:lu.shan.f7@f.mail.nagoya-u.ac.jp">lu.shan.f7@f.mail.nagoya-u.ac.jp</a></p>
+    </section>
+  </main>
+
+  <footer>
+    OCCoM 2027 · Proposed workshop at IEEE VTC2027-Fall · <a href="https://events.vtsociety.org/vtc2027-fall/" target="_blank">Conference website</a>
+  </footer>
+</body>
+</html>
