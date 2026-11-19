@@ -62,14 +62,14 @@
       padding: 128px 0 72px;
     }
     .trails { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
-    .trail { fill: none; stroke-linecap: round; stroke-width: 2.4; opacity: 0.75; stroke-dasharray: 140 900; animation: drive 6s linear infinite; }
-    .trail.t2 { animation-duration: 7.5s; animation-delay: -2s; }
-    .trail.t3 { animation-duration: 5.2s; animation-delay: -3.4s; }
-    .trail.t4 { animation-duration: 8.4s; animation-delay: -1.2s; }
-    .trail.t5 { animation-duration: 6.6s; animation-delay: -4.6s; }
+    .trail { fill: none; stroke-linecap: round; stroke-width: 2; opacity: 0.4; stroke-dasharray: 140 900; animation: drive 12s linear infinite; }
+    .trail.t2 { animation-duration: 15s; animation-delay: -4s; }
+    .trail.t3 { animation-duration: 10.4s; animation-delay: -6.8s; }
+    .trail.t4 { animation-duration: 16.8s; animation-delay: -2.4s; }
+    .trail.t5 { animation-duration: 13.2s; animation-delay: -9.2s; }
     .road { fill: none; stroke: rgba(255,255,255,0.06); stroke-width: 1.2; }
     @keyframes drive { from { stroke-dashoffset: 1040; } to { stroke-dashoffset: 0; } }
-    .led { animation: blink 1.6s steps(1) infinite; }
+    .led { opacity: 0.85; animation: blink 2.4s steps(1) infinite; }
     @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0.12; } }
 
     .hero-inner { position: relative; z-index: 1; }
@@ -82,7 +82,7 @@
     .pill::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--amber); box-shadow: 0 0 10px var(--amber); }
     .kicker { margin-top: 1.6rem; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; letter-spacing: 0.14em; color: var(--cyan); }
     .hero h1 { margin-top: 0.6rem; font-size: clamp(2.2rem, 6vw, 4.4rem); line-height: 1.04; letter-spacing: -0.02em; max-width: 15ch; }
-    .hero h1 .glow { color: var(--cyan); text-shadow: 0 0 28px rgba(34,211,238,0.45); }
+    .hero h1 .glow { color: var(--cyan); }
     .hero .subtitle { margin-top: 0.8rem; font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.05rem, 2.2vw, 1.4rem); color: rgba(255,255,255,0.86); }
     .hero .lead { margin-top: 1.2rem; max-width: 600px; color: rgba(255,255,255,0.7); font-size: 1.02rem; }
     .facts { margin-top: 2.4rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.8rem; max-width: 880px; }
@@ -92,7 +92,7 @@
     .hero-cta { margin-top: 2rem; display: flex; gap: 0.8rem; flex-wrap: wrap; }
     .btn { display: inline-block; padding: 12px 22px; border-radius: 10px; font-weight: 600; font-size: 0.92rem; text-decoration: none; transition: transform 0.15s, box-shadow 0.15s; }
     .btn:hover { transform: translateY(-2px); }
-    .btn-glow { background: var(--cyan); color: var(--night); box-shadow: 0 0 24px rgba(34,211,238,0.35); }
+    .btn-glow { background: var(--cyan); color: var(--night); }
     .btn-ghost { color: #fff; border: 1px solid rgba(255,255,255,0.3); }
 
     /* ── SECTIONS ── */
@@ -254,7 +254,7 @@
   <main class="wrap">
     <section id="why">
       <div class="label">01 · WHY OCCOM</div>
-      <h2>Every car has cameras. Every road has LEDs.</h2>
+      <h2>Why camera-based communication, and why now</h2>
       <p class="intro">Optical camera communication (OCC) turns this existing hardware into a communication and sensing layer that complements RF-based V2X. Event cameras, with microsecond-scale temporal resolution and high dynamic range, open vehicular optical links that conventional image sensors cannot support. Yet channel models, coding schemes, and field results are developed in separate communities. OCCoM brings them together.</p>
       <div class="why">
         <div class="why-card">
